@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message Locale {
+  message Id {
+    string locale = 1;
+  }
+  message List {
+    repeated Locale items = 1;
+  }
+  string locale = 1;
+  string title = 2;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mlmbox.client.locale;
+
+import "google/protobuf/empty.proto";
+import "mlmbox/types/locale.proto";
+
+service Locale {
+  rpc Get (mlmbox.types.Locale.Id) returns (mlmbox.types.Locale) {} // Display language of communication
+  rpc List (google.protobuf.Empty) returns (mlmbox.types.Locale.List) {} // List of communication languages
+}

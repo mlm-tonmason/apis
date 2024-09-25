@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message Status {
+  enum Auth {
+    AUTH_GUEST = 0; // Guest
+    AUTH_SIGN_IN = 1; // Authorization
+    AUTH_SIGN_UP = 2; // Registration
+  }
+  enum Referral {
+    REFERRAL_UNKNOWN = 0; // No referral
+    REFERRAL_WRONG_LINK = 1; // Error referral link
+    REFERRAL_BUSY = 2; // The user already has a referral (It is not possible to change the referral)
+    REFERRAL_EXISTS = 3; // The referral already exists
+  }
+  enum TokenValidate {
+    TOKEN_VALIDATE_UNKNOWN = 0;
+    TOKEN_VALIDATE_ACTIVATED = 1;
+    TOKEN_VALIDATE_EXPIRED = 2;
+    TOKEN_VALIDATE_INVALID = 3;
+  }
+  enum GoogleAuthenticator {
+    GOOGLE_AUTHENTICATOR_DEACTIVATED = 0;
+    GOOGLE_AUTHENTICATOR_ACTIVATED = 1;
+    GOOGLE_AUTHENTICATOR_REQUESTED = 2;
+  }
+  enum GoogleAuthenticatorVerifiedCode {
+    GOOGLE_AUTHENTICATOR_VERIFIED_CODE_UNKNOWN = 0;
+    GOOGLE_AUTHENTICATOR_VERIFIED_CODE_APPROVED = 1;
+    GOOGLE_AUTHENTICATOR_VERIFIED_CODE_REJECTED = 2;
+    GOOGLE_AUTHENTICATOR_VERIFIED_CODE_WRONG_CODE = 3;
+  }
+  enum Confirmation {
+    CONFIRMATION_ACTIVATED = 0;
+    CONFIRMATION_APPROVED = 1;
+    CONFIRMATION_REJECT = 2;
+    CONFIRMATION_CANCELED = 3;
+    CONFIRMATION_EXPIRED = 4;
+  }
+  enum ConfirmationForm {
+    CONFIRMATION_FORM_REJECTED = 0;
+    CONFIRMATION_FORM_APPROVED = 1;
+  }
+  enum Transaction {
+    TRANSACTION_PROCESSING = 0;
+    TRANSACTION_SUCCESS = 1;
+    TRANSACTION_REJECTED = 2;
+  }
+}

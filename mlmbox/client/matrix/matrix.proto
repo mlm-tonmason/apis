@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mlmbox.client.matrix;
+
+import "google/protobuf/empty.proto";
+import "mlmbox/types/account.proto";
+
+service Matrix {
+  rpc Info (google.protobuf.Empty) returns (mlmbox.types.Matrix.TreeAccount.List) {}
+  rpc View (mlmbox.types.Matrix.View.Request) returns (mlmbox.types.Matrix.View) {}
+  rpc PreviewPurchase (mlmbox.types.Matrix.Invoice.Request) returns (mlmbox.types.Matrix.Invoice.PreviewResponse) {} // Preview of purchase of positions in the matrix
+  rpc VerifiedPurchase (mlmbox.types.Matrix.Invoice.Request) returns (mlmbox.types.Matrix.Invoice.VerifiedResponse) {} // Confirmed process of purchasing positions in the matrix
+  rpc SetReinvestConfig (mlmbox.types.Matrix.Reinvest) returns (google.protobuf.Empty) {} // Set reinvestment settings for the selected position
+}

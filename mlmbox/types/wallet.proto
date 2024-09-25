@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+import "mlmbox/types/asset.proto";
+import "mlmbox/types/bonus.proto";
+import "mlmbox/types/status.proto";
+
+message Wallet {
+  message Asset {
+    message Transaction {
+      message Id {
+        uint32 asset_id = 1;
+        uint32 transaction_id = 2;
+      }
+      message Kind {
+        enum Id {
+          UNKNOWN = 0;
+          CANCELED = 1;
+          EARNED = 2; // Заработано
+          SPENT = 3; // Потрачено
+          DEPOSIT = 4; // Пополнение
+          WITHDRAWAL = 5; // Вывод
+          DEPOSIT_WALLET_TRANSFER = 6; // Перевод между кошельками (получение)
+          WITHDRAWAL_WALLET_TRANSFER = 7; // Перевод между кошельками (отправка)
+          EXCHANGE = 8; // Обмен валюты
+          WITHDRAWAL_FEE = 9; // Комиссия для вывода
+          BURNED = 10; // Сжигание баланса
+          HOLD = 11; // Удержание баланса
+          UNHOLD = 12; // Освобождение баланса
+        }
+        Id kind_id = 1;
+      }
+      message List {
+        repeated mlmbox.types.Wallet.Asset.Transaction items = 1;
+      }
+      message Metadata {
+        message Withdrawal {
+          uint32 processing_id = 1;
+          string address = 2;
+          bool used_verified_code = 3;
+          string hash = 4;
+        }
+        message MatrixHeader {
+          uint32 tree_id = 1;
+          uint32 tree_account_id = 2;
+          uint32 position_id = 3;
+        }
+        message Bonus {
+          message SourceMatrix {
+            MatrixHeader target = 1;
+            MatrixHeader source = 2;
+            uint32 level = 3;
+          }
+          message CardPool {
+            uint32 card_id = 1;
+            uint32 pool_part_id = 2;
+          }
+          mlmbox.types.Bonus.Kind.Id bonus_id = 1;
+          oneof source {
+            SourceMatrix matrix = 2;
+            CardPool card_partner_dao = 3;
+            CardPool card_bonus_hunter = 4;
+            string description = 5;
+          }
+        }
+        oneof unique_field {
+          string description = 1;
+          Withdrawal withdrawal = 2;
+          uint32 matrix_keeper_initial_tree_id = 3;
+          MatrixHeader matrix_keeper_reinvest = 4;
+          Bonus bonus = 5;
+          uint32 account_id = 6;
+          MatrixHeader matrix_position_created = 7;
+          mlmbox.types.Asset.Amount amount = 8;
+        }
+      }
+      uint32 transaction_id = 1;
+      Kind.Id kind_id = 2;
+      mlmbox.types.Status.Transaction status_id = 3;
+      string amount = 4;
+      string fee = 5;
+      string balance = 6;
+      uint32 created_at = 7;
+      Metadata metadata = 8;
+    }
+    message WithdrawalCapacity {
+      string used = 1;
+      string capacity = 2;
+      string available = 3;
+    }
+    message List {
+      repeated Asset items = 1;
+    }
+    uint32 asset_id = 1;
+    string asset_balance = 2;
+    uint32 transactions_quantity = 3;
+    repeated Transaction transactions = 4;
+    mlmbox.types.Bonus.Summary income_bonuses_statistics = 5;
+    WithdrawalCapacity withdrawal_capacity = 6;
+  }
+  message Processing {
+    message Id {
+      uint32 processing_id = 1;
+    }
+    message Asset {
+      message Id {
+        uint32 processing_id = 1;
+        uint32 asset_id = 2;
+      }
+      uint32 asset_id = 1;
+      bool settings_deposit_enabled = 2;
+      bool settings_withdrawal_enabled = 3;
+      string settings_withdrawal_fee_base = 4;
+      string settings_withdrawal_fee_percent = 5;
+      string settings_withdrawal_operation_value_min = 6;
+      string settings_withdrawal_operation_value_max = 7;
+    }
+    message List {
+      repeated Processing items = 1;
+    }
+    uint32 processing_id = 1;
+    string processing_name = 2;
+    repeated Asset assets = 3;
+  }
+  repeated Asset assets = 1;
+  repeated Processing processings = 2;
+}
