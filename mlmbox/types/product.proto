@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+import "mlmbox/types/asset.proto";
+
+message Invoice {
+  message Request {
+    message Entity {
+      uint32 tree_id = 1;
+      uint32 quantity = 2;
+    }
+    repeated Entity entities = 2;
+  }
+  message PreviewResponse {
+    message Item {
+      uint32 tree_id = 1;
+      uint32 asset_id = 2;
+      string price_value = 3;
+      string unlock_value = 4;
+      string amount_value = 5;
+      uint32 quantity = 6;
+    }
+    repeated Item items = 1;
+    repeated mlmbox.types.Asset.Amount bill_amounts = 2;
+  }
+  message VerifiedResponse {
+    message Item {
+      uint32 tree_id = 1;
+      uint32 tree_entity_id = 2;
+      uint32 tree_account_entity_id = 3;
+      uint32 position_id = 4;
+      bool is_booking = 5;
+    }
+    repeated Item items = 1;
+  }
+}

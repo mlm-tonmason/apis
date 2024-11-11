@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mlmbox.types;
+import "mlmbox/types/asset.proto";
+
+message AssetPair {
+  message Id {
+    message Assets {
+      mlmbox.types.Asset.Id source_asset = 1;
+      mlmbox.types.Asset.Id target_asset = 2;
+    }
+    oneof query {
+      uint32 asset_pair_id = 1;
+      string asset_pair_name = 2;
+      Assets assets = 3;
+    }
+  }
+  message List {
+    repeated mlmbox.types.AssetPair items = 1;
+  }
+  uint32 asset_pair_id = 1;
+  string asset_pair_name = 2;
+  uint32 source_asset_id = 3;
+  uint32 target_asset_id = 4;
+}

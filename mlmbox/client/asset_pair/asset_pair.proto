@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package mlmbox.client.asset_pair;
+
+import "google/protobuf/empty.proto";
+import "mlmbox/types/asset_pair.proto";
+import "mlmbox/types/exchanger.proto";
+
+service AssetPair {
+  rpc Get(mlmbox.types.AssetPair.Id) returns (mlmbox.types.Exchanger.Rate) {}
+  rpc All(google.protobuf.Empty) returns (mlmbox.types.Exchanger.Rate.List) {}
+}

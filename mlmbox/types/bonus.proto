@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message Bonus {
+  message Kind {
+    enum Id {
+      UNKNOWN = 0;
+      GIFT = 1;
+      BONUS_DIRECT = 2;
+      BONUS_MATRIX = 3;
+    }
+    Id kind_id = 1;
+  }
+  message LevelPercent {
+    uint32 level = 1;
+    string percent = 2;
+  }
+  message Value {
+    message Asset {
+      uint32 asset_id = 1;
+      Value value = 2;
+    }
+    Kind.Id bonus_id = 1;
+    string earned_value = 2;
+  }
+  message Summary {
+    message Asset {
+      uint32 asset_id = 1;
+      Summary summary = 2;
+    }
+    string earned_value = 1;
+    repeated Value values = 2;
+  }
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message Asset {
+  message Id {
+    oneof unique_field {
+      uint32 asset_id = 1;
+      string asset_name = 2;
+    }
+  }
+  message List {
+    repeated mlmbox.types.Asset items = 1;
+  }
+  message Amount {
+    uint32 asset_id = 1;
+    string value = 2;
+  }
+  uint32 asset_id = 1;
+  string asset_name = 2;
+  string asset_title = 3;
+  uint32 decimal = 4;
+}

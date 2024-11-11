@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mlmbox.client.asset;
+
+import "mlmbox/types/asset.proto";
+import "google/protobuf/empty.proto";
+
+service Asset {
+  rpc Get (mlmbox.types.Asset.Id) returns (mlmbox.types.Asset) {} // display currency
+  rpc All (google.protobuf.Empty) returns (mlmbox.types.Asset.List) {} // list of currencies
+}

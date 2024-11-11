@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package mlmbox.client.network;
+
+import "mlmbox/types/account.proto";
+import "mlmbox/types/sort.proto";
+
+service Network {
+  rpc MemberGet (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Info) {} // Display the data of the selected user in the system (global access)
+  rpc MemberSearch (AccountsSearchRequest) returns (mlmbox.types.Account.Info.List) {} // Search for users in the system with a matching login prefix (global access)
+  rpc TeamInfo (TeamRequest) returns (TeamResponse) {} // Display the data of the selected user (+personally invited partners) in the system (access via personal sponsor structure)
+  rpc TeamSearch (AccountsSearchRequest) returns (mlmbox.types.Account.Info.List) {} // Search for users in the system with a matching login prefix (access via personal sponsor structure)
+  rpc TeamPartnerList (TeamPartnerListRequest) returns (mlmbox.types.Account.Info.List) {} // Display a list of personally invited partners of the selected user (access via personal sponsor structure)
+}
+
+message AccountsSearchRequest {
+  string login_prefix = 1;
+  uint32 limit = 2;
+}
+message TeamRequest {
+  mlmbox.types.Account.Id view_partner = 1;
+  mlmbox.types.Sort partners_sort = 2;
+  int32 filter_tree_ids_bit_mask = 3;
+}
+message TeamResponse {
+  mlmbox.types.Account.Info account = 1;
+  repeated mlmbox.types.Account.Info sponsors = 2;
+  repeated mlmbox.types.Account.Info partners = 3;
+  repeated mlmbox.types.TreeAccount.Set account_tree_accounts = 4;
+}
+message TeamPartnerListRequest {
+  TeamRequest request = 1;
+  uint32 step_sponsor_branch = 2;
+}

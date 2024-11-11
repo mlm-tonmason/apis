@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package mlmbox.client.product;
+
+import "mlmbox/types/product.proto";
+
+service Product {
+  rpc PreviewPurchase (mlmbox.types.Invoice.Request) returns (mlmbox.types.Invoice.PreviewResponse) {} // Preview of purchase of positions in the matrix
+  rpc VerifiedPurchase (mlmbox.types.Invoice.Request) returns (mlmbox.types.Invoice.VerifiedResponse) {} // Confirmed process of purchasing positions in the matrix
+}

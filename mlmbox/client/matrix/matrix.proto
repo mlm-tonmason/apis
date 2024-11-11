@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mlmbox.client.matrix;
+
+import "google/protobuf/empty.proto";
+import "mlmbox/types/account.proto";
+import "mlmbox/types/wallet.proto";
+
+service Matrix {
+  rpc Info (google.protobuf.Empty) returns (mlmbox.types.Matrix.Info) {}
+  rpc View (mlmbox.types.PositionView.Team) returns (mlmbox.types.Matrix.View) {}
+  rpc SetReinvestConfig (mlmbox.types.Matrix.Reinvest.Request) returns (SetReinvestConfigResponse) {} // Set reinvestment settings for the selected position
+}
+
+message SetReinvestConfigResponse {
+  mlmbox.types.Matrix.Position position = 1;
+  uint32 asset_id = 2;
+  mlmbox.types.Wallet.Asset.Transaction transaction = 3;
+}

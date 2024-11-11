@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message Sort {
+  enum Direction {
+    FORWARD = 0;
+    BACKWARD = 1;
+  }
+  Direction direction = 1; // sorting direction
+  uint32 limit = 2; // limit of records returned (min:1)
+}

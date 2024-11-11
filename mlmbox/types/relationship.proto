@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message Relationship {
+  enum Kind {
+    UNKNOWN = 0;
+    PERSONAL = 1; // Personal account/position
+    TEAM = 2; // Account/position is in the structure
+    SPONSOR = 3; // Account/position is superior in the structure
+    OUTSIDER = 4; // Account/position is outside the structure
+  }
+  Kind kind = 1;
+  uint32 level = 2; // Depth level
+  uint32 branch = 3; // Branch id
+}

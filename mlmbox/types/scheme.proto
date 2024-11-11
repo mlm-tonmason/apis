@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mlmbox.types;
+import "mlmbox/types/account.proto";
+import "mlmbox/types/asset.proto";
+import "mlmbox/types/exchanger.proto";
+import "mlmbox/types/locale.proto";
+import "mlmbox/types/wallet.proto";
+
+message Scheme {
+  repeated mlmbox.types.Asset assets = 1;
+  repeated mlmbox.types.Exchanger.Rate asset_pair_exchange_rates = 2;
+  repeated mlmbox.types.Locale locales = 3;
+  repeated mlmbox.types.Wallet.Asset wallet_assets = 4;
+  repeated mlmbox.types.Wallet.Processing wallet_processings = 5;
+  repeated mlmbox.types.Tree.Group tree_groups = 6;
+  repeated mlmbox.types.Tree trees = 7;
+}

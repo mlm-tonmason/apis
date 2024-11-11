@@ -1,0 +1,180 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+import "mlmbox/types/asset.proto";
+import "mlmbox/types/relationship.proto";
+
+message Account {
+  message Id {
+    oneof unique_field {
+      uint32 account_id = 1;
+      string account_login = 2;
+      string ref_link_id = 3;
+    }
+  }
+  message RefLink {
+    uint32 account_id = 1;
+    uint32 source_id = 2;
+  }
+  message Username {
+    uint32 id = 1;
+    string login = 2;
+    string ref_link_id = 3;
+  }
+  message Profile {
+    message Ava {
+      message List {
+        repeated mlmbox.types.Account.Profile.Ava items = 1;
+      }
+      message File {
+        message List {
+          repeated mlmbox.types.Account.Profile.Ava.File items = 1;
+        }
+        uint32 collection_id = 1;
+        uint32 entity_id = 2;
+        string value = 3;
+      }
+      uint32 collection_id = 1;
+      uint32 entity_id = 2;
+    }
+    message Telegram {
+      uint64 id = 1;
+      string username = 2;
+    }
+    string first_name = 1;
+    string last_name = 2;
+    Telegram telegram = 3;
+    Ava ava = 4;
+  }
+  message Statistics {
+    uint32 partners_quantity = 1;
+    uint32 team_quantity = 2;
+    uint32 marketing_partners_quantity = 3;
+    uint32 marketing_team_quantity = 4;
+  }
+  message Info {
+    message List {
+      repeated mlmbox.types.Account.Info items = 1;
+    }
+    Profile profile = 1;
+    Username account = 2;
+    Username sponsor = 3;
+    mlmbox.types.Relationship relationship = 4;
+    uint32 registration_at = 5;
+    uint32 marketing_started_at = 6;
+    uint32 tree_ids_bit_mask = 7;
+    uint32 sponsor_branch = 8;
+    Statistics statistics = 9;
+    repeated uint32 channels = 10; // List of channel IDs in which the user participates
+  }
+  Info info = 1;
+  repeated mlmbox.types.TreeAccount tree_accounts = 2;
+  uint32 roles_bit_mask = 3;
+  string locale = 4; // language identifier (en-US, ...)
+}
+
+message Tree {
+  enum Mode {
+    UNKNOWN = 0;
+    MATRIX = 1;
+  }
+  message Group {
+    uint32 id = 1;
+    string title = 2;
+  }
+  uint32 id = 1;
+  string title = 2;
+  uint32 group_id = 3;
+  uint32 positions_quantity = 4;
+  uint32 default_position_width = 5;
+  mlmbox.types.Asset.Amount amount = 6;
+  bool booking_enabled = 7;
+  Mode tree_mode_id = 8;
+  repeated uint32 require_tree_ids = 9;
+}
+
+message TreeAccount {
+  message Id {
+    uint32 tree_id = 1;
+    uint32 account_id = 2;
+  }
+  message List {
+    repeated TreeAccount items = 1;
+  }
+  message Entity {
+    uint32 position_id = 1; // Position identifier
+    uint32 tree_chain_id = 2; // Main chain (tree_chain_id==0) or in a separate substructure (tree_chain_id>0)
+    uint32 tree_entity_id = 3; // Sequence number in the "tree"
+    uint32 tree_account_entity_id = 4; // Sequence number in the ("tree" + "account") combination
+    uint32 filled_2w2l_bit_mask = 5;
+    bool filled = 6; // Is the position filled?
+    bool view_access = 7; // Access to the view
+  }
+  message Set {
+    uint32 tree_id = 1;
+    uint32 quantity = 2;
+    uint32 activated_quantity = 3;
+    uint32 activated_capacity = 4;
+    string pool_value = 5;
+    uint32 booking_quantity = 6;
+    Entity entity = 7;
+  }
+  uint32 tree_id = 1;
+  uint32 quantity = 2;
+  uint32 activated_quantity = 3;
+  uint32 activated_capacity = 4;
+  string pool_value = 5;
+  uint32 booking_quantity = 6;
+  repeated Entity entities = 7;
+}
+
+message PositionView {
+  message Id {
+    uint32 view_position_id = 1;
+  }
+  message Team {
+    uint32 view_level = 1;
+    oneof query {
+      uint32 view_position_id = 2;
+      TreeAccount.Id tree_account = 3;
+    }
+  }
+}
+
+message Matrix {
+  message Reinvest {
+    message Request {
+      uint32 position_id = 1;
+      bool reinvest_enabled = 2;
+    }
+  }
+  message Position {
+    uint32 position_id = 1; // Position identifier
+    uint32 position_sponsor_id = 2; // Superior position identifier
+    uint32 position_sponsor_branch = 3; // Upstream branch identifier
+    uint32 position_width = 4; // Number of available branches
+    uint32 account_id = 5; // Account identifier
+    uint32 tree_chain_id = 6; // Main chain (tree_chain_id==0) or in a separate substructure (tree_chain_id>0)
+    uint32 tree_entity_id = 7; // Sequence number in the "tree"
+    uint32 tree_account_entity_id = 8; // Sequence number in the ("tree" + "account") combination
+    uint32 partners_quantity = 9;
+    uint32 team_quantity = 10;
+    string pool_value = 11;
+    bool reinvest_enabled = 12;
+    bool filled = 13;
+  }
+  message View {
+    uint32 tree_id = 1;
+    uint32 self_position_id = 2;
+    uint32 self_tree_ids_bit_mask = 3;
+    uint32 view_position_id = 4;
+    uint32 view_tree_ids_bit_mask = 5;
+    repeated Position positions = 6;
+    repeated mlmbox.types.Account.Info accounts = 7;
+    repeated mlmbox.types.TreeAccount.Entity view_tree_account_entities = 8;
+  }
+  message Info {
+    repeated mlmbox.types.TreeAccount items = 1;
+  }
+}

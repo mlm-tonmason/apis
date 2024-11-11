@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mlmbox.client.account;
+
+import "google/protobuf/empty.proto";
+import "mlmbox/types/account.proto";
+import "mlmbox/types/locale.proto";
+
+service Account {
+  rpc Info (google.protobuf.Empty) returns (mlmbox.types.Account) {} // Display account information
+  rpc SetLogin (SetLoginRequest) returns (mlmbox.types.Account.Username) {} // Update profile details
+  rpc SetLocale (mlmbox.types.Locale.Id) returns (mlmbox.types.Locale) {} // Update the language of communication
+  rpc SetAva (mlmbox.types.Account.Profile.Ava) returns (mlmbox.types.Account.Profile) {} // Update profile avatar
+  rpc SetProfile (SetProfileRequest) returns (mlmbox.types.Account.Profile) {} // Update profile details
+  rpc SetSponsor (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Info) {} // Set referral (if the user has no referral)
+  rpc GetAvaFiles (mlmbox.types.Account.Profile.Ava.List) returns (mlmbox.types.Account.Profile.Ava.File.List) {}
+}
+message SetLoginRequest {
+  string login = 1;
+}
+message SetProfileRequest {
+    string first_name = 1;
+    string last_name = 2;
+}

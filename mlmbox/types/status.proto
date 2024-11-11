@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message Status {
+  enum Auth {
+    AUTH_GUEST = 0; // Guest
+    AUTH_SIGN_IN = 1; // Authorization
+    AUTH_SIGN_UP = 2; // Registration
+  }
+  enum Sponsor {
+    SPONSOR_UNKNOWN = 0; // No sponsor
+    SPONSOR_WRONG_LINK = 1; // Error sponsor link
+    SPONSOR_BUSY = 2; // The user already has a sponsor (It is not possible to change the sponsor)
+    SPONSOR_EXISTS = 3; // The sponsor already exists
+  }
+  enum TokenValidate {
+    TOKEN_VALIDATE_UNKNOWN = 0;
+    TOKEN_VALIDATE_ACTIVATED = 1;
+    TOKEN_VALIDATE_EXPIRED = 2;
+    TOKEN_VALIDATE_INVALID = 3;
+  }
+  enum Transaction {
+    TRANSACTION_PROCESSING = 0;
+    TRANSACTION_SUCCESS = 1;
+    TRANSACTION_REJECTED = 2;
+  }
+}
