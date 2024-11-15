@@ -344,8 +344,8 @@ export class WalletClient {
     this.methodDescriptorTransferRecipientsHistory);
   }
 
-  methodDescriptorProcessingsGet = new grpcWeb.MethodDescriptor(
-    '/mlmbox.client.finance.Wallet/ProcessingsGet',
+  methodDescriptorProcessingGet = new grpcWeb.MethodDescriptor(
+    '/mlmbox.client.finance.Wallet/ProcessingGet',
     grpcWeb.MethodType.UNARY,
     mlmbox_types_wallet_pb.Wallet.Processing.Id,
     mlmbox_types_wallet_pb.Wallet.Processing,
@@ -355,17 +355,17 @@ export class WalletClient {
     mlmbox_types_wallet_pb.Wallet.Processing.deserializeBinary
   );
 
-  processingsGet(
+  processingGet(
     request: mlmbox_types_wallet_pb.Wallet.Processing.Id,
     metadata?: grpcWeb.Metadata | null): Promise<mlmbox_types_wallet_pb.Wallet.Processing>;
 
-  processingsGet(
+  processingGet(
     request: mlmbox_types_wallet_pb.Wallet.Processing.Id,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.RpcError,
                response: mlmbox_types_wallet_pb.Wallet.Processing) => void): grpcWeb.ClientReadableStream<mlmbox_types_wallet_pb.Wallet.Processing>;
 
-  processingsGet(
+  processingGet(
     request: mlmbox_types_wallet_pb.Wallet.Processing.Id,
     metadata?: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.RpcError,
@@ -373,18 +373,18 @@ export class WalletClient {
     if (callback !== undefined) {
       return this.client_.rpcCall(
         this.hostname_ +
-          '/mlmbox.client.finance.Wallet/ProcessingsGet',
+          '/mlmbox.client.finance.Wallet/ProcessingGet',
         request,
         metadata || {},
-        this.methodDescriptorProcessingsGet,
+        this.methodDescriptorProcessingGet,
         callback);
     }
     return this.client_.unaryCall(
     this.hostname_ +
-      '/mlmbox.client.finance.Wallet/ProcessingsGet',
+      '/mlmbox.client.finance.Wallet/ProcessingGet',
     request,
     metadata || {},
-    this.methodDescriptorProcessingsGet);
+    this.methodDescriptorProcessingGet);
   }
 
   methodDescriptorProcessingsAll = new grpcWeb.MethodDescriptor(

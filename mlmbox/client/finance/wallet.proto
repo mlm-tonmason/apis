@@ -18,7 +18,7 @@ service Wallet {
   rpc Transfer (TransferRequest) returns (mlmbox.types.Wallet.Asset.Transaction) {}
   rpc TransferRecipientsHistory (mlmbox.types.Asset.Id) returns (mlmbox.types.Account.Info.List) {}
 
-  rpc ProcessingsGet (mlmbox.types.Wallet.Processing.Id) returns (mlmbox.types.Wallet.Processing) {}
+  rpc ProcessingGet (mlmbox.types.Wallet.Processing.Id) returns (mlmbox.types.Wallet.Processing) {}
   rpc ProcessingsAll (google.protobuf.Empty) returns (mlmbox.types.Wallet.Processing.List) {}
 
   rpc DepositAddress (mlmbox.types.Wallet.Processing.Id) returns (WalletDepositAddressResponse) {}

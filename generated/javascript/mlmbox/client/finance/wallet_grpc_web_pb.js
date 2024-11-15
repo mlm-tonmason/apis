@@ -519,8 +519,8 @@ proto.mlmbox.client.finance.WalletPromiseClient.prototype.transferRecipientsHist
  *   !proto.mlmbox.types.Wallet.Processing.Id,
  *   !proto.mlmbox.types.Wallet.Processing>}
  */
-const methodDescriptor_Wallet_ProcessingsGet = new grpc.web.MethodDescriptor(
-  '/mlmbox.client.finance.Wallet/ProcessingsGet',
+const methodDescriptor_Wallet_ProcessingGet = new grpc.web.MethodDescriptor(
+  '/mlmbox.client.finance.Wallet/ProcessingGet',
   grpc.web.MethodType.UNARY,
   mlmbox_types_wallet_pb.Wallet.Processing.Id,
   mlmbox_types_wallet_pb.Wallet.Processing,
@@ -545,13 +545,13 @@ const methodDescriptor_Wallet_ProcessingsGet = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.mlmbox.types.Wallet.Processing>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.mlmbox.client.finance.WalletClient.prototype.processingsGet =
+proto.mlmbox.client.finance.WalletClient.prototype.processingGet =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/mlmbox.client.finance.Wallet/ProcessingsGet',
+      '/mlmbox.client.finance.Wallet/ProcessingGet',
       request,
       metadata || {},
-      methodDescriptor_Wallet_ProcessingsGet,
+      methodDescriptor_Wallet_ProcessingGet,
       callback);
 };
 
@@ -564,13 +564,13 @@ proto.mlmbox.client.finance.WalletClient.prototype.processingsGet =
  * @return {!Promise<!proto.mlmbox.types.Wallet.Processing>}
  *     Promise that resolves to the response
  */
-proto.mlmbox.client.finance.WalletPromiseClient.prototype.processingsGet =
+proto.mlmbox.client.finance.WalletPromiseClient.prototype.processingGet =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/mlmbox.client.finance.Wallet/ProcessingsGet',
+      '/mlmbox.client.finance.Wallet/ProcessingGet',
       request,
       metadata || {},
-      methodDescriptor_Wallet_ProcessingsGet);
+      methodDescriptor_Wallet_ProcessingGet);
 };
 
 
