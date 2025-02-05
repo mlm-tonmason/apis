@@ -24,6 +24,16 @@ message Account {
   }
   message Profile {
     message Ava {
+      message Generate {
+        message Request {
+          uint32 male_quantity = 1;
+          uint32 female_quantity = 2;
+        }
+        message Response {
+          repeated mlmbox.types.Account.Profile.Ava males = 1;
+          repeated mlmbox.types.Account.Profile.Ava females = 2;
+        }
+      }
       message List {
         repeated mlmbox.types.Account.Profile.Ava items = 1;
       }

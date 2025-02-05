@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mlmbox.types;
+import "mlmbox/types/wallet.proto";
+
+message Notification {
+  message PositionView {
+    uint32 tree_id = 1; // Tree identifier
+    uint32 account_id = 2; // Account identifier
+    uint32 position_id = 3; // Position identifier
+    uint32 position_sponsor_id = 4; // Superior position identifier
+    uint32 position_sponsor_branch = 5; // Upstream branch identifier
+  }
+  message AssetTransaction {
+    uint32 asset_id = 1;
+    mlmbox.types.Wallet.Asset.Transaction transaction = 2;
+  }
+  oneof message {
+    uint32 metrics_accounts_quantity = 1;
+    PositionView position_view = 2;
+    AssetTransaction wallet_transaction = 3;
+  }
+}

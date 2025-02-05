@@ -389,6 +389,11 @@ export namespace Wallet {
           hasMatrix(): boolean;
           clearMatrix(): Bonus;
 
+          getDirect(): Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect | undefined;
+          setDirect(value?: Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect): Bonus;
+          hasDirect(): boolean;
+          clearDirect(): Bonus;
+
           getSourceCase(): Bonus.SourceCase;
 
           serializeBinary(): Uint8Array;
@@ -404,6 +409,7 @@ export namespace Wallet {
             bonusId: mlmbox_types_bonus_pb.Bonus.Kind.Id,
             description: string,
             matrix?: Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.AsObject,
+            direct?: Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.AsObject,
           }
 
           export class SourceMatrix extends jspb.Message {
@@ -445,10 +451,42 @@ export namespace Wallet {
           }
 
 
+          export class SourceDirect extends jspb.Message {
+            getTreeId(): number;
+            setTreeId(value: number): SourceDirect;
+
+            getAccountId(): number;
+            setAccountId(value: number): SourceDirect;
+
+            getPositionId(): number;
+            setPositionId(value: number): SourceDirect;
+
+            getTreeAccountEntityId(): number;
+            setTreeAccountEntityId(value: number): SourceDirect;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): SourceDirect.AsObject;
+            static toObject(includeInstance: boolean, msg: SourceDirect): SourceDirect.AsObject;
+            static serializeBinaryToWriter(message: SourceDirect, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): SourceDirect;
+            static deserializeBinaryFromReader(message: SourceDirect, reader: jspb.BinaryReader): SourceDirect;
+          }
+
+          export namespace SourceDirect {
+            export type AsObject = {
+              treeId: number,
+              accountId: number,
+              positionId: number,
+              treeAccountEntityId: number,
+            }
+          }
+
+
           export enum SourceCase { 
             SOURCE_NOT_SET = 0,
             DESCRIPTION = 2,
             MATRIX = 3,
+            DIRECT = 4,
           }
         }
 

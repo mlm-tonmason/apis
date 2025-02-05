@@ -177,6 +177,71 @@ export namespace Account {
         entityId: number,
       }
 
+      export class Generate extends jspb.Message {
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): Generate.AsObject;
+        static toObject(includeInstance: boolean, msg: Generate): Generate.AsObject;
+        static serializeBinaryToWriter(message: Generate, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): Generate;
+        static deserializeBinaryFromReader(message: Generate, reader: jspb.BinaryReader): Generate;
+      }
+
+      export namespace Generate {
+        export type AsObject = {
+        }
+
+        export class Request extends jspb.Message {
+          getMaleQuantity(): number;
+          setMaleQuantity(value: number): Request;
+
+          getFemaleQuantity(): number;
+          setFemaleQuantity(value: number): Request;
+
+          serializeBinary(): Uint8Array;
+          toObject(includeInstance?: boolean): Request.AsObject;
+          static toObject(includeInstance: boolean, msg: Request): Request.AsObject;
+          static serializeBinaryToWriter(message: Request, writer: jspb.BinaryWriter): void;
+          static deserializeBinary(bytes: Uint8Array): Request;
+          static deserializeBinaryFromReader(message: Request, reader: jspb.BinaryReader): Request;
+        }
+
+        export namespace Request {
+          export type AsObject = {
+            maleQuantity: number,
+            femaleQuantity: number,
+          }
+        }
+
+
+        export class Response extends jspb.Message {
+          getMalesList(): Array<Account.Profile.Ava>;
+          setMalesList(value: Array<Account.Profile.Ava>): Response;
+          clearMalesList(): Response;
+          addMales(value?: Account.Profile.Ava, index?: number): Account.Profile.Ava;
+
+          getFemalesList(): Array<Account.Profile.Ava>;
+          setFemalesList(value: Array<Account.Profile.Ava>): Response;
+          clearFemalesList(): Response;
+          addFemales(value?: Account.Profile.Ava, index?: number): Account.Profile.Ava;
+
+          serializeBinary(): Uint8Array;
+          toObject(includeInstance?: boolean): Response.AsObject;
+          static toObject(includeInstance: boolean, msg: Response): Response.AsObject;
+          static serializeBinaryToWriter(message: Response, writer: jspb.BinaryWriter): void;
+          static deserializeBinary(bytes: Uint8Array): Response;
+          static deserializeBinaryFromReader(message: Response, reader: jspb.BinaryReader): Response;
+        }
+
+        export namespace Response {
+          export type AsObject = {
+            malesList: Array<Account.Profile.Ava.AsObject>,
+            femalesList: Array<Account.Profile.Ava.AsObject>,
+          }
+        }
+
+      }
+
+
       export class List extends jspb.Message {
         getItemsList(): Array<Account.Profile.Ava>;
         setItemsList(value: Array<Account.Profile.Ava>): List;

@@ -768,7 +768,7 @@ proto.mlmbox.client.finance.WalletDepositAddressResponse.prototype.toObject = fu
 proto.mlmbox.client.finance.WalletDepositAddressResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     address: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    memo: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    memo: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -810,7 +810,7 @@ proto.mlmbox.client.finance.WalletDepositAddressResponse.deserializeBinaryFromRe
       msg.setAddress(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setMemo(value);
       break;
     default:
@@ -850,8 +850,8 @@ proto.mlmbox.client.finance.WalletDepositAddressResponse.serializeBinaryToWriter
     );
   }
   f = message.getMemo();
-  if (f !== 0) {
-    writer.writeUint64(
+  if (f.length > 0) {
+    writer.writeString(
       2,
       f
     );
@@ -878,20 +878,20 @@ proto.mlmbox.client.finance.WalletDepositAddressResponse.prototype.setAddress = 
 
 
 /**
- * optional uint64 memo = 2;
- * @return {number}
+ * optional string memo = 2;
+ * @return {string}
  */
 proto.mlmbox.client.finance.WalletDepositAddressResponse.prototype.getMemo = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.mlmbox.client.finance.WalletDepositAddressResponse} returns this
  */
 proto.mlmbox.client.finance.WalletDepositAddressResponse.prototype.setMemo = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1473,7 +1473,7 @@ proto.mlmbox.client.finance.WalletWithdrawalRequest.toObject = function(includeI
     processingId: (f = msg.getProcessingId()) && mlmbox_types_wallet_pb.Wallet.Processing.Id.toObject(includeInstance, f),
     operationAmount: (f = msg.getOperationAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f),
     address: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    memo: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    memo: jspb.Message.getFieldWithDefault(msg, 4, ""),
     operationFeeFromBody: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
   };
 
@@ -1526,7 +1526,7 @@ proto.mlmbox.client.finance.WalletWithdrawalRequest.deserializeBinaryFromReader 
       msg.setAddress(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setMemo(value);
       break;
     case 5:
@@ -1586,8 +1586,8 @@ proto.mlmbox.client.finance.WalletWithdrawalRequest.serializeBinaryToWriter = fu
     );
   }
   f = message.getMemo();
-  if (f !== 0) {
-    writer.writeUint64(
+  if (f.length > 0) {
+    writer.writeString(
       4,
       f
     );
@@ -1695,20 +1695,20 @@ proto.mlmbox.client.finance.WalletWithdrawalRequest.prototype.setAddress = funct
 
 
 /**
- * optional uint64 memo = 4;
- * @return {number}
+ * optional string memo = 4;
+ * @return {string}
  */
 proto.mlmbox.client.finance.WalletWithdrawalRequest.prototype.getMemo = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.mlmbox.client.finance.WalletWithdrawalRequest} returns this
  */
 proto.mlmbox.client.finance.WalletWithdrawalRequest.prototype.setMemo = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 

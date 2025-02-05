@@ -43,6 +43,9 @@ export class Scheme extends jspb.Message {
   clearTreesList(): Scheme;
   addTrees(value?: mlmbox_types_account_pb.Tree, index?: number): mlmbox_types_account_pb.Tree;
 
+  getMetricsAccountsQuantity(): number;
+  setMetricsAccountsQuantity(value: number): Scheme;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Scheme.AsObject;
   static toObject(includeInstance: boolean, msg: Scheme): Scheme.AsObject;
@@ -60,6 +63,7 @@ export namespace Scheme {
     walletProcessingsList: Array<mlmbox_types_wallet_pb.Wallet.Processing.AsObject>,
     treeGroupsList: Array<mlmbox_types_account_pb.Tree.Group.AsObject>,
     treesList: Array<mlmbox_types_account_pb.Tree.AsObject>,
+    metricsAccountsQuantity: number,
   }
 }
 

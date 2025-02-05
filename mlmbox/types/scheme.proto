@@ -15,4 +15,5 @@ message Scheme {
   repeated mlmbox.types.Wallet.Processing wallet_processings = 5;
   repeated mlmbox.types.Tree.Group tree_groups = 6;
   repeated mlmbox.types.Tree trees = 7;
+  uint32 metrics_accounts_quantity = 8;
 }

@@ -25,6 +25,8 @@ var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb
 var mlmbox_types_account_pb = require('../../../mlmbox/types/account_pb.js')
 
 var mlmbox_types_locale_pb = require('../../../mlmbox/types/locale_pb.js')
+
+var mlmbox_types_notification_pb = require('../../../mlmbox/types/notification_pb.js')
 const proto = {};
 proto.mlmbox = {};
 proto.mlmbox.client = {};
@@ -506,6 +508,123 @@ proto.mlmbox.client.account.AccountPromiseClient.prototype.getAvaFiles =
       request,
       metadata || {},
       methodDescriptor_Account_GetAvaFiles);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.mlmbox.types.Account.Profile.Ava.Generate.Request,
+ *   !proto.mlmbox.types.Account.Profile.Ava.Generate.Response>}
+ */
+const methodDescriptor_Account_GenerateAvaFiles = new grpc.web.MethodDescriptor(
+  '/mlmbox.client.account.Account/GenerateAvaFiles',
+  grpc.web.MethodType.UNARY,
+  mlmbox_types_account_pb.Account.Profile.Ava.Generate.Request,
+  mlmbox_types_account_pb.Account.Profile.Ava.Generate.Response,
+  /**
+   * @param {!proto.mlmbox.types.Account.Profile.Ava.Generate.Request} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  mlmbox_types_account_pb.Account.Profile.Ava.Generate.Response.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.mlmbox.types.Account.Profile.Ava.Generate.Request} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.mlmbox.types.Account.Profile.Ava.Generate.Response)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.mlmbox.types.Account.Profile.Ava.Generate.Response>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.mlmbox.client.account.AccountClient.prototype.generateAvaFiles =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/mlmbox.client.account.Account/GenerateAvaFiles',
+      request,
+      metadata || {},
+      methodDescriptor_Account_GenerateAvaFiles,
+      callback);
+};
+
+
+/**
+ * @param {!proto.mlmbox.types.Account.Profile.Ava.Generate.Request} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.mlmbox.types.Account.Profile.Ava.Generate.Response>}
+ *     Promise that resolves to the response
+ */
+proto.mlmbox.client.account.AccountPromiseClient.prototype.generateAvaFiles =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/mlmbox.client.account.Account/GenerateAvaFiles',
+      request,
+      metadata || {},
+      methodDescriptor_Account_GenerateAvaFiles);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.google.protobuf.Empty,
+ *   !proto.mlmbox.types.Notification>}
+ */
+const methodDescriptor_Account_Subscribe = new grpc.web.MethodDescriptor(
+  '/mlmbox.client.account.Account/Subscribe',
+  grpc.web.MethodType.SERVER_STREAMING,
+  google_protobuf_empty_pb.Empty,
+  mlmbox_types_notification_pb.Notification,
+  /**
+   * @param {!proto.google.protobuf.Empty} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  mlmbox_types_notification_pb.Notification.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.google.protobuf.Empty} request The request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.mlmbox.types.Notification>}
+ *     The XHR Node Readable Stream
+ */
+proto.mlmbox.client.account.AccountClient.prototype.subscribe =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/mlmbox.client.account.Account/Subscribe',
+      request,
+      metadata || {},
+      methodDescriptor_Account_Subscribe);
+};
+
+
+/**
+ * @param {!proto.google.protobuf.Empty} request The request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.mlmbox.types.Notification>}
+ *     The XHR Node Readable Stream
+ */
+proto.mlmbox.client.account.AccountPromiseClient.prototype.subscribe =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/mlmbox.client.account.Account/Subscribe',
+      request,
+      metadata || {},
+      methodDescriptor_Account_Subscribe);
 };
 
 

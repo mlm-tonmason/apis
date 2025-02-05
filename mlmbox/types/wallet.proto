@@ -63,10 +63,17 @@ message Wallet {
             uint32 source_tree_account_entity_id = 5;
             uint32 level = 6;
           }
+          message SourceDirect {
+            uint32 tree_id = 1;
+            uint32 account_id = 2;
+            uint32 position_id = 3;
+            uint32 tree_account_entity_id = 4;
+          }
           mlmbox.types.Bonus.Kind.Id bonus_id = 1;
           oneof source {
             string description = 2;
             SourceMatrix matrix = 3;
+            SourceDirect direct = 4;
           }
         }
         oneof unique_field {

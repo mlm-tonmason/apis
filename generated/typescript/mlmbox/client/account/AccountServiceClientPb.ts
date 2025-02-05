@@ -21,6 +21,7 @@ import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty
 import * as mlmbox_client_account_account_pb from '../../../mlmbox/client/account/account_pb'; // proto import: "mlmbox/client/account/account.proto"
 import * as mlmbox_types_account_pb from '../../../mlmbox/types/account_pb'; // proto import: "mlmbox/types/account.proto"
 import * as mlmbox_types_locale_pb from '../../../mlmbox/types/locale_pb'; // proto import: "mlmbox/types/locale.proto"
+import * as mlmbox_types_notification_pb from '../../../mlmbox/types/notification_pb'; // proto import: "mlmbox/types/notification.proto"
 
 
 export class AccountClient {
@@ -341,6 +342,71 @@ export class AccountClient {
     request,
     metadata || {},
     this.methodDescriptorGetAvaFiles);
+  }
+
+  methodDescriptorGenerateAvaFiles = new grpcWeb.MethodDescriptor(
+    '/mlmbox.client.account.Account/GenerateAvaFiles',
+    grpcWeb.MethodType.UNARY,
+    mlmbox_types_account_pb.Account.Profile.Ava.Generate.Request,
+    mlmbox_types_account_pb.Account.Profile.Ava.Generate.Response,
+    (request: mlmbox_types_account_pb.Account.Profile.Ava.Generate.Request) => {
+      return request.serializeBinary();
+    },
+    mlmbox_types_account_pb.Account.Profile.Ava.Generate.Response.deserializeBinary
+  );
+
+  generateAvaFiles(
+    request: mlmbox_types_account_pb.Account.Profile.Ava.Generate.Request,
+    metadata?: grpcWeb.Metadata | null): Promise<mlmbox_types_account_pb.Account.Profile.Ava.Generate.Response>;
+
+  generateAvaFiles(
+    request: mlmbox_types_account_pb.Account.Profile.Ava.Generate.Request,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: mlmbox_types_account_pb.Account.Profile.Ava.Generate.Response) => void): grpcWeb.ClientReadableStream<mlmbox_types_account_pb.Account.Profile.Ava.Generate.Response>;
+
+  generateAvaFiles(
+    request: mlmbox_types_account_pb.Account.Profile.Ava.Generate.Request,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: mlmbox_types_account_pb.Account.Profile.Ava.Generate.Response) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/mlmbox.client.account.Account/GenerateAvaFiles',
+        request,
+        metadata || {},
+        this.methodDescriptorGenerateAvaFiles,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/mlmbox.client.account.Account/GenerateAvaFiles',
+    request,
+    metadata || {},
+    this.methodDescriptorGenerateAvaFiles);
+  }
+
+  methodDescriptorSubscribe = new grpcWeb.MethodDescriptor(
+    '/mlmbox.client.account.Account/Subscribe',
+    grpcWeb.MethodType.SERVER_STREAMING,
+    google_protobuf_empty_pb.Empty,
+    mlmbox_types_notification_pb.Notification,
+    (request: google_protobuf_empty_pb.Empty) => {
+      return request.serializeBinary();
+    },
+    mlmbox_types_notification_pb.Notification.deserializeBinary
+  );
+
+  subscribe(
+    request: google_protobuf_empty_pb.Empty,
+    metadata?: grpcWeb.Metadata): grpcWeb.ClientReadableStream<mlmbox_types_notification_pb.Notification> {
+    return this.client_.serverStreaming(
+      this.hostname_ +
+        '/mlmbox.client.account.Account/Subscribe',
+      request,
+      metadata || {},
+      this.methodDescriptorSubscribe);
   }
 
 }

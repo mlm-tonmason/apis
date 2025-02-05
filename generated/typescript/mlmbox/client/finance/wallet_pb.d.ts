@@ -79,8 +79,8 @@ export class WalletDepositAddressResponse extends jspb.Message {
   getAddress(): string;
   setAddress(value: string): WalletDepositAddressResponse;
 
-  getMemo(): number;
-  setMemo(value: number): WalletDepositAddressResponse;
+  getMemo(): string;
+  setMemo(value: string): WalletDepositAddressResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): WalletDepositAddressResponse.AsObject;
@@ -93,7 +93,7 @@ export class WalletDepositAddressResponse extends jspb.Message {
 export namespace WalletDepositAddressResponse {
   export type AsObject = {
     address: string,
-    memo: number,
+    memo: string,
   }
 }
 
@@ -183,8 +183,8 @@ export class WalletWithdrawalRequest extends jspb.Message {
   getAddress(): string;
   setAddress(value: string): WalletWithdrawalRequest;
 
-  getMemo(): number;
-  setMemo(value: number): WalletWithdrawalRequest;
+  getMemo(): string;
+  setMemo(value: string): WalletWithdrawalRequest;
 
   getOperationFeeFromBody(): boolean;
   setOperationFeeFromBody(value: boolean): WalletWithdrawalRequest;
@@ -202,7 +202,7 @@ export namespace WalletWithdrawalRequest {
     processingId?: mlmbox_types_wallet_pb.Wallet.Processing.Id.AsObject,
     operationAmount?: mlmbox_types_asset_pb.Asset.Amount.AsObject,
     address: string,
-    memo: number,
+    memo: string,
     operationFeeFromBody: boolean,
   }
 }

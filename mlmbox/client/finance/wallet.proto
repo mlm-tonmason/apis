@@ -40,7 +40,7 @@ message WalletAssetTransactionListRequest {
 }
 message WalletDepositAddressResponse {
   string address = 1;
-  uint64 memo = 2;
+  string memo = 2;
 }
 message TransferRequest {
   mlmbox.types.Account.Id account = 1;
@@ -58,6 +58,6 @@ message WalletWithdrawalRequest {
   mlmbox.types.Wallet.Processing.Id processing_id = 1;
   mlmbox.types.Asset.Amount operation_amount = 2;
   string address = 3;
-  uint64 memo = 4;
+  string memo = 4;
   bool operation_fee_from_body = 5;
 }

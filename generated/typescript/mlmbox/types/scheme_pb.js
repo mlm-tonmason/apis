@@ -105,7 +105,8 @@ proto.mlmbox.types.Scheme.toObject = function(includeInstance, msg) {
     treeGroupsList: jspb.Message.toObjectList(msg.getTreeGroupsList(),
     mlmbox_types_account_pb.Tree.Group.toObject, includeInstance),
     treesList: jspb.Message.toObjectList(msg.getTreesList(),
-    mlmbox_types_account_pb.Tree.toObject, includeInstance)
+    mlmbox_types_account_pb.Tree.toObject, includeInstance),
+    metricsAccountsQuantity: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -176,6 +177,10 @@ proto.mlmbox.types.Scheme.deserializeBinaryFromReader = function(msg, reader) {
       var value = new mlmbox_types_account_pb.Tree;
       reader.readMessage(value,mlmbox_types_account_pb.Tree.deserializeBinaryFromReader);
       msg.addTrees(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMetricsAccountsQuantity(value);
       break;
     default:
       reader.skipField();
@@ -260,6 +265,13 @@ proto.mlmbox.types.Scheme.serializeBinaryToWriter = function(message, writer) {
       7,
       f,
       mlmbox_types_account_pb.Tree.serializeBinaryToWriter
+    );
+  }
+  f = message.getMetricsAccountsQuantity();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
+      f
     );
   }
 };
@@ -528,6 +540,24 @@ proto.mlmbox.types.Scheme.prototype.addTrees = function(opt_value, opt_index) {
  */
 proto.mlmbox.types.Scheme.prototype.clearTreesList = function() {
   return this.setTreesList([]);
+};
+
+
+/**
+ * optional uint32 metrics_accounts_quantity = 8;
+ * @return {number}
+ */
+proto.mlmbox.types.Scheme.prototype.getMetricsAccountsQuantity = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.mlmbox.types.Scheme} returns this
+ */
+proto.mlmbox.types.Scheme.prototype.setMetricsAccountsQuantity = function(value) {
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 

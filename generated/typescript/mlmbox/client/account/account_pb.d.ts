@@ -3,6 +3,7 @@ import * as jspb from 'google-protobuf'
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb'; // proto import: "google/protobuf/empty.proto"
 import * as mlmbox_types_account_pb from '../../../mlmbox/types/account_pb'; // proto import: "mlmbox/types/account.proto"
 import * as mlmbox_types_locale_pb from '../../../mlmbox/types/locale_pb'; // proto import: "mlmbox/types/locale.proto"
+import * as mlmbox_types_notification_pb from '../../../mlmbox/types/notification_pb'; // proto import: "mlmbox/types/notification.proto"
 
 
 export class SetLoginRequest extends jspb.Message {
@@ -42,6 +43,28 @@ export namespace SetProfileRequest {
   export type AsObject = {
     firstName: string,
     lastName: string,
+  }
+}
+
+export class GenerateAvaFilesRequest extends jspb.Message {
+  getMaleQuantity(): number;
+  setMaleQuantity(value: number): GenerateAvaFilesRequest;
+
+  getFemaleQuantity(): number;
+  setFemaleQuantity(value: number): GenerateAvaFilesRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GenerateAvaFilesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GenerateAvaFilesRequest): GenerateAvaFilesRequest.AsObject;
+  static serializeBinaryToWriter(message: GenerateAvaFilesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GenerateAvaFilesRequest;
+  static deserializeBinaryFromReader(message: GenerateAvaFilesRequest, reader: jspb.BinaryReader): GenerateAvaFilesRequest;
+}
+
+export namespace GenerateAvaFilesRequest {
+  export type AsObject = {
+    maleQuantity: number,
+    femaleQuantity: number,
   }
 }
 
