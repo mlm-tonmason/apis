@@ -46,7 +46,7 @@ message Wallet {
         message Withdrawal {
           uint32 processing_id = 1;
           string address = 2;
-          uint64 memo = 3;
+          string memo = 3;
           string hash = 4;
         }
         message PositionHeader {

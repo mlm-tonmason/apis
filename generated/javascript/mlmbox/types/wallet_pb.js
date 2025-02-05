@@ -2131,7 +2131,7 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.toObject = funct
   var f, obj = {
     processingId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     address: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    memo: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    memo: jspb.Message.getFieldWithDefault(msg, 3, ""),
     hash: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
@@ -2178,7 +2178,7 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.deserializeBinar
       msg.setAddress(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setMemo(value);
       break;
     case 4:
@@ -2229,8 +2229,8 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.serializeBinaryT
     );
   }
   f = message.getMemo();
-  if (f !== 0) {
-    writer.writeUint64(
+  if (f.length > 0) {
+    writer.writeString(
       3,
       f
     );
@@ -2282,20 +2282,20 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.prototype.setAdd
 
 
 /**
- * optional uint64 memo = 3;
- * @return {number}
+ * optional string memo = 3;
+ * @return {string}
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.prototype.getMemo = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal} returns this
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.prototype.setMemo = function(value) {
-  return jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

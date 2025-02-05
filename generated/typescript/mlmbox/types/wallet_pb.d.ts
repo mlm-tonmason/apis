@@ -326,8 +326,8 @@ export namespace Wallet {
           getAddress(): string;
           setAddress(value: string): Withdrawal;
 
-          getMemo(): number;
-          setMemo(value: number): Withdrawal;
+          getMemo(): string;
+          setMemo(value: string): Withdrawal;
 
           getHash(): string;
           setHash(value: string): Withdrawal;
@@ -344,7 +344,7 @@ export namespace Wallet {
           export type AsObject = {
             processingId: number,
             address: string,
-            memo: number,
+            memo: string,
             hash: string,
           }
         }
