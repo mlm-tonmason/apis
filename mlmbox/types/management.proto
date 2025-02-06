@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message Management {
+  message Id {
+    uint32 source_id = 1;
+  }
+  message List {
+    repeated mlmbox.types.Management items = 1;
+  }
+  uint32 source_id = 1;
+  string title = 2;
+  string tag = 3;
+  bool visible = 4;
+  string ref_link_id = 5;
+  uint32 partners_quantity = 6;
+}
