@@ -3114,7 +3114,8 @@ proto.mlmbox.types.Account.Statistics.toObject = function(includeInstance, msg) 
     partnersQuantity: jspb.Message.getFieldWithDefault(msg, 1, 0),
     teamQuantity: jspb.Message.getFieldWithDefault(msg, 2, 0),
     marketingPartnersQuantity: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    marketingTeamQuantity: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    marketingTeamQuantity: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    totalEarnedBonusMatrix: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -3166,6 +3167,10 @@ proto.mlmbox.types.Account.Statistics.deserializeBinaryFromReader = function(msg
     case 4:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setMarketingTeamQuantity(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTotalEarnedBonusMatrix(value);
       break;
     default:
       reader.skipField();
@@ -3221,6 +3226,13 @@ proto.mlmbox.types.Account.Statistics.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint32(
       4,
+      f
+    );
+  }
+  f = message.getTotalEarnedBonusMatrix();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
       f
     );
   }
@@ -3296,6 +3308,24 @@ proto.mlmbox.types.Account.Statistics.prototype.getMarketingTeamQuantity = funct
  */
 proto.mlmbox.types.Account.Statistics.prototype.setMarketingTeamQuantity = function(value) {
   return jspb.Message.setProto3IntField(this, 4, value);
+};
+
+
+/**
+ * optional string total_earned_bonus_matrix = 5;
+ * @return {string}
+ */
+proto.mlmbox.types.Account.Statistics.prototype.getTotalEarnedBonusMatrix = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.mlmbox.types.Account.Statistics} returns this
+ */
+proto.mlmbox.types.Account.Statistics.prototype.setTotalEarnedBonusMatrix = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 

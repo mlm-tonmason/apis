@@ -351,6 +351,9 @@ export namespace Account {
     getMarketingTeamQuantity(): number;
     setMarketingTeamQuantity(value: number): Statistics;
 
+    getTotalEarnedBonusMatrix(): string;
+    setTotalEarnedBonusMatrix(value: string): Statistics;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Statistics.AsObject;
     static toObject(includeInstance: boolean, msg: Statistics): Statistics.AsObject;
@@ -365,6 +368,7 @@ export namespace Account {
       teamQuantity: number,
       marketingPartnersQuantity: number,
       marketingTeamQuantity: number,
+      totalEarnedBonusMatrix: string,
     }
   }
 

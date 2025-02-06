@@ -62,6 +62,7 @@ message Account {
     uint32 team_quantity = 2;
     uint32 marketing_partners_quantity = 3;
     uint32 marketing_team_quantity = 4;
+    string total_earned_bonus_matrix = 5;
   }
   message Info {
     message List {
