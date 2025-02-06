@@ -2,6 +2,7 @@ import * as jspb from 'google-protobuf'
 
 import * as mlmbox_types_asset_pb from '../../mlmbox/types/asset_pb'; // proto import: "mlmbox/types/asset.proto"
 import * as mlmbox_types_relationship_pb from '../../mlmbox/types/relationship_pb'; // proto import: "mlmbox/types/relationship.proto"
+import * as mlmbox_types_bonus_pb from '../../mlmbox/types/bonus_pb'; // proto import: "mlmbox/types/bonus.proto"
 
 
 export class Account extends jspb.Message {
@@ -370,6 +371,62 @@ export namespace Account {
       marketingTeamQuantity: number,
       totalEarnedBonusMatrix: string,
     }
+
+    export class Full extends jspb.Message {
+      getStatistics(): Account.Statistics | undefined;
+      setStatistics(value?: Account.Statistics): Full;
+      hasStatistics(): boolean;
+      clearStatistics(): Full;
+
+      getAssetsList(): Array<Account.Statistics.Full.Asset>;
+      setAssetsList(value: Array<Account.Statistics.Full.Asset>): Full;
+      clearAssetsList(): Full;
+      addAssets(value?: Account.Statistics.Full.Asset, index?: number): Account.Statistics.Full.Asset;
+
+      serializeBinary(): Uint8Array;
+      toObject(includeInstance?: boolean): Full.AsObject;
+      static toObject(includeInstance: boolean, msg: Full): Full.AsObject;
+      static serializeBinaryToWriter(message: Full, writer: jspb.BinaryWriter): void;
+      static deserializeBinary(bytes: Uint8Array): Full;
+      static deserializeBinaryFromReader(message: Full, reader: jspb.BinaryReader): Full;
+    }
+
+    export namespace Full {
+      export type AsObject = {
+        statistics?: Account.Statistics.AsObject,
+        assetsList: Array<Account.Statistics.Full.Asset.AsObject>,
+      }
+
+      export class Asset extends jspb.Message {
+        getAssetId(): number;
+        setAssetId(value: number): Asset;
+
+        getAssetBalance(): string;
+        setAssetBalance(value: string): Asset;
+
+        getIncomeBonusesStatistics(): mlmbox_types_bonus_pb.Bonus.Summary | undefined;
+        setIncomeBonusesStatistics(value?: mlmbox_types_bonus_pb.Bonus.Summary): Asset;
+        hasIncomeBonusesStatistics(): boolean;
+        clearIncomeBonusesStatistics(): Asset;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): Asset.AsObject;
+        static toObject(includeInstance: boolean, msg: Asset): Asset.AsObject;
+        static serializeBinaryToWriter(message: Asset, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): Asset;
+        static deserializeBinaryFromReader(message: Asset, reader: jspb.BinaryReader): Asset;
+      }
+
+      export namespace Asset {
+        export type AsObject = {
+          assetId: number,
+          assetBalance: string,
+          incomeBonusesStatistics?: mlmbox_types_bonus_pb.Bonus.Summary.AsObject,
+        }
+      }
+
+    }
+
   }
 
 

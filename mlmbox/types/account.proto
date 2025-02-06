@@ -4,6 +4,7 @@ package mlmbox.types;
 
 import "mlmbox/types/asset.proto";
 import "mlmbox/types/relationship.proto";
+import "mlmbox/types/bonus.proto";
 
 message Account {
   message Id {
@@ -58,6 +59,15 @@ message Account {
     Ava ava = 4;
   }
   message Statistics {
+    message Full {
+      message Asset {
+        uint32 asset_id = 1;
+        string asset_balance = 2;
+        mlmbox.types.Bonus.Summary income_bonuses_statistics = 3;
+      }
+      Statistics statistics = 1;
+      repeated Asset assets = 2;
+    }
     uint32 partners_quantity = 1;
     uint32 team_quantity = 2;
     uint32 marketing_partners_quantity = 3;

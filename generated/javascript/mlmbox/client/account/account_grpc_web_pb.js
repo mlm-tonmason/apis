@@ -628,5 +628,66 @@ proto.mlmbox.client.account.AccountPromiseClient.prototype.subscribe =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.google.protobuf.Empty,
+ *   !proto.mlmbox.types.Account.Statistics.Full>}
+ */
+const methodDescriptor_Account_GetStatisticsFull = new grpc.web.MethodDescriptor(
+  '/mlmbox.client.account.Account/GetStatisticsFull',
+  grpc.web.MethodType.UNARY,
+  google_protobuf_empty_pb.Empty,
+  mlmbox_types_account_pb.Account.Statistics.Full,
+  /**
+   * @param {!proto.google.protobuf.Empty} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  mlmbox_types_account_pb.Account.Statistics.Full.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.google.protobuf.Empty} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.mlmbox.types.Account.Statistics.Full)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.mlmbox.types.Account.Statistics.Full>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.mlmbox.client.account.AccountClient.prototype.getStatisticsFull =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/mlmbox.client.account.Account/GetStatisticsFull',
+      request,
+      metadata || {},
+      methodDescriptor_Account_GetStatisticsFull,
+      callback);
+};
+
+
+/**
+ * @param {!proto.google.protobuf.Empty} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.mlmbox.types.Account.Statistics.Full>}
+ *     Promise that resolves to the response
+ */
+proto.mlmbox.client.account.AccountPromiseClient.prototype.getStatisticsFull =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/mlmbox.client.account.Account/GetStatisticsFull',
+      request,
+      metadata || {},
+      methodDescriptor_Account_GetStatisticsFull);
+};
+
+
 module.exports = proto.mlmbox.client.account;
 
