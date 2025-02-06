@@ -20,8 +20,6 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 
-var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js')
-
 var mlmbox_types_account_pb = require('../../../mlmbox/types/account_pb.js')
 
 var mlmbox_types_management_pb = require('../../../mlmbox/types/management_pb.js')
@@ -209,16 +207,16 @@ proto.mlmbox.client.management.ManagementPromiseClient.prototype.get =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.google.protobuf.Empty,
+ *   !proto.mlmbox.client.management.AllRequest,
  *   !proto.mlmbox.types.Management.List>}
  */
 const methodDescriptor_Management_All = new grpc.web.MethodDescriptor(
   '/mlmbox.client.management.Management/All',
   grpc.web.MethodType.UNARY,
-  google_protobuf_empty_pb.Empty,
+  proto.mlmbox.client.management.AllRequest,
   mlmbox_types_management_pb.Management.List,
   /**
-   * @param {!proto.google.protobuf.Empty} request
+   * @param {!proto.mlmbox.client.management.AllRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -229,7 +227,7 @@ const methodDescriptor_Management_All = new grpc.web.MethodDescriptor(
 
 
 /**
- * @param {!proto.google.protobuf.Empty} request The
+ * @param {!proto.mlmbox.client.management.AllRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -250,7 +248,7 @@ proto.mlmbox.client.management.ManagementClient.prototype.all =
 
 
 /**
- * @param {!proto.google.protobuf.Empty} request The
+ * @param {!proto.mlmbox.client.management.AllRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata

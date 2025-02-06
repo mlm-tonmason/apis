@@ -1,6 +1,5 @@
 import * as jspb from 'google-protobuf'
 
-import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb'; // proto import: "google/protobuf/empty.proto"
 import * as mlmbox_types_account_pb from '../../../mlmbox/types/account_pb'; // proto import: "mlmbox/types/account.proto"
 import * as mlmbox_types_management_pb from '../../../mlmbox/types/management_pb'; // proto import: "mlmbox/types/management.proto"
 import * as mlmbox_types_sort_pb from '../../../mlmbox/types/sort_pb'; // proto import: "mlmbox/types/sort.proto"
@@ -25,6 +24,24 @@ export namespace CreateRequest {
   export type AsObject = {
     title: string,
     tag: string,
+  }
+}
+
+export class AllRequest extends jspb.Message {
+  getOnlyVisible(): boolean;
+  setOnlyVisible(value: boolean): AllRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AllRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: AllRequest): AllRequest.AsObject;
+  static serializeBinaryToWriter(message: AllRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AllRequest;
+  static deserializeBinaryFromReader(message: AllRequest, reader: jspb.BinaryReader): AllRequest;
+}
+
+export namespace AllRequest {
+  export type AsObject = {
+    onlyVisible: boolean,
   }
 }
 

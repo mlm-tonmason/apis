@@ -17,7 +17,6 @@
 
 import * as grpcWeb from 'grpc-web';
 
-import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb'; // proto import: "google/protobuf/empty.proto"
 import * as mlmbox_client_management_management_pb from '../../../mlmbox/client/management/management_pb'; // proto import: "mlmbox/client/management/management.proto"
 import * as mlmbox_types_account_pb from '../../../mlmbox/types/account_pb'; // proto import: "mlmbox/types/account.proto"
 import * as mlmbox_types_management_pb from '../../../mlmbox/types/management_pb'; // proto import: "mlmbox/types/management.proto"
@@ -131,26 +130,26 @@ export class ManagementClient {
   methodDescriptorAll = new grpcWeb.MethodDescriptor(
     '/mlmbox.client.management.Management/All',
     grpcWeb.MethodType.UNARY,
-    google_protobuf_empty_pb.Empty,
+    mlmbox_client_management_management_pb.AllRequest,
     mlmbox_types_management_pb.Management.List,
-    (request: google_protobuf_empty_pb.Empty) => {
+    (request: mlmbox_client_management_management_pb.AllRequest) => {
       return request.serializeBinary();
     },
     mlmbox_types_management_pb.Management.List.deserializeBinary
   );
 
   all(
-    request: google_protobuf_empty_pb.Empty,
+    request: mlmbox_client_management_management_pb.AllRequest,
     metadata?: grpcWeb.Metadata | null): Promise<mlmbox_types_management_pb.Management.List>;
 
   all(
-    request: google_protobuf_empty_pb.Empty,
+    request: mlmbox_client_management_management_pb.AllRequest,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.RpcError,
                response: mlmbox_types_management_pb.Management.List) => void): grpcWeb.ClientReadableStream<mlmbox_types_management_pb.Management.List>;
 
   all(
-    request: google_protobuf_empty_pb.Empty,
+    request: mlmbox_client_management_management_pb.AllRequest,
     metadata?: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.RpcError,
                response: mlmbox_types_management_pb.Management.List) => void) {

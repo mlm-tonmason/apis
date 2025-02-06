@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package mlmbox.client.management;
 
-import "google/protobuf/empty.proto";
 import "mlmbox/types/account.proto";
 import "mlmbox/types/management.proto";
 import "mlmbox/types/sort.proto";
@@ -10,7 +9,7 @@ import "mlmbox/types/sort.proto";
 service Management {
   rpc Create (CreateRequest) returns (mlmbox.types.Management) {} // Создать реферальную ссылку
   rpc Get (mlmbox.types.Management.Id) returns (mlmbox.types.Management) {} // Получить информацию о реферальной ссылке
-  rpc All (google.protobuf.Empty) returns (mlmbox.types.Management.List) {} // Получить список всех реферальных ссылок
+  rpc All (AllRequest) returns (mlmbox.types.Management.List) {} // Получить список всех реферальных ссылок
   rpc UpdateInfo (UpdateInfoRequest) returns (mlmbox.types.Management) {} // Обновить информацию о реферальной ссылке
   rpc UpdateVisible (UpdateVisibleRequest) returns (mlmbox.types.Management) {} // Изменить режим видимости реферальной ссылки
   rpc PartnersList (PartnersListRequest) returns (mlmbox.types.Account.Info.List) {} // Получить список партнеров
@@ -18,6 +17,9 @@ service Management {
 message CreateRequest {
   string title = 1;
   string tag = 2;
+}
+message AllRequest {
+  bool only_visible = 1;
 }
 message UpdateInfoRequest {
   uint32 source_id = 1;
