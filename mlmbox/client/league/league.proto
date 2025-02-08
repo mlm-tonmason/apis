@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package mlmbox.client.league;
+
+import "google/protobuf/empty.proto";
+import "mlmbox/types/account.proto";
+import "mlmbox/types/league.proto";
+import "mlmbox/types/sort.proto";
+
+service League {
+  rpc All (google.protobuf.Empty) returns (mlmbox.types.League.Header.List) {} // Отобразить список лиг
+  rpc StateGet (mlmbox.types.Sort) returns (StateGetResponse) {} // Отобразить данные о лиге в которой присутствует авторизованный пользователь
+  rpc LeagueStateGet (StateGetRequest) returns (StateGetResponse) {} // Отобразить данные выбранной лиги
+  rpc LeagueStateRankList (StateRankListRequest) returns (mlmbox.types.Account.Info.List) {} // Отобразить список пользователей с смещением выбранной лиги
+}
+
+message StateGetRequest {
+  uint32 league_id = 1;
+  mlmbox.types.Sort sort_ranks = 2;
+}
+message StateGetResponse {
+  mlmbox.types.League.Header header = 1;
+  repeated mlmbox.types.Account.Info accounts = 2;
+}
+message StateRankListRequest {
+  uint32 league_id = 1;
+  uint32 step_rank = 2;
+  mlmbox.types.Sort sort_ranks = 3;
+}

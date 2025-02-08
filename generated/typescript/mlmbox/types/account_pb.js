@@ -27,6 +27,8 @@ var mlmbox_types_relationship_pb = require('../../mlmbox/types/relationship_pb.j
 goog.object.extend(proto, mlmbox_types_relationship_pb);
 var mlmbox_types_bonus_pb = require('../../mlmbox/types/bonus_pb.js');
 goog.object.extend(proto, mlmbox_types_bonus_pb);
+var mlmbox_types_league_pb = require('../../mlmbox/types/league_pb.js');
+goog.object.extend(proto, mlmbox_types_league_pb);
 goog.exportSymbol('proto.mlmbox.types.Account', null, global);
 goog.exportSymbol('proto.mlmbox.types.Account.Id', null, global);
 goog.exportSymbol('proto.mlmbox.types.Account.Id.UniqueFieldCase', null, global);
@@ -3845,7 +3847,8 @@ proto.mlmbox.types.Account.Info.toObject = function(includeInstance, msg) {
     treeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 7, 0),
     sponsorBranch: jspb.Message.getFieldWithDefault(msg, 8, 0),
     statistics: (f = msg.getStatistics()) && proto.mlmbox.types.Account.Statistics.toObject(includeInstance, f),
-    channelsList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f
+    channelsList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f,
+    leagueRank: (f = msg.getLeagueRank()) && mlmbox_types_league_pb.League.Rank.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3928,6 +3931,11 @@ proto.mlmbox.types.Account.Info.deserializeBinaryFromReader = function(msg, read
       for (var i = 0; i < values.length; i++) {
         msg.addChannels(values[i]);
       }
+      break;
+    case 11:
+      var value = new mlmbox_types_league_pb.League.Rank;
+      reader.readMessage(value,mlmbox_types_league_pb.League.Rank.deserializeBinaryFromReader);
+      msg.setLeagueRank(value);
       break;
     default:
       reader.skipField();
@@ -4031,6 +4039,14 @@ proto.mlmbox.types.Account.Info.serializeBinaryToWriter = function(message, writ
     writer.writePackedUint32(
       10,
       f
+    );
+  }
+  f = message.getLeagueRank();
+  if (f != null) {
+    writer.writeMessage(
+      11,
+      f,
+      mlmbox_types_league_pb.League.Rank.serializeBinaryToWriter
     );
   }
 };
@@ -4487,6 +4503,43 @@ proto.mlmbox.types.Account.Info.prototype.addChannels = function(value, opt_inde
  */
 proto.mlmbox.types.Account.Info.prototype.clearChannelsList = function() {
   return this.setChannelsList([]);
+};
+
+
+/**
+ * optional League.Rank league_rank = 11;
+ * @return {?proto.mlmbox.types.League.Rank}
+ */
+proto.mlmbox.types.Account.Info.prototype.getLeagueRank = function() {
+  return /** @type{?proto.mlmbox.types.League.Rank} */ (
+    jspb.Message.getWrapperField(this, mlmbox_types_league_pb.League.Rank, 11));
+};
+
+
+/**
+ * @param {?proto.mlmbox.types.League.Rank|undefined} value
+ * @return {!proto.mlmbox.types.Account.Info} returns this
+*/
+proto.mlmbox.types.Account.Info.prototype.setLeagueRank = function(value) {
+  return jspb.Message.setWrapperField(this, 11, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.mlmbox.types.Account.Info} returns this
+ */
+proto.mlmbox.types.Account.Info.prototype.clearLeagueRank = function() {
+  return this.setLeagueRank(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.mlmbox.types.Account.Info.prototype.hasLeagueRank = function() {
+  return jspb.Message.getField(this, 11) != null;
 };
 
 

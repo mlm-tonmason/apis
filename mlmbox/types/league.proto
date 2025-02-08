@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+message League {
+  message Id {
+    uint32 league_id = 1;
+  }
+  message Rank {
+    uint32 league_id = 1;
+    uint32 rank = 2;
+  }
+  message Header {
+    message List {
+      repeated Header items = 1;
+    }
+    uint32 league_id = 1;
+    string title = 2;
+    string range_ge = 3;
+    string range_lt = 4;
+    uint32 quantity = 5;
+  }
+}

@@ -3,6 +3,7 @@ import * as jspb from 'google-protobuf'
 import * as mlmbox_types_asset_pb from '../../mlmbox/types/asset_pb'; // proto import: "mlmbox/types/asset.proto"
 import * as mlmbox_types_relationship_pb from '../../mlmbox/types/relationship_pb'; // proto import: "mlmbox/types/relationship.proto"
 import * as mlmbox_types_bonus_pb from '../../mlmbox/types/bonus_pb'; // proto import: "mlmbox/types/bonus.proto"
+import * as mlmbox_types_league_pb from '../../mlmbox/types/league_pb'; // proto import: "mlmbox/types/league.proto"
 
 
 export class Account extends jspb.Message {
@@ -473,6 +474,11 @@ export namespace Account {
     clearChannelsList(): Info;
     addChannels(value: number, index?: number): Info;
 
+    getLeagueRank(): mlmbox_types_league_pb.League.Rank | undefined;
+    setLeagueRank(value?: mlmbox_types_league_pb.League.Rank): Info;
+    hasLeagueRank(): boolean;
+    clearLeagueRank(): Info;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Info.AsObject;
     static toObject(includeInstance: boolean, msg: Info): Info.AsObject;
@@ -493,6 +499,7 @@ export namespace Account {
       sponsorBranch: number,
       statistics?: Account.Statistics.AsObject,
       channelsList: Array<number>,
+      leagueRank?: mlmbox_types_league_pb.League.Rank.AsObject,
     }
 
     export class List extends jspb.Message {

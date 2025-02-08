@@ -5,6 +5,7 @@ package mlmbox.types;
 import "mlmbox/types/asset.proto";
 import "mlmbox/types/relationship.proto";
 import "mlmbox/types/bonus.proto";
+import "mlmbox/types/league.proto";
 
 message Account {
   message Id {
@@ -88,6 +89,7 @@ message Account {
     uint32 sponsor_branch = 8;
     Statistics statistics = 9;
     repeated uint32 channels = 10; // List of channel IDs in which the user participates
+    mlmbox.types.League.Rank league_rank = 11;
   }
   Info info = 1;
   repeated mlmbox.types.TreeAccount tree_accounts = 2;
