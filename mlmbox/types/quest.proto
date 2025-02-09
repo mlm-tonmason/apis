@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package mlmbox.types;
+
+import "mlmbox/types/asset.proto";
+
+message Quest {
+  message Id {
+    uint32 quest_id = 1;
+  }
+  message List {
+    repeated Quest quests = 1;
+  }
+  // Многоразовый квест
+  message RecurringQuest {
+    enum Status {
+      WAITING = 0;       // Ожидание таймера для повторного выполнения
+      AVAILABLE = 1;     // Можно выполнить
+      COMPLETED = 2;     // Успешное выполнение последней доступной попытки
+    }
+    uint32 next_available_at = 1; // Когда в Unix time квест снова станет доступным
+    uint32 last_completed_at = 2; // Время последнего выполнения (Unix time)
+    Status status = 3;            // Статус многоразового квеста
+  }
+  // Одноразовый квест
+  message OneTimeQuest {
+    enum Status {
+      NOT_STARTED = 0;    // Квест еще не начат
+      PENDING_REVIEW = 1; // Ожидает проверки выполнения
+      COMPLETED = 2;      // Успешное выполнение
+      FAILED = 3;         // Квест не выполнен (например, подписка не найдена)
+    }
+    string verification_url = 1;  // URL для проверки (например, канал Telegram)
+    uint32 checked_at = 2;        // Время последней проверки (Unix time)
+    Status status = 3;            // Статус одноразового квеста
+  }
+
+  uint32 id = 1;                  // Уникальный идентификатор квеста
+  string title = 2;               // Название квеста
+  oneof quest_type {
+    RecurringQuest recurring = 3; // Многоразовый квест
+    OneTimeQuest one_time = 4;    // Одноразовый квест
+  }
+  mlmbox.types.Asset.Amount reward_amount = 5; // Вознаграждение за выполнение
+}

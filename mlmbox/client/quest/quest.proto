@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package mlmbox.client.quest;
+
+import "google/protobuf/empty.proto";
+import "mlmbox/types/quest.proto";
+
+service Quest {
+  rpc AllQuests (google.protobuf.Empty) returns (mlmbox.types.Quest.List); // Получить все квесты (выполненные и доступные)
+  rpc GetQuest (mlmbox.types.Quest.Id) returns (mlmbox.types.Quest); // Получить информацию о конкретном квесте
+  rpc SubmitQuestForReview (mlmbox.types.Quest.Id) returns (mlmbox.types.Quest); // Подать заявку на проверку выполнения квеста
+}
