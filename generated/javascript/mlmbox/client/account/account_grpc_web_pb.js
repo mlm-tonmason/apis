@@ -453,67 +453,6 @@ proto.mlmbox.client.account.AccountPromiseClient.prototype.setSponsor =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.mlmbox.types.Account.Profile.Ava.List,
- *   !proto.mlmbox.types.Account.Profile.Ava.File.List>}
- */
-const methodDescriptor_Account_GetAvaFiles = new grpc.web.MethodDescriptor(
-  '/mlmbox.client.account.Account/GetAvaFiles',
-  grpc.web.MethodType.UNARY,
-  mlmbox_types_account_pb.Account.Profile.Ava.List,
-  mlmbox_types_account_pb.Account.Profile.Ava.File.List,
-  /**
-   * @param {!proto.mlmbox.types.Account.Profile.Ava.List} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  mlmbox_types_account_pb.Account.Profile.Ava.File.List.deserializeBinary
-);
-
-
-/**
- * @param {!proto.mlmbox.types.Account.Profile.Ava.List} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.mlmbox.types.Account.Profile.Ava.File.List)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.mlmbox.types.Account.Profile.Ava.File.List>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.mlmbox.client.account.AccountClient.prototype.getAvaFiles =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/mlmbox.client.account.Account/GetAvaFiles',
-      request,
-      metadata || {},
-      methodDescriptor_Account_GetAvaFiles,
-      callback);
-};
-
-
-/**
- * @param {!proto.mlmbox.types.Account.Profile.Ava.List} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.mlmbox.types.Account.Profile.Ava.File.List>}
- *     Promise that resolves to the response
- */
-proto.mlmbox.client.account.AccountPromiseClient.prototype.getAvaFiles =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/mlmbox.client.account.Account/GetAvaFiles',
-      request,
-      metadata || {},
-      methodDescriptor_Account_GetAvaFiles);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
  *   !proto.mlmbox.types.Account.Profile.Ava.Generate.Request,
  *   !proto.mlmbox.types.Account.Profile.Ava.Generate.Response>}
  */
