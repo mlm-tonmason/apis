@@ -37,6 +37,7 @@ export namespace Bonus {
       GIFT = 1,
       BONUS_DIRECT = 2,
       BONUS_MATRIX = 3,
+      QUEST = 4,
     }
   }
 

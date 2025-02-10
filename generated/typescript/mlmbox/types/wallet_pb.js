@@ -2516,7 +2516,7 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.PositionHeader.prototype.se
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.oneofGroups_ = [[2,3,4]];
+proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.oneofGroups_ = [[2,3,4,5]];
 
 /**
  * @enum {number}
@@ -2525,7 +2525,8 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceCase = {
   SOURCE_NOT_SET: 0,
   DESCRIPTION: 2,
   MATRIX: 3,
-  DIRECT: 4
+  DIRECT: 4,
+  QUEST_ID: 5
 };
 
 /**
@@ -2569,7 +2570,8 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.toObject = function(i
     bonusId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     description: jspb.Message.getFieldWithDefault(msg, 2, ""),
     matrix: (f = msg.getMatrix()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.toObject(includeInstance, f),
-    direct: (f = msg.getDirect()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.toObject(includeInstance, f)
+    direct: (f = msg.getDirect()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.toObject(includeInstance, f),
+    questId: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -2623,6 +2625,10 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.deserializeBinaryFrom
       var value = new proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect;
       reader.readMessage(value,proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.deserializeBinaryFromReader);
       msg.setDirect(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setQuestId(value);
       break;
     default:
       reader.skipField();
@@ -2681,6 +2687,13 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.serializeBinaryToWrit
       4,
       f,
       proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.serializeBinaryToWriter
+    );
+  }
+  f = /** @type {number} */ (jspb.Message.getField(message, 5));
+  if (f != null) {
+    writer.writeUint32(
+      5,
+      f
     );
   }
 };
@@ -3311,6 +3324,42 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.prototype.clearDirect
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.prototype.hasDirect = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional uint32 quest_id = 5;
+ * @return {number}
+ */
+proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.prototype.getQuestId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus} returns this
+ */
+proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.prototype.setQuestId = function(value) {
+  return jspb.Message.setOneofField(this, 5, proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus} returns this
+ */
+proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.prototype.clearQuestId = function() {
+  return jspb.Message.setOneofField(this, 5, proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.oneofGroups_[0], undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.prototype.hasQuestId = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 

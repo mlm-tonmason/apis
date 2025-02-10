@@ -758,9 +758,8 @@ proto.mlmbox.types.Quest.RecurringQuest.serializeBinaryToWriter = function(messa
  * @enum {number}
  */
 proto.mlmbox.types.Quest.RecurringQuest.Status = {
-  WAITING: 0,
-  AVAILABLE: 1,
-  COMPLETED: 2
+  AVAILABLE: 0,
+  COMPLETED: 1
 };
 
 /**

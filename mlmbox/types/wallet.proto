@@ -74,6 +74,7 @@ message Wallet {
             string description = 2;
             SourceMatrix matrix = 3;
             SourceDirect direct = 4;
+            uint32 quest_id = 5;
           }
         }
         oneof unique_field {

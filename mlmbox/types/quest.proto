@@ -14,9 +14,8 @@ message Quest {
   // Многоразовый квест
   message RecurringQuest {
     enum Status {
-      WAITING = 0;       // Ожидание таймера для повторного выполнения
-      AVAILABLE = 1;     // Можно выполнить
-      COMPLETED = 2;     // Успешное выполнение последней доступной попытки
+      AVAILABLE = 0;     // Можно выполнить
+      COMPLETED = 1;     // Успешное выполнение последней доступной попытки
     }
     uint32 next_available_at = 1; // Когда в Unix time квест снова станет доступным
     uint32 last_completed_at = 2; // Время последнего выполнения (Unix time)

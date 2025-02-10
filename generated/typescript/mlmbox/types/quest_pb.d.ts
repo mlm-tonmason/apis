@@ -110,9 +110,8 @@ export namespace Quest {
     }
 
     export enum Status { 
-      WAITING = 0,
-      AVAILABLE = 1,
-      COMPLETED = 2,
+      AVAILABLE = 0,
+      COMPLETED = 1,
     }
   }
 

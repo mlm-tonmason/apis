@@ -394,6 +394,9 @@ export namespace Wallet {
           hasDirect(): boolean;
           clearDirect(): Bonus;
 
+          getQuestId(): number;
+          setQuestId(value: number): Bonus;
+
           getSourceCase(): Bonus.SourceCase;
 
           serializeBinary(): Uint8Array;
@@ -410,6 +413,7 @@ export namespace Wallet {
             description: string,
             matrix?: Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.AsObject,
             direct?: Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.AsObject,
+            questId: number,
           }
 
           export class SourceMatrix extends jspb.Message {
@@ -487,6 +491,7 @@ export namespace Wallet {
             DESCRIPTION = 2,
             MATRIX = 3,
             DIRECT = 4,
+            QUEST_ID = 5,
           }
         }
 
