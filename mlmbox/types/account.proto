@@ -36,17 +36,17 @@ message Account {
           repeated mlmbox.types.Account.Profile.Ava females = 2;
         }
       }
-      message List {
+      /*message List {
         repeated mlmbox.types.Account.Profile.Ava items = 1;
-      }
-      message File {
+      }*/
+      /*message File {
         message List {
           repeated mlmbox.types.Account.Profile.Ava.File items = 1;
         }
         uint32 collection_id = 1;
         uint32 entity_id = 2;
         string value = 3;
-      }
+      }*/
       uint32 collection_id = 1;
       uint32 entity_id = 2;
     }

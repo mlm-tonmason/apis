@@ -14,7 +14,6 @@ service Account {
   rpc SetAva (mlmbox.types.Account.Profile.Ava) returns (mlmbox.types.Account.Profile) {} // Update profile avatar
   rpc SetProfile (SetProfileRequest) returns (mlmbox.types.Account.Profile) {} // Update profile details
   rpc SetSponsor (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Info) {} // Set referral (if the user has no referral)
-  rpc GetAvaFiles (mlmbox.types.Account.Profile.Ava.List) returns (mlmbox.types.Account.Profile.Ava.File.List) {}
   rpc GenerateAvaFiles (mlmbox.types.Account.Profile.Ava.Generate.Request) returns (mlmbox.types.Account.Profile.Ava.Generate.Response) {}
   rpc Subscribe (google.protobuf.Empty) returns (stream mlmbox.types.Notification) {}
   rpc GetStatisticsFull (google.protobuf.Empty) returns (mlmbox.types.Account.Statistics.Full) {}

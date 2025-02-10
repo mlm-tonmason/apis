@@ -1,6 +1,6 @@
 .DS_Store
 .idea/
 
-mlmbox/*
-!mlmbox/client/
-!mlmbox/types/
+/mlmbox/*
+!/mlmbox/client/
+!/mlmbox/types/
