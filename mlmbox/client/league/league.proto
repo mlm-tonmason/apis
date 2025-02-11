@@ -12,6 +12,7 @@ service League {
   rpc StateGet (mlmbox.types.Sort) returns (StateGetResponse) {} // Отобразить данные о лиге в которой присутствует авторизованный пользователь
   rpc LeagueStateGet (StateGetRequest) returns (StateGetResponse) {} // Отобразить данные выбранной лиги
   rpc LeagueStateRankList (StateRankListRequest) returns (mlmbox.types.Account.Info.List) {} // Отобразить список пользователей с смещением выбранной лиги
+  rpc TopList (mlmbox.types.Sort) returns (mlmbox.types.Account.Info.List) {} // Отобразить список топ пользователей
 }
 
 message StateGetRequest {

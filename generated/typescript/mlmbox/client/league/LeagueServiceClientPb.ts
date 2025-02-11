@@ -215,5 +215,48 @@ export class LeagueClient {
     this.methodDescriptorLeagueStateRankList);
   }
 
+  methodDescriptorTopList = new grpcWeb.MethodDescriptor(
+    '/mlmbox.client.league.League/TopList',
+    grpcWeb.MethodType.UNARY,
+    mlmbox_types_sort_pb.Sort,
+    mlmbox_types_account_pb.Account.Info.List,
+    (request: mlmbox_types_sort_pb.Sort) => {
+      return request.serializeBinary();
+    },
+    mlmbox_types_account_pb.Account.Info.List.deserializeBinary
+  );
+
+  topList(
+    request: mlmbox_types_sort_pb.Sort,
+    metadata?: grpcWeb.Metadata | null): Promise<mlmbox_types_account_pb.Account.Info.List>;
+
+  topList(
+    request: mlmbox_types_sort_pb.Sort,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: mlmbox_types_account_pb.Account.Info.List) => void): grpcWeb.ClientReadableStream<mlmbox_types_account_pb.Account.Info.List>;
+
+  topList(
+    request: mlmbox_types_sort_pb.Sort,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: mlmbox_types_account_pb.Account.Info.List) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/mlmbox.client.league.League/TopList',
+        request,
+        metadata || {},
+        this.methodDescriptorTopList,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/mlmbox.client.league.League/TopList',
+    request,
+    metadata || {},
+    this.methodDescriptorTopList);
+  }
+
 }
 

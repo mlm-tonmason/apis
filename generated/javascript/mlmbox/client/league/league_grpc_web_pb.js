@@ -328,5 +328,66 @@ proto.mlmbox.client.league.LeaguePromiseClient.prototype.leagueStateRankList =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.mlmbox.types.Sort,
+ *   !proto.mlmbox.types.Account.Info.List>}
+ */
+const methodDescriptor_League_TopList = new grpc.web.MethodDescriptor(
+  '/mlmbox.client.league.League/TopList',
+  grpc.web.MethodType.UNARY,
+  mlmbox_types_sort_pb.Sort,
+  mlmbox_types_account_pb.Account.Info.List,
+  /**
+   * @param {!proto.mlmbox.types.Sort} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  mlmbox_types_account_pb.Account.Info.List.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.mlmbox.types.Sort} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.mlmbox.types.Account.Info.List)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.mlmbox.types.Account.Info.List>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.mlmbox.client.league.LeagueClient.prototype.topList =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/mlmbox.client.league.League/TopList',
+      request,
+      metadata || {},
+      methodDescriptor_League_TopList,
+      callback);
+};
+
+
+/**
+ * @param {!proto.mlmbox.types.Sort} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.mlmbox.types.Account.Info.List>}
+ *     Promise that resolves to the response
+ */
+proto.mlmbox.client.league.LeaguePromiseClient.prototype.topList =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/mlmbox.client.league.League/TopList',
+      request,
+      metadata || {},
+      methodDescriptor_League_TopList);
+};
+
+
 module.exports = proto.mlmbox.client.league;
 
