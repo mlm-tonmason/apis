@@ -95,6 +95,7 @@ message Account {
   repeated mlmbox.types.TreeAccount tree_accounts = 2;
   uint32 roles_bit_mask = 3;
   string locale = 4; // language identifier (en-US, ...)
+  bool referral_change_access = 5;
 }
 
 message Tree {
