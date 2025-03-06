@@ -11,6 +11,7 @@ service Network {
   rpc TeamInfo (TeamRequest) returns (TeamResponse) {} // Display the data of the selected user (+personally invited partners) in the system (access via personal sponsor structure)
   rpc TeamSearch (AccountsSearchRequest) returns (mlmbox.types.Account.Info.List) {} // Search for users in the system with a matching login prefix (access via personal sponsor structure)
   rpc TeamPartnerList (TeamPartnerListRequest) returns (mlmbox.types.Account.Info.List) {} // Display a list of personally invited partners of the selected user (access via personal sponsor structure)
+  rpc TeamTop (TeamTopRequest) returns (mlmbox.types.Account.Info.List) {}
 }
 
 message AccountsSearchRequest {
@@ -31,4 +32,8 @@ message TeamResponse {
 message TeamPartnerListRequest {
   TeamRequest request = 1;
   uint32 step_sponsor_branch = 2;
+}
+message TeamTopRequest {
+  mlmbox.types.Account.Id view_partner = 1;
+  mlmbox.types.Sort partners_sort = 2;
 }
