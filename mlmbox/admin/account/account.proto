@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package mlmbox.admin.account;
+
+import "mlmbox/types/account.proto";
+
+service Account {
+  rpc Info (mlmbox.types.Account.Id) returns (mlmbox.types.Account) {}
+  rpc LoginSet (LoginSetRequest) returns (mlmbox.types.Account.Username) {}
+  rpc LoginClear (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Username) {}
+  rpc SponsorSet (SponsorSetRequest) returns (mlmbox.types.Account.Info) {}
+  rpc SponsorClear (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Info) {}
+}
+message LoginSetRequest {
+  mlmbox.types.Account.Id account = 1;
+  string login = 2;
+}
+message SponsorSetRequest {
+  mlmbox.types.Account.Id account = 1;
+  mlmbox.types.Account.Id sponsor = 2;
+}

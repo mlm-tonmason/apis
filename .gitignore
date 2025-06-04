@@ -2,5 +2,6 @@
 .idea/
 
 /mlmbox/*
+!/mlmbox/admin/
 !/mlmbox/client/
 !/mlmbox/types/

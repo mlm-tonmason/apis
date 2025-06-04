@@ -385,5 +385,66 @@ proto.mlmbox.client.network.NetworkPromiseClient.prototype.teamPartnerList =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.mlmbox.client.network.TeamTopRequest,
+ *   !proto.mlmbox.types.Account.Info.List>}
+ */
+const methodDescriptor_Network_TeamTop = new grpc.web.MethodDescriptor(
+  '/mlmbox.client.network.Network/TeamTop',
+  grpc.web.MethodType.UNARY,
+  proto.mlmbox.client.network.TeamTopRequest,
+  mlmbox_types_account_pb.Account.Info.List,
+  /**
+   * @param {!proto.mlmbox.client.network.TeamTopRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  mlmbox_types_account_pb.Account.Info.List.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.mlmbox.client.network.TeamTopRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.mlmbox.types.Account.Info.List)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.mlmbox.types.Account.Info.List>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.mlmbox.client.network.NetworkClient.prototype.teamTop =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/mlmbox.client.network.Network/TeamTop',
+      request,
+      metadata || {},
+      methodDescriptor_Network_TeamTop,
+      callback);
+};
+
+
+/**
+ * @param {!proto.mlmbox.client.network.TeamTopRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.mlmbox.types.Account.Info.List>}
+ *     Promise that resolves to the response
+ */
+proto.mlmbox.client.network.NetworkPromiseClient.prototype.teamTop =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/mlmbox.client.network.Network/TeamTop',
+      request,
+      metadata || {},
+      methodDescriptor_Network_TeamTop);
+};
+
+
 module.exports = proto.mlmbox.client.network;
 
