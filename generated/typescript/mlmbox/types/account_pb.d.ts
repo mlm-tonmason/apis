@@ -26,6 +26,12 @@ export class Account extends jspb.Message {
   getReferralChangeAccess(): boolean;
   setReferralChangeAccess(value: boolean): Account;
 
+  getAvaChangeAccess(): boolean;
+  setAvaChangeAccess(value: boolean): Account;
+
+  getAvaChangesQuantity(): number;
+  setAvaChangesQuantity(value: number): Account;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Account.AsObject;
   static toObject(includeInstance: boolean, msg: Account): Account.AsObject;
@@ -41,6 +47,8 @@ export namespace Account {
     rolesBitMask: number,
     locale: string,
     referralChangeAccess: boolean,
+    avaChangeAccess: boolean,
+    avaChangesQuantity: number,
   }
 
   export class Id extends jspb.Message {

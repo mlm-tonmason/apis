@@ -96,6 +96,8 @@ message Account {
   uint32 roles_bit_mask = 3;
   string locale = 4; // language identifier (en-US, ...)
   bool referral_change_access = 5;
+  bool ava_change_access = 6;
+  uint32 ava_changes_quantity = 7;
 }
 
 message Tree {
