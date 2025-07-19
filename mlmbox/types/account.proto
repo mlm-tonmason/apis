@@ -91,6 +91,13 @@ message Account {
     repeated uint32 channels = 10; // List of channel IDs in which the user participates
     mlmbox.types.League.Rank league_rank = 11;
   }
+  message Mentor {
+    uint32 ai_package_id = 1;
+    bool subscribed = 2;
+    uint32 subscribed_until = 3;
+    uint32 messages_limit = 4;
+    uint32 messages_used = 5;
+  }
   Info info = 1;
   repeated mlmbox.types.TreeAccount tree_accounts = 2;
   uint32 roles_bit_mask = 3;
@@ -98,6 +105,7 @@ message Account {
   bool referral_change_access = 5;
   bool ava_change_access = 6;
   uint32 ava_changes_quantity = 7;
+  Mentor mentor = 8;
 }
 
 message Tree {
