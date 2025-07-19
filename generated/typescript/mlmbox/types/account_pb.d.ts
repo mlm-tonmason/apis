@@ -32,6 +32,11 @@ export class Account extends jspb.Message {
   getAvaChangesQuantity(): number;
   setAvaChangesQuantity(value: number): Account;
 
+  getMentor(): Account.Mentor | undefined;
+  setMentor(value?: Account.Mentor): Account;
+  hasMentor(): boolean;
+  clearMentor(): Account;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Account.AsObject;
   static toObject(includeInstance: boolean, msg: Account): Account.AsObject;
@@ -49,6 +54,7 @@ export namespace Account {
     referralChangeAccess: boolean,
     avaChangeAccess: boolean,
     avaChangesQuantity: number,
+    mentor?: Account.Mentor.AsObject,
   }
 
   export class Id extends jspb.Message {
@@ -465,6 +471,41 @@ export namespace Account {
       }
     }
 
+  }
+
+
+  export class Mentor extends jspb.Message {
+    getAiPackageId(): number;
+    setAiPackageId(value: number): Mentor;
+
+    getSubscribed(): boolean;
+    setSubscribed(value: boolean): Mentor;
+
+    getSubscribedUntil(): number;
+    setSubscribedUntil(value: number): Mentor;
+
+    getMessagesLimit(): number;
+    setMessagesLimit(value: number): Mentor;
+
+    getMessagesUsed(): number;
+    setMessagesUsed(value: number): Mentor;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Mentor.AsObject;
+    static toObject(includeInstance: boolean, msg: Mentor): Mentor.AsObject;
+    static serializeBinaryToWriter(message: Mentor, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Mentor;
+    static deserializeBinaryFromReader(message: Mentor, reader: jspb.BinaryReader): Mentor;
+  }
+
+  export namespace Mentor {
+    export type AsObject = {
+      aiPackageId: number,
+      subscribed: boolean,
+      subscribedUntil: number,
+      messagesLimit: number,
+      messagesUsed: number,
+    }
   }
 
 }
