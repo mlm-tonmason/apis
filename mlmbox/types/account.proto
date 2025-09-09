@@ -197,6 +197,7 @@ message Matrix {
     string pool_value = 11;
     bool reinvest_enabled = 12;
     bool filled = 13;
+    uint32 created_at = 14;
   }
   message View {
     uint32 tree_id = 1;
