@@ -22,9 +22,9 @@ export class CreateRequest extends jspb.Message {
 
 export namespace CreateRequest {
   export type AsObject = {
-    title: string,
-    tag: string,
-  }
+    title: string;
+    tag: string;
+  };
 }
 
 export class AllRequest extends jspb.Message {
@@ -41,8 +41,8 @@ export class AllRequest extends jspb.Message {
 
 export namespace AllRequest {
   export type AsObject = {
-    onlyVisible: boolean,
-  }
+    onlyVisible: boolean;
+  };
 }
 
 export class UpdateInfoRequest extends jspb.Message {
@@ -65,10 +65,10 @@ export class UpdateInfoRequest extends jspb.Message {
 
 export namespace UpdateInfoRequest {
   export type AsObject = {
-    sourceId: number,
-    title: string,
-    tag: string,
-  }
+    sourceId: number;
+    title: string;
+    tag: string;
+  };
 }
 
 export class UpdateVisibleRequest extends jspb.Message {
@@ -88,9 +88,9 @@ export class UpdateVisibleRequest extends jspb.Message {
 
 export namespace UpdateVisibleRequest {
   export type AsObject = {
-    sourceId: number,
-    visible: boolean,
-  }
+    sourceId: number;
+    visible: boolean;
+  };
 }
 
 export class PartnersListRequest extends jspb.Message {
@@ -115,9 +115,9 @@ export class PartnersListRequest extends jspb.Message {
 
 export namespace PartnersListRequest {
   export type AsObject = {
-    sourceId: number,
-    stepPartnerId: number,
-    sortPartners?: mlmbox_types_sort_pb.Sort.AsObject,
-  }
+    sourceId: number;
+    stepPartnerId: number;
+    sortPartners?: mlmbox_types_sort_pb.Sort.AsObject;
+  };
 }
 

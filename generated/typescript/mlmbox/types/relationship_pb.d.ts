@@ -22,12 +22,12 @@ export class Relationship extends jspb.Message {
 
 export namespace Relationship {
   export type AsObject = {
-    kind: Relationship.Kind,
-    level: number,
-    branch: number,
-  }
+    kind: Relationship.Kind;
+    level: number;
+    branch: number;
+  };
 
-  export enum Kind { 
+  export const enum Kind {
     UNKNOWN = 0,
     PERSONAL = 1,
     TEAM = 2,

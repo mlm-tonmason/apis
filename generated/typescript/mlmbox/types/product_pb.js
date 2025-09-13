@@ -317,7 +317,7 @@ proto.mlmbox.types.Invoice.Request.prototype.toObject = function(opt_includeInst
  */
 proto.mlmbox.types.Invoice.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-    entitiesList: jspb.Message.toObjectList(msg.getEntitiesList(),
+entitiesList: jspb.Message.toObjectList(msg.getEntitiesList(),
     proto.mlmbox.types.Invoice.Request.Entity.toObject, includeInstance)
   };
 
@@ -432,8 +432,8 @@ proto.mlmbox.types.Invoice.Request.Entity.prototype.toObject = function(opt_incl
  */
 proto.mlmbox.types.Invoice.Request.Entity.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    quantity: jspb.Message.getFieldWithDefault(msg, 2, 0)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+quantity: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -637,9 +637,9 @@ proto.mlmbox.types.Invoice.PreviewResponse.prototype.toObject = function(opt_inc
  */
 proto.mlmbox.types.Invoice.PreviewResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Invoice.PreviewResponse.Item.toObject, includeInstance),
-    billAmountsList: jspb.Message.toObjectList(msg.getBillAmountsList(),
+billAmountsList: jspb.Message.toObjectList(msg.getBillAmountsList(),
     mlmbox_types_asset_pb.Asset.Amount.toObject, includeInstance)
   };
 
@@ -767,12 +767,12 @@ proto.mlmbox.types.Invoice.PreviewResponse.Item.prototype.toObject = function(op
  */
 proto.mlmbox.types.Invoice.PreviewResponse.Item.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    assetId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    priceValue: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    unlockValue: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    amountValue: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    quantity: jspb.Message.getFieldWithDefault(msg, 6, 0)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+assetId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+priceValue: jspb.Message.getFieldWithDefault(msg, 3, ""),
+unlockValue: jspb.Message.getFieldWithDefault(msg, 4, ""),
+amountValue: jspb.Message.getFieldWithDefault(msg, 5, ""),
+quantity: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -1130,7 +1130,7 @@ proto.mlmbox.types.Invoice.VerifiedResponse.prototype.toObject = function(opt_in
  */
 proto.mlmbox.types.Invoice.VerifiedResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Invoice.VerifiedResponse.Item.toObject, includeInstance)
   };
 
@@ -1245,11 +1245,11 @@ proto.mlmbox.types.Invoice.VerifiedResponse.Item.prototype.toObject = function(o
  */
 proto.mlmbox.types.Invoice.VerifiedResponse.Item.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    treeEntityId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    positionId: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    isBooking: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+treeEntityId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+positionId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+isBooking: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
   };
 
   if (includeInstance) {

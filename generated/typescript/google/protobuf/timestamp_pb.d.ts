@@ -19,8 +19,8 @@ export class Timestamp extends jspb.Message {
 
 export namespace Timestamp {
   export type AsObject = {
-    seconds: number,
-    nanos: number,
-  }
+    seconds: number;
+    nanos: number;
+  };
 }
 

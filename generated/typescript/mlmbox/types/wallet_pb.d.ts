@@ -27,9 +27,9 @@ export class Wallet extends jspb.Message {
 
 export namespace Wallet {
   export type AsObject = {
-    assetsList: Array<Wallet.Asset.AsObject>,
-    processingsList: Array<Wallet.Processing.AsObject>,
-  }
+    assetsList: Array<Wallet.Asset.AsObject>;
+    processingsList: Array<Wallet.Processing.AsObject>;
+  };
 
   export class Asset extends jspb.Message {
     getAssetId(): number;
@@ -64,13 +64,13 @@ export namespace Wallet {
 
   export namespace Asset {
     export type AsObject = {
-      assetId: number,
-      assetBalance: string,
-      transactionsList: Array<Wallet.Asset.Transaction.AsObject>,
-      incomeBonusesStatistics?: mlmbox_types_bonus_pb.Bonus.Summary.AsObject,
-      settingsTransferEnabled: boolean,
-      settingsTransferLimitMin: string,
-    }
+      assetId: number;
+      assetBalance: string;
+      transactionsList: Array<Wallet.Asset.Transaction.AsObject>;
+      incomeBonusesStatistics?: mlmbox_types_bonus_pb.Bonus.Summary.AsObject;
+      settingsTransferEnabled: boolean;
+      settingsTransferLimitMin: string;
+    };
 
     export class List extends jspb.Message {
       getItemsList(): Array<Wallet.Asset>;
@@ -88,8 +88,8 @@ export namespace Wallet {
 
     export namespace List {
       export type AsObject = {
-        itemsList: Array<Wallet.Asset.AsObject>,
-      }
+        itemsList: Array<Wallet.Asset.AsObject>;
+      };
     }
 
 
@@ -130,15 +130,15 @@ export namespace Wallet {
 
     export namespace Transaction {
       export type AsObject = {
-        transactionId: number,
-        kindId: Wallet.Asset.Transaction.Kind.Id,
-        statusId: mlmbox_types_status_pb.Status.Transaction,
-        amount: string,
-        fee: string,
-        balance: string,
-        createdAt: number,
-        metadata?: Wallet.Asset.Transaction.Metadata.AsObject,
-      }
+        transactionId: number;
+        kindId: Wallet.Asset.Transaction.Kind.Id;
+        statusId: mlmbox_types_status_pb.Status.Transaction;
+        amount: string;
+        fee: string;
+        balance: string;
+        createdAt: number;
+        metadata?: Wallet.Asset.Transaction.Metadata.AsObject;
+      };
 
       export class Id extends jspb.Message {
         getAssetId(): number;
@@ -157,9 +157,9 @@ export namespace Wallet {
 
       export namespace Id {
         export type AsObject = {
-          assetId: number,
-          transactionId: number,
-        }
+          assetId: number;
+          transactionId: number;
+        };
       }
 
 
@@ -177,10 +177,10 @@ export namespace Wallet {
 
       export namespace Kind {
         export type AsObject = {
-          kindId: Wallet.Asset.Transaction.Kind.Id,
-        }
+          kindId: Wallet.Asset.Transaction.Kind.Id;
+        };
 
-        export enum Id { 
+        export const enum Id {
           UNKNOWN = 0,
           CANCELED = 1,
           EARNED = 2,
@@ -214,14 +214,16 @@ export namespace Wallet {
 
       export namespace List {
         export type AsObject = {
-          itemsList: Array<Wallet.Asset.Transaction.AsObject>,
-        }
+          itemsList: Array<Wallet.Asset.Transaction.AsObject>;
+        };
       }
 
 
       export class Metadata extends jspb.Message {
         getDescription(): string;
         setDescription(value: string): Metadata;
+        hasDescription(): boolean;
+        clearDescription(): Metadata;
 
         getDeposit(): Wallet.Asset.Transaction.Metadata.Deposit | undefined;
         setDeposit(value?: Wallet.Asset.Transaction.Metadata.Deposit): Metadata;
@@ -235,9 +237,13 @@ export namespace Wallet {
 
         getKeeperBookingTreeId(): number;
         setKeeperBookingTreeId(value: number): Metadata;
+        hasKeeperBookingTreeId(): boolean;
+        clearKeeperBookingTreeId(): Metadata;
 
         getKeeperInitialTreeId(): number;
         setKeeperInitialTreeId(value: number): Metadata;
+        hasKeeperInitialTreeId(): boolean;
+        clearKeeperInitialTreeId(): Metadata;
 
         getKeeperReinvest(): Wallet.Asset.Transaction.Metadata.PositionHeader | undefined;
         setKeeperReinvest(value?: Wallet.Asset.Transaction.Metadata.PositionHeader): Metadata;
@@ -256,6 +262,8 @@ export namespace Wallet {
 
         getAccountId(): number;
         setAccountId(value: number): Metadata;
+        hasAccountId(): boolean;
+        clearAccountId(): Metadata;
 
         getAccount(): mlmbox_types_account_pb.Account.Info | undefined;
         setAccount(value?: mlmbox_types_account_pb.Account.Info): Metadata;
@@ -264,6 +272,8 @@ export namespace Wallet {
 
         getTransactionId(): number;
         setTransactionId(value: number): Metadata;
+        hasTransactionId(): boolean;
+        clearTransactionId(): Metadata;
 
         getAmount(): mlmbox_types_asset_pb.Asset.Amount | undefined;
         setAmount(value?: mlmbox_types_asset_pb.Asset.Amount): Metadata;
@@ -282,19 +292,19 @@ export namespace Wallet {
 
       export namespace Metadata {
         export type AsObject = {
-          description: string,
-          deposit?: Wallet.Asset.Transaction.Metadata.Deposit.AsObject,
-          withdrawal?: Wallet.Asset.Transaction.Metadata.Withdrawal.AsObject,
-          keeperBookingTreeId: number,
-          keeperInitialTreeId: number,
-          keeperReinvest?: Wallet.Asset.Transaction.Metadata.PositionHeader.AsObject,
-          positionCreated?: Wallet.Asset.Transaction.Metadata.PositionHeader.AsObject,
-          bonus?: Wallet.Asset.Transaction.Metadata.Bonus.AsObject,
-          accountId: number,
-          account?: mlmbox_types_account_pb.Account.Info.AsObject,
-          transactionId: number,
-          amount?: mlmbox_types_asset_pb.Asset.Amount.AsObject,
-        }
+          description?: string;
+          deposit?: Wallet.Asset.Transaction.Metadata.Deposit.AsObject;
+          withdrawal?: Wallet.Asset.Transaction.Metadata.Withdrawal.AsObject;
+          keeperBookingTreeId?: number;
+          keeperInitialTreeId?: number;
+          keeperReinvest?: Wallet.Asset.Transaction.Metadata.PositionHeader.AsObject;
+          positionCreated?: Wallet.Asset.Transaction.Metadata.PositionHeader.AsObject;
+          bonus?: Wallet.Asset.Transaction.Metadata.Bonus.AsObject;
+          accountId?: number;
+          account?: mlmbox_types_account_pb.Account.Info.AsObject;
+          transactionId?: number;
+          amount?: mlmbox_types_asset_pb.Asset.Amount.AsObject;
+        };
 
         export class Deposit extends jspb.Message {
           getProcessingId(): number;
@@ -313,9 +323,9 @@ export namespace Wallet {
 
         export namespace Deposit {
           export type AsObject = {
-            processingId: number,
-            hash: string,
-          }
+            processingId: number;
+            hash: string;
+          };
         }
 
 
@@ -342,11 +352,11 @@ export namespace Wallet {
 
         export namespace Withdrawal {
           export type AsObject = {
-            processingId: number,
-            address: string,
-            memo: string,
-            hash: string,
-          }
+            processingId: number;
+            address: string;
+            memo: string;
+            hash: string;
+          };
         }
 
 
@@ -370,10 +380,10 @@ export namespace Wallet {
 
         export namespace PositionHeader {
           export type AsObject = {
-            treeId: number,
-            positionId: number,
-            treeAccountEntityId: number,
-          }
+            treeId: number;
+            positionId: number;
+            treeAccountEntityId: number;
+          };
         }
 
 
@@ -383,6 +393,8 @@ export namespace Wallet {
 
           getDescription(): string;
           setDescription(value: string): Bonus;
+          hasDescription(): boolean;
+          clearDescription(): Bonus;
 
           getMatrix(): Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix | undefined;
           setMatrix(value?: Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix): Bonus;
@@ -396,6 +408,8 @@ export namespace Wallet {
 
           getQuestId(): number;
           setQuestId(value: number): Bonus;
+          hasQuestId(): boolean;
+          clearQuestId(): Bonus;
 
           getSourceCase(): Bonus.SourceCase;
 
@@ -409,12 +423,12 @@ export namespace Wallet {
 
         export namespace Bonus {
           export type AsObject = {
-            bonusId: mlmbox_types_bonus_pb.Bonus.Kind.Id,
-            description: string,
-            matrix?: Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.AsObject,
-            direct?: Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.AsObject,
-            questId: number,
-          }
+            bonusId: mlmbox_types_bonus_pb.Bonus.Kind.Id;
+            description?: string;
+            matrix?: Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.AsObject;
+            direct?: Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.AsObject;
+            questId?: number;
+          };
 
           export class SourceMatrix extends jspb.Message {
             getTreeId(): number;
@@ -445,13 +459,13 @@ export namespace Wallet {
 
           export namespace SourceMatrix {
             export type AsObject = {
-              treeId: number,
-              targetPositionId: number,
-              targetTreeAccountEntityId: number,
-              sourcePositionId: number,
-              sourceTreeAccountEntityId: number,
-              level: number,
-            }
+              treeId: number;
+              targetPositionId: number;
+              targetTreeAccountEntityId: number;
+              sourcePositionId: number;
+              sourceTreeAccountEntityId: number;
+              level: number;
+            };
           }
 
 
@@ -478,15 +492,15 @@ export namespace Wallet {
 
           export namespace SourceDirect {
             export type AsObject = {
-              treeId: number,
-              accountId: number,
-              positionId: number,
-              treeAccountEntityId: number,
-            }
+              treeId: number;
+              accountId: number;
+              positionId: number;
+              treeAccountEntityId: number;
+            };
           }
 
 
-          export enum SourceCase { 
+          export const enum SourceCase {
             SOURCE_NOT_SET = 0,
             DESCRIPTION = 2,
             MATRIX = 3,
@@ -496,7 +510,7 @@ export namespace Wallet {
         }
 
 
-        export enum UniqueFieldCase { 
+        export const enum UniqueFieldCase {
           UNIQUE_FIELD_NOT_SET = 0,
           DESCRIPTION = 1,
           DEPOSIT = 2,
@@ -540,17 +554,21 @@ export namespace Wallet {
 
   export namespace Processing {
     export type AsObject = {
-      processingId: number,
-      processingName: string,
-      assetsList: Array<Wallet.Processing.Asset.AsObject>,
-    }
+      processingId: number;
+      processingName: string;
+      assetsList: Array<Wallet.Processing.Asset.AsObject>;
+    };
 
     export class Id extends jspb.Message {
       getProcessingId(): number;
       setProcessingId(value: number): Id;
+      hasProcessingId(): boolean;
+      clearProcessingId(): Id;
 
       getProcessingName(): string;
       setProcessingName(value: string): Id;
+      hasProcessingName(): boolean;
+      clearProcessingName(): Id;
 
       getUniqueFieldCase(): Id.UniqueFieldCase;
 
@@ -564,11 +582,11 @@ export namespace Wallet {
 
     export namespace Id {
       export type AsObject = {
-        processingId: number,
-        processingName: string,
-      }
+        processingId?: number;
+        processingName?: string;
+      };
 
-      export enum UniqueFieldCase { 
+      export const enum UniqueFieldCase {
         UNIQUE_FIELD_NOT_SET = 0,
         PROCESSING_ID = 1,
         PROCESSING_NAME = 2,
@@ -608,14 +626,14 @@ export namespace Wallet {
 
     export namespace Asset {
       export type AsObject = {
-        assetId: number,
-        settingsDepositEnabled: boolean,
-        settingsWithdrawalEnabled: boolean,
-        settingsWithdrawalFeeBase: string,
-        settingsWithdrawalFeePercent: string,
-        settingsWithdrawalOperationValueMin: string,
-        settingsWithdrawalOperationValueMax: string,
-      }
+        assetId: number;
+        settingsDepositEnabled: boolean;
+        settingsWithdrawalEnabled: boolean;
+        settingsWithdrawalFeeBase: string;
+        settingsWithdrawalFeePercent: string;
+        settingsWithdrawalOperationValueMin: string;
+        settingsWithdrawalOperationValueMax: string;
+      };
 
       export class Id extends jspb.Message {
         getProcessingId(): Wallet.Processing.Id | undefined;
@@ -638,9 +656,9 @@ export namespace Wallet {
 
       export namespace Id {
         export type AsObject = {
-          processingId?: Wallet.Processing.Id.AsObject,
-          assetId?: mlmbox_types_asset_pb.Asset.Id.AsObject,
-        }
+          processingId?: Wallet.Processing.Id.AsObject;
+          assetId?: mlmbox_types_asset_pb.Asset.Id.AsObject;
+        };
       }
 
 
@@ -660,8 +678,8 @@ export namespace Wallet {
 
       export namespace WithdrawalAddressHistory {
         export type AsObject = {
-          itemsList: Array<Wallet.Processing.Asset.WithdrawalAddressHistory.Entity.AsObject>,
-        }
+          itemsList: Array<Wallet.Processing.Asset.WithdrawalAddressHistory.Entity.AsObject>;
+        };
 
         export class Entity extends jspb.Message {
           getAddress(): string;
@@ -680,9 +698,9 @@ export namespace Wallet {
 
         export namespace Entity {
           export type AsObject = {
-            address: string,
-            lastUsedAt: number,
-          }
+            address: string;
+            lastUsedAt: number;
+          };
         }
 
       }
@@ -706,8 +724,8 @@ export namespace Wallet {
 
     export namespace List {
       export type AsObject = {
-        itemsList: Array<Wallet.Processing.AsObject>,
-      }
+        itemsList: Array<Wallet.Processing.AsObject>;
+      };
     }
 
   }

@@ -13,7 +13,7 @@ export class Bonus extends jspb.Message {
 
 export namespace Bonus {
   export type AsObject = {
-  }
+  };
 
   export class Kind extends jspb.Message {
     getKindId(): Bonus.Kind.Id;
@@ -29,10 +29,10 @@ export namespace Bonus {
 
   export namespace Kind {
     export type AsObject = {
-      kindId: Bonus.Kind.Id,
-    }
+      kindId: Bonus.Kind.Id;
+    };
 
-    export enum Id { 
+    export const enum Id {
       UNKNOWN = 0,
       GIFT = 1,
       BONUS_DIRECT = 2,
@@ -59,9 +59,9 @@ export namespace Bonus {
 
   export namespace LevelPercent {
     export type AsObject = {
-      level: number,
-      percent: string,
-    }
+      level: number;
+      percent: string;
+    };
   }
 
 
@@ -82,9 +82,9 @@ export namespace Bonus {
 
   export namespace Value {
     export type AsObject = {
-      bonusId: Bonus.Kind.Id,
-      earnedValue: string,
-    }
+      bonusId: Bonus.Kind.Id;
+      earnedValue: string;
+    };
 
     export class Asset extends jspb.Message {
       getAssetId(): number;
@@ -105,9 +105,9 @@ export namespace Bonus {
 
     export namespace Asset {
       export type AsObject = {
-        assetId: number,
-        value?: Bonus.Value.AsObject,
-      }
+        assetId: number;
+        value?: Bonus.Value.AsObject;
+      };
     }
 
   }
@@ -132,9 +132,9 @@ export namespace Bonus {
 
   export namespace Summary {
     export type AsObject = {
-      earnedValue: string,
-      valuesList: Array<Bonus.Value.AsObject>,
-    }
+      earnedValue: string;
+      valuesList: Array<Bonus.Value.AsObject>;
+    };
 
     export class Asset extends jspb.Message {
       getAssetId(): number;
@@ -155,9 +155,9 @@ export namespace Bonus {
 
     export namespace Asset {
       export type AsObject = {
-        assetId: number,
-        summary?: Bonus.Summary.AsObject,
-      }
+        assetId: number;
+        summary?: Bonus.Summary.AsObject;
+      };
     }
 
   }

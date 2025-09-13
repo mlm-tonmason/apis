@@ -25,9 +25,9 @@ export class StateGetRequest extends jspb.Message {
 
 export namespace StateGetRequest {
   export type AsObject = {
-    leagueId: number,
-    sortRanks?: mlmbox_types_sort_pb.Sort.AsObject,
-  }
+    leagueId: number;
+    sortRanks?: mlmbox_types_sort_pb.Sort.AsObject;
+  };
 }
 
 export class StateGetResponse extends jspb.Message {
@@ -51,9 +51,9 @@ export class StateGetResponse extends jspb.Message {
 
 export namespace StateGetResponse {
   export type AsObject = {
-    header?: mlmbox_types_league_pb.League.Header.AsObject,
-    accountsList: Array<mlmbox_types_account_pb.Account.Info.AsObject>,
-  }
+    header?: mlmbox_types_league_pb.League.Header.AsObject;
+    accountsList: Array<mlmbox_types_account_pb.Account.Info.AsObject>;
+  };
 }
 
 export class StateRankListRequest extends jspb.Message {
@@ -78,9 +78,9 @@ export class StateRankListRequest extends jspb.Message {
 
 export namespace StateRankListRequest {
   export type AsObject = {
-    leagueId: number,
-    stepRank: number,
-    sortRanks?: mlmbox_types_sort_pb.Sort.AsObject,
-  }
+    leagueId: number;
+    stepRank: number;
+    sortRanks?: mlmbox_types_sort_pb.Sort.AsObject;
+  };
 }
 

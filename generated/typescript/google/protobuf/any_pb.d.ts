@@ -21,8 +21,8 @@ export class Any extends jspb.Message {
 
 export namespace Any {
   export type AsObject = {
-    typeUrl: string,
-    value: Uint8Array | string,
-  }
+    typeUrl: string;
+    value: Uint8Array | string;
+  };
 }
 

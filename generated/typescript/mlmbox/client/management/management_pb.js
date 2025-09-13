@@ -169,8 +169,8 @@ proto.mlmbox.client.management.CreateRequest.prototype.toObject = function(opt_i
  */
 proto.mlmbox.client.management.CreateRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    title: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    tag: jspb.Message.getFieldWithDefault(msg, 2, "")
+title: jspb.Message.getFieldWithDefault(msg, 1, ""),
+tag: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -329,7 +329,7 @@ proto.mlmbox.client.management.AllRequest.prototype.toObject = function(opt_incl
  */
 proto.mlmbox.client.management.AllRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    onlyVisible: jspb.Message.getBooleanFieldWithDefault(msg, 1, false)
+onlyVisible: jspb.Message.getBooleanFieldWithDefault(msg, 1, false)
   };
 
   if (includeInstance) {
@@ -459,9 +459,9 @@ proto.mlmbox.client.management.UpdateInfoRequest.prototype.toObject = function(o
  */
 proto.mlmbox.client.management.UpdateInfoRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    title: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    tag: jspb.Message.getFieldWithDefault(msg, 3, "")
+sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+title: jspb.Message.getFieldWithDefault(msg, 2, ""),
+tag: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -649,8 +649,8 @@ proto.mlmbox.client.management.UpdateVisibleRequest.prototype.toObject = functio
  */
 proto.mlmbox.client.management.UpdateVisibleRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    visible: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
+sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+visible: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
   };
 
   if (includeInstance) {
@@ -809,9 +809,9 @@ proto.mlmbox.client.management.PartnersListRequest.prototype.toObject = function
  */
 proto.mlmbox.client.management.PartnersListRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    stepPartnerId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    sortPartners: (f = msg.getSortPartners()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f)
+sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+stepPartnerId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+sortPartners: (f = msg.getSortPartners()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

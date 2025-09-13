@@ -224,9 +224,9 @@ proto.mlmbox.client.finance.WalletAssetGetRequest.prototype.toObject = function(
  */
 proto.mlmbox.client.finance.WalletAssetGetRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: (f = msg.getAssetId()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f),
-    sortTransactions: (f = msg.getSortTransactions()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f),
-    filterKindIdsList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
+assetId: (f = msg.getAssetId()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f),
+sortTransactions: (f = msg.getSortTransactions()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f),
+filterKindIdsList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -484,10 +484,10 @@ proto.mlmbox.client.finance.WalletAssetTransactionListRequest.prototype.toObject
  */
 proto.mlmbox.client.finance.WalletAssetTransactionListRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: (f = msg.getAssetId()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f),
-    stepTransactionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    sortTransactions: (f = msg.getSortTransactions()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f),
-    filterKindIdsList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f
+assetId: (f = msg.getAssetId()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f),
+stepTransactionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+sortTransactions: (f = msg.getSortTransactions()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f),
+filterKindIdsList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -767,8 +767,8 @@ proto.mlmbox.client.finance.WalletDepositAddressResponse.prototype.toObject = fu
  */
 proto.mlmbox.client.finance.WalletDepositAddressResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    address: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    memo: jspb.Message.getFieldWithDefault(msg, 2, "")
+address: jspb.Message.getFieldWithDefault(msg, 1, ""),
+memo: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -927,8 +927,8 @@ proto.mlmbox.client.finance.TransferRequest.prototype.toObject = function(opt_in
  */
 proto.mlmbox.client.finance.TransferRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
-    operationAmount: (f = msg.getOperationAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f)
+account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
+operationAmount: (f = msg.getOperationAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1129,8 +1129,8 @@ proto.mlmbox.client.finance.WalletValidateAddressRequest.prototype.toObject = fu
  */
 proto.mlmbox.client.finance.WalletValidateAddressRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    processingId: (f = msg.getProcessingId()) && mlmbox_types_wallet_pb.Wallet.Processing.Id.toObject(includeInstance, f),
-    address: jspb.Message.getFieldWithDefault(msg, 2, "")
+processingId: (f = msg.getProcessingId()) && mlmbox_types_wallet_pb.Wallet.Processing.Id.toObject(includeInstance, f),
+address: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -1310,8 +1310,8 @@ proto.mlmbox.client.finance.WalletValidateAddressResponse.prototype.toObject = f
  */
 proto.mlmbox.client.finance.WalletValidateAddressResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    address: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    validated: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
+address: jspb.Message.getFieldWithDefault(msg, 1, ""),
+validated: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
   };
 
   if (includeInstance) {
@@ -1470,11 +1470,11 @@ proto.mlmbox.client.finance.WalletWithdrawalRequest.prototype.toObject = functio
  */
 proto.mlmbox.client.finance.WalletWithdrawalRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    processingId: (f = msg.getProcessingId()) && mlmbox_types_wallet_pb.Wallet.Processing.Id.toObject(includeInstance, f),
-    operationAmount: (f = msg.getOperationAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f),
-    address: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    memo: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    operationFeeFromBody: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
+processingId: (f = msg.getProcessingId()) && mlmbox_types_wallet_pb.Wallet.Processing.Id.toObject(includeInstance, f),
+operationAmount: (f = msg.getOperationAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f),
+address: jspb.Message.getFieldWithDefault(msg, 3, ""),
+memo: jspb.Message.getFieldWithDefault(msg, 4, ""),
+operationFeeFromBody: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
   };
 
   if (includeInstance) {

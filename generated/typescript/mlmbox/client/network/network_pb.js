@@ -167,8 +167,8 @@ proto.mlmbox.client.network.AccountsSearchRequest.prototype.toObject = function(
  */
 proto.mlmbox.client.network.AccountsSearchRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    loginPrefix: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    limit: jspb.Message.getFieldWithDefault(msg, 2, 0)
+loginPrefix: jspb.Message.getFieldWithDefault(msg, 1, ""),
+limit: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -327,9 +327,9 @@ proto.mlmbox.client.network.TeamRequest.prototype.toObject = function(opt_includ
  */
 proto.mlmbox.client.network.TeamRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    viewPartner: (f = msg.getViewPartner()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
-    partnersSort: (f = msg.getPartnersSort()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f),
-    filterTreeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 3, 0)
+viewPartner: (f = msg.getViewPartner()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
+partnersSort: (f = msg.getPartnersSort()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f),
+filterTreeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -566,12 +566,12 @@ proto.mlmbox.client.network.TeamResponse.prototype.toObject = function(opt_inclu
  */
 proto.mlmbox.client.network.TeamResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Info.toObject(includeInstance, f),
-    sponsorsList: jspb.Message.toObjectList(msg.getSponsorsList(),
+account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Info.toObject(includeInstance, f),
+sponsorsList: jspb.Message.toObjectList(msg.getSponsorsList(),
     mlmbox_types_account_pb.Account.Info.toObject, includeInstance),
-    partnersList: jspb.Message.toObjectList(msg.getPartnersList(),
+partnersList: jspb.Message.toObjectList(msg.getPartnersList(),
     mlmbox_types_account_pb.Account.Info.toObject, includeInstance),
-    accountTreeAccountsList: jspb.Message.toObjectList(msg.getAccountTreeAccountsList(),
+accountTreeAccountsList: jspb.Message.toObjectList(msg.getAccountTreeAccountsList(),
     mlmbox_types_account_pb.TreeAccount.Set.toObject, includeInstance)
   };
 
@@ -876,8 +876,8 @@ proto.mlmbox.client.network.TeamPartnerListRequest.prototype.toObject = function
  */
 proto.mlmbox.client.network.TeamPartnerListRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    request: (f = msg.getRequest()) && proto.mlmbox.client.network.TeamRequest.toObject(includeInstance, f),
-    stepSponsorBranch: jspb.Message.getFieldWithDefault(msg, 2, 0)
+request: (f = msg.getRequest()) && proto.mlmbox.client.network.TeamRequest.toObject(includeInstance, f),
+stepSponsorBranch: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -1057,8 +1057,8 @@ proto.mlmbox.client.network.TeamTopRequest.prototype.toObject = function(opt_inc
  */
 proto.mlmbox.client.network.TeamTopRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    viewPartner: (f = msg.getViewPartner()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
-    partnersSort: (f = msg.getPartnersSort()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f)
+viewPartner: (f = msg.getViewPartner()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
+partnersSort: (f = msg.getPartnersSort()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

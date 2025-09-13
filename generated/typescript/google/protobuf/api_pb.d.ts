@@ -44,14 +44,14 @@ export class Api extends jspb.Message {
 
 export namespace Api {
   export type AsObject = {
-    name: string,
-    methodsList: Array<Method.AsObject>,
-    optionsList: Array<google_protobuf_type_pb.Option.AsObject>,
-    version: string,
-    sourceContext?: google_protobuf_source_context_pb.SourceContext.AsObject,
-    mixinsList: Array<Mixin.AsObject>,
-    syntax: google_protobuf_type_pb.Syntax,
-  }
+    name: string;
+    methodsList: Array<Method.AsObject>;
+    optionsList: Array<google_protobuf_type_pb.Option.AsObject>;
+    version: string;
+    sourceContext?: google_protobuf_source_context_pb.SourceContext.AsObject;
+    mixinsList: Array<Mixin.AsObject>;
+    syntax: google_protobuf_type_pb.Syntax;
+  };
 }
 
 export class Method extends jspb.Message {
@@ -88,14 +88,14 @@ export class Method extends jspb.Message {
 
 export namespace Method {
   export type AsObject = {
-    name: string,
-    requestTypeUrl: string,
-    requestStreaming: boolean,
-    responseTypeUrl: string,
-    responseStreaming: boolean,
-    optionsList: Array<google_protobuf_type_pb.Option.AsObject>,
-    syntax: google_protobuf_type_pb.Syntax,
-  }
+    name: string;
+    requestTypeUrl: string;
+    requestStreaming: boolean;
+    responseTypeUrl: string;
+    responseStreaming: boolean;
+    optionsList: Array<google_protobuf_type_pb.Option.AsObject>;
+    syntax: google_protobuf_type_pb.Syntax;
+  };
 }
 
 export class Mixin extends jspb.Message {
@@ -115,8 +115,8 @@ export class Mixin extends jspb.Message {
 
 export namespace Mixin {
   export type AsObject = {
-    name: string,
-    root: string,
-  }
+    name: string;
+    root: string;
+  };
 }
 

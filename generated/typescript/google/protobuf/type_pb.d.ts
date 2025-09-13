@@ -41,13 +41,13 @@ export class Type extends jspb.Message {
 
 export namespace Type {
   export type AsObject = {
-    name: string,
-    fieldsList: Array<Field.AsObject>,
-    oneofsList: Array<string>,
-    optionsList: Array<Option.AsObject>,
-    sourceContext?: google_protobuf_source_context_pb.SourceContext.AsObject,
-    syntax: Syntax,
-  }
+    name: string;
+    fieldsList: Array<Field.AsObject>;
+    oneofsList: Array<string>;
+    optionsList: Array<Option.AsObject>;
+    sourceContext?: google_protobuf_source_context_pb.SourceContext.AsObject;
+    syntax: Syntax;
+  };
 }
 
 export class Field extends jspb.Message {
@@ -93,19 +93,19 @@ export class Field extends jspb.Message {
 
 export namespace Field {
   export type AsObject = {
-    kind: Field.Kind,
-    cardinality: Field.Cardinality,
-    number: number,
-    name: string,
-    typeUrl: string,
-    oneofIndex: number,
-    packed: boolean,
-    optionsList: Array<Option.AsObject>,
-    jsonName: string,
-    defaultValue: string,
-  }
+    kind: Field.Kind;
+    cardinality: Field.Cardinality;
+    number: number;
+    name: string;
+    typeUrl: string;
+    oneofIndex: number;
+    packed: boolean;
+    optionsList: Array<Option.AsObject>;
+    jsonName: string;
+    defaultValue: string;
+  };
 
-  export enum Kind { 
+  export const enum Kind {
     TYPE_UNKNOWN = 0,
     TYPE_DOUBLE = 1,
     TYPE_FLOAT = 2,
@@ -127,7 +127,7 @@ export namespace Field {
     TYPE_SINT64 = 18,
   }
 
-  export enum Cardinality { 
+  export const enum Cardinality {
     CARDINALITY_UNKNOWN = 0,
     CARDINALITY_OPTIONAL = 1,
     CARDINALITY_REQUIRED = 2,
@@ -167,12 +167,12 @@ export class Enum extends jspb.Message {
 
 export namespace Enum {
   export type AsObject = {
-    name: string,
-    enumvalueList: Array<EnumValue.AsObject>,
-    optionsList: Array<Option.AsObject>,
-    sourceContext?: google_protobuf_source_context_pb.SourceContext.AsObject,
-    syntax: Syntax,
-  }
+    name: string;
+    enumvalueList: Array<EnumValue.AsObject>;
+    optionsList: Array<Option.AsObject>;
+    sourceContext?: google_protobuf_source_context_pb.SourceContext.AsObject;
+    syntax: Syntax;
+  };
 }
 
 export class EnumValue extends jspb.Message {
@@ -197,10 +197,10 @@ export class EnumValue extends jspb.Message {
 
 export namespace EnumValue {
   export type AsObject = {
-    name: string,
-    number: number,
-    optionsList: Array<Option.AsObject>,
-  }
+    name: string;
+    number: number;
+    optionsList: Array<Option.AsObject>;
+  };
 }
 
 export class Option extends jspb.Message {
@@ -222,12 +222,12 @@ export class Option extends jspb.Message {
 
 export namespace Option {
   export type AsObject = {
-    name: string,
-    value?: google_protobuf_any_pb.Any.AsObject,
-  }
+    name: string;
+    value?: google_protobuf_any_pb.Any.AsObject;
+  };
 }
 
-export enum Syntax { 
+export const enum Syntax {
   SYNTAX_PROTO2 = 0,
   SYNTAX_PROTO3 = 1,
 }

@@ -144,10 +144,10 @@ proto.mlmbox.types.AssetPair.prototype.toObject = function(opt_includeInstance) 
  */
 proto.mlmbox.types.AssetPair.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetPairId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    assetPairName: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    sourceAssetId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    targetAssetId: jspb.Message.getFieldWithDefault(msg, 4, 0)
+assetPairId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+assetPairName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+sourceAssetId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+targetAssetId: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -319,9 +319,9 @@ proto.mlmbox.types.AssetPair.Id.prototype.toObject = function(opt_includeInstanc
  */
 proto.mlmbox.types.AssetPair.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetPairId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    assetPairName: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    assets: (f = msg.getAssets()) && proto.mlmbox.types.AssetPair.Id.Assets.toObject(includeInstance, f)
+assetPairId: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+assetPairName: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+assets: (f = msg.getAssets()) && proto.mlmbox.types.AssetPair.Id.Assets.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -457,8 +457,8 @@ proto.mlmbox.types.AssetPair.Id.Assets.prototype.toObject = function(opt_include
  */
 proto.mlmbox.types.AssetPair.Id.Assets.toObject = function(includeInstance, msg) {
   var f, obj = {
-    sourceAsset: (f = msg.getSourceAsset()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f),
-    targetAsset: (f = msg.getTargetAsset()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f)
+sourceAsset: (f = msg.getSourceAsset()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f),
+targetAsset: (f = msg.getTargetAsset()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -775,7 +775,7 @@ proto.mlmbox.types.AssetPair.List.prototype.toObject = function(opt_includeInsta
  */
 proto.mlmbox.types.AssetPair.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.AssetPair.toObject, includeInstance)
   };
 

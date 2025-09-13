@@ -47,25 +47,31 @@ export class Account extends jspb.Message {
 
 export namespace Account {
   export type AsObject = {
-    info?: Account.Info.AsObject,
-    treeAccountsList: Array<TreeAccount.AsObject>,
-    rolesBitMask: number,
-    locale: string,
-    referralChangeAccess: boolean,
-    avaChangeAccess: boolean,
-    avaChangesQuantity: number,
-    mentor?: Account.Mentor.AsObject,
-  }
+    info?: Account.Info.AsObject;
+    treeAccountsList: Array<TreeAccount.AsObject>;
+    rolesBitMask: number;
+    locale: string;
+    referralChangeAccess: boolean;
+    avaChangeAccess: boolean;
+    avaChangesQuantity: number;
+    mentor?: Account.Mentor.AsObject;
+  };
 
   export class Id extends jspb.Message {
     getAccountId(): number;
     setAccountId(value: number): Id;
+    hasAccountId(): boolean;
+    clearAccountId(): Id;
 
     getAccountLogin(): string;
     setAccountLogin(value: string): Id;
+    hasAccountLogin(): boolean;
+    clearAccountLogin(): Id;
 
     getRefLinkId(): string;
     setRefLinkId(value: string): Id;
+    hasRefLinkId(): boolean;
+    clearRefLinkId(): Id;
 
     getUniqueFieldCase(): Id.UniqueFieldCase;
 
@@ -79,12 +85,12 @@ export namespace Account {
 
   export namespace Id {
     export type AsObject = {
-      accountId: number,
-      accountLogin: string,
-      refLinkId: string,
-    }
+      accountId?: number;
+      accountLogin?: string;
+      refLinkId?: string;
+    };
 
-    export enum UniqueFieldCase { 
+    export const enum UniqueFieldCase {
       UNIQUE_FIELD_NOT_SET = 0,
       ACCOUNT_ID = 1,
       ACCOUNT_LOGIN = 2,
@@ -110,9 +116,9 @@ export namespace Account {
 
   export namespace RefLink {
     export type AsObject = {
-      accountId: number,
-      sourceId: number,
-    }
+      accountId: number;
+      sourceId: number;
+    };
   }
 
 
@@ -136,10 +142,10 @@ export namespace Account {
 
   export namespace Username {
     export type AsObject = {
-      id: number,
-      login: string,
-      refLinkId: string,
-    }
+      id: number;
+      login: string;
+      refLinkId: string;
+    };
   }
 
 
@@ -170,11 +176,11 @@ export namespace Account {
 
   export namespace Profile {
     export type AsObject = {
-      firstName: string,
-      lastName: string,
-      telegram?: Account.Profile.Telegram.AsObject,
-      ava?: Account.Profile.Ava.AsObject,
-    }
+      firstName: string;
+      lastName: string;
+      telegram?: Account.Profile.Telegram.AsObject;
+      ava?: Account.Profile.Ava.AsObject;
+    };
 
     export class Ava extends jspb.Message {
       getCollectionId(): number;
@@ -193,9 +199,9 @@ export namespace Account {
 
     export namespace Ava {
       export type AsObject = {
-        collectionId: number,
-        entityId: number,
-      }
+        collectionId: number;
+        entityId: number;
+      };
 
       export class Generate extends jspb.Message {
         serializeBinary(): Uint8Array;
@@ -208,7 +214,7 @@ export namespace Account {
 
       export namespace Generate {
         export type AsObject = {
-        }
+        };
 
         export class Request extends jspb.Message {
           getMaleQuantity(): number;
@@ -227,9 +233,9 @@ export namespace Account {
 
         export namespace Request {
           export type AsObject = {
-            maleQuantity: number,
-            femaleQuantity: number,
-          }
+            maleQuantity: number;
+            femaleQuantity: number;
+          };
         }
 
 
@@ -254,9 +260,9 @@ export namespace Account {
 
         export namespace Response {
           export type AsObject = {
-            malesList: Array<Account.Profile.Ava.AsObject>,
-            femalesList: Array<Account.Profile.Ava.AsObject>,
-          }
+            malesList: Array<Account.Profile.Ava.AsObject>;
+            femalesList: Array<Account.Profile.Ava.AsObject>;
+          };
         }
 
       }
@@ -281,9 +287,9 @@ export namespace Account {
 
     export namespace Telegram {
       export type AsObject = {
-        id: number,
-        username: string,
-      }
+        id: number;
+        username: string;
+      };
     }
 
   }
@@ -315,12 +321,12 @@ export namespace Account {
 
   export namespace Statistics {
     export type AsObject = {
-      partnersQuantity: number,
-      teamQuantity: number,
-      marketingPartnersQuantity: number,
-      marketingTeamQuantity: number,
-      totalEarnedBonusMatrix: string,
-    }
+      partnersQuantity: number;
+      teamQuantity: number;
+      marketingPartnersQuantity: number;
+      marketingTeamQuantity: number;
+      totalEarnedBonusMatrix: string;
+    };
 
     export class Full extends jspb.Message {
       getStatistics(): Account.Statistics | undefined;
@@ -343,9 +349,9 @@ export namespace Account {
 
     export namespace Full {
       export type AsObject = {
-        statistics?: Account.Statistics.AsObject,
-        assetsList: Array<Account.Statistics.Full.Asset.AsObject>,
-      }
+        statistics?: Account.Statistics.AsObject;
+        assetsList: Array<Account.Statistics.Full.Asset.AsObject>;
+      };
 
       export class Asset extends jspb.Message {
         getAssetId(): number;
@@ -369,10 +375,10 @@ export namespace Account {
 
       export namespace Asset {
         export type AsObject = {
-          assetId: number,
-          assetBalance: string,
-          incomeBonusesStatistics?: mlmbox_types_bonus_pb.Bonus.Summary.AsObject,
-        }
+          assetId: number;
+          assetBalance: string;
+          incomeBonusesStatistics?: mlmbox_types_bonus_pb.Bonus.Summary.AsObject;
+        };
       }
 
     }
@@ -438,18 +444,18 @@ export namespace Account {
 
   export namespace Info {
     export type AsObject = {
-      profile?: Account.Profile.AsObject,
-      account?: Account.Username.AsObject,
-      sponsor?: Account.Username.AsObject,
-      relationship?: mlmbox_types_relationship_pb.Relationship.AsObject,
-      registrationAt: number,
-      marketingStartedAt: number,
-      treeIdsBitMask: number,
-      sponsorBranch: number,
-      statistics?: Account.Statistics.AsObject,
-      channelsList: Array<number>,
-      leagueRank?: mlmbox_types_league_pb.League.Rank.AsObject,
-    }
+      profile?: Account.Profile.AsObject;
+      account?: Account.Username.AsObject;
+      sponsor?: Account.Username.AsObject;
+      relationship?: mlmbox_types_relationship_pb.Relationship.AsObject;
+      registrationAt: number;
+      marketingStartedAt: number;
+      treeIdsBitMask: number;
+      sponsorBranch: number;
+      statistics?: Account.Statistics.AsObject;
+      channelsList: Array<number>;
+      leagueRank?: mlmbox_types_league_pb.League.Rank.AsObject;
+    };
 
     export class List extends jspb.Message {
       getItemsList(): Array<Account.Info>;
@@ -467,8 +473,8 @@ export namespace Account {
 
     export namespace List {
       export type AsObject = {
-        itemsList: Array<Account.Info.AsObject>,
-      }
+        itemsList: Array<Account.Info.AsObject>;
+      };
     }
 
   }
@@ -500,12 +506,12 @@ export namespace Account {
 
   export namespace Mentor {
     export type AsObject = {
-      aiPackageId: number,
-      subscribed: boolean,
-      subscribedUntil: number,
-      messagesLimit: number,
-      messagesUsed: number,
-    }
+      aiPackageId: number;
+      subscribed: boolean;
+      subscribedUntil: number;
+      messagesLimit: number;
+      messagesUsed: number;
+    };
   }
 
 }
@@ -552,16 +558,16 @@ export class Tree extends jspb.Message {
 
 export namespace Tree {
   export type AsObject = {
-    id: number,
-    title: string,
-    groupId: number,
-    positionsQuantity: number,
-    defaultPositionWidth: number,
-    amount?: mlmbox_types_asset_pb.Asset.Amount.AsObject,
-    bookingEnabled: boolean,
-    treeModeId: Tree.Mode,
-    requireTreeIdsList: Array<number>,
-  }
+    id: number;
+    title: string;
+    groupId: number;
+    positionsQuantity: number;
+    defaultPositionWidth: number;
+    amount?: mlmbox_types_asset_pb.Asset.Amount.AsObject;
+    bookingEnabled: boolean;
+    treeModeId: Tree.Mode;
+    requireTreeIdsList: Array<number>;
+  };
 
   export class Group extends jspb.Message {
     getId(): number;
@@ -580,13 +586,13 @@ export namespace Tree {
 
   export namespace Group {
     export type AsObject = {
-      id: number,
-      title: string,
-    }
+      id: number;
+      title: string;
+    };
   }
 
 
-  export enum Mode { 
+  export const enum Mode {
     UNKNOWN = 0,
     MATRIX = 1,
   }
@@ -626,14 +632,14 @@ export class TreeAccount extends jspb.Message {
 
 export namespace TreeAccount {
   export type AsObject = {
-    treeId: number,
-    quantity: number,
-    activatedQuantity: number,
-    activatedCapacity: number,
-    poolValue: string,
-    bookingQuantity: number,
-    entitiesList: Array<TreeAccount.Entity.AsObject>,
-  }
+    treeId: number;
+    quantity: number;
+    activatedQuantity: number;
+    activatedCapacity: number;
+    poolValue: string;
+    bookingQuantity: number;
+    entitiesList: Array<TreeAccount.Entity.AsObject>;
+  };
 
   export class Id extends jspb.Message {
     getTreeId(): number;
@@ -652,9 +658,9 @@ export namespace TreeAccount {
 
   export namespace Id {
     export type AsObject = {
-      treeId: number,
-      accountId: number,
-    }
+      treeId: number;
+      accountId: number;
+    };
   }
 
 
@@ -674,8 +680,8 @@ export namespace TreeAccount {
 
   export namespace List {
     export type AsObject = {
-      itemsList: Array<TreeAccount.AsObject>,
-    }
+      itemsList: Array<TreeAccount.AsObject>;
+    };
   }
 
 
@@ -711,14 +717,14 @@ export namespace TreeAccount {
 
   export namespace Entity {
     export type AsObject = {
-      positionId: number,
-      treeChainId: number,
-      treeEntityId: number,
-      treeAccountEntityId: number,
-      filled2w2lBitMask: number,
-      filled: boolean,
-      viewAccess: boolean,
-    }
+      positionId: number;
+      treeChainId: number;
+      treeEntityId: number;
+      treeAccountEntityId: number;
+      filled2w2lBitMask: number;
+      filled: boolean;
+      viewAccess: boolean;
+    };
   }
 
 
@@ -756,14 +762,14 @@ export namespace TreeAccount {
 
   export namespace Set {
     export type AsObject = {
-      treeId: number,
-      quantity: number,
-      activatedQuantity: number,
-      activatedCapacity: number,
-      poolValue: string,
-      bookingQuantity: number,
-      entity?: TreeAccount.Entity.AsObject,
-    }
+      treeId: number;
+      quantity: number;
+      activatedQuantity: number;
+      activatedCapacity: number;
+      poolValue: string;
+      bookingQuantity: number;
+      entity?: TreeAccount.Entity.AsObject;
+    };
   }
 
 }
@@ -779,7 +785,7 @@ export class PositionView extends jspb.Message {
 
 export namespace PositionView {
   export type AsObject = {
-  }
+  };
 
   export class Id extends jspb.Message {
     getViewPositionId(): number;
@@ -795,8 +801,8 @@ export namespace PositionView {
 
   export namespace Id {
     export type AsObject = {
-      viewPositionId: number,
-    }
+      viewPositionId: number;
+    };
   }
 
 
@@ -806,6 +812,8 @@ export namespace PositionView {
 
     getViewPositionId(): number;
     setViewPositionId(value: number): Team;
+    hasViewPositionId(): boolean;
+    clearViewPositionId(): Team;
 
     getTreeAccount(): TreeAccount.Id | undefined;
     setTreeAccount(value?: TreeAccount.Id): Team;
@@ -824,12 +832,12 @@ export namespace PositionView {
 
   export namespace Team {
     export type AsObject = {
-      viewLevel: number,
-      viewPositionId: number,
-      treeAccount?: TreeAccount.Id.AsObject,
-    }
+      viewLevel: number;
+      viewPositionId?: number;
+      treeAccount?: TreeAccount.Id.AsObject;
+    };
 
-    export enum QueryCase { 
+    export const enum QueryCase {
       QUERY_NOT_SET = 0,
       VIEW_POSITION_ID = 2,
       TREE_ACCOUNT = 3,
@@ -849,7 +857,7 @@ export class Matrix extends jspb.Message {
 
 export namespace Matrix {
   export type AsObject = {
-  }
+  };
 
   export class Reinvest extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -862,7 +870,7 @@ export namespace Matrix {
 
   export namespace Reinvest {
     export type AsObject = {
-    }
+    };
 
     export class Request extends jspb.Message {
       getPositionId(): number;
@@ -881,9 +889,9 @@ export namespace Matrix {
 
     export namespace Request {
       export type AsObject = {
-        positionId: number,
-        reinvestEnabled: boolean,
-      }
+        positionId: number;
+        reinvestEnabled: boolean;
+      };
     }
 
   }
@@ -929,6 +937,9 @@ export namespace Matrix {
     getFilled(): boolean;
     setFilled(value: boolean): Position;
 
+    getCreatedAt(): number;
+    setCreatedAt(value: number): Position;
+
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Position.AsObject;
     static toObject(includeInstance: boolean, msg: Position): Position.AsObject;
@@ -939,20 +950,21 @@ export namespace Matrix {
 
   export namespace Position {
     export type AsObject = {
-      positionId: number,
-      positionSponsorId: number,
-      positionSponsorBranch: number,
-      positionWidth: number,
-      accountId: number,
-      treeChainId: number,
-      treeEntityId: number,
-      treeAccountEntityId: number,
-      partnersQuantity: number,
-      teamQuantity: number,
-      poolValue: string,
-      reinvestEnabled: boolean,
-      filled: boolean,
-    }
+      positionId: number;
+      positionSponsorId: number;
+      positionSponsorBranch: number;
+      positionWidth: number;
+      accountId: number;
+      treeChainId: number;
+      treeEntityId: number;
+      treeAccountEntityId: number;
+      partnersQuantity: number;
+      teamQuantity: number;
+      poolValue: string;
+      reinvestEnabled: boolean;
+      filled: boolean;
+      createdAt: number;
+    };
   }
 
 
@@ -997,15 +1009,15 @@ export namespace Matrix {
 
   export namespace View {
     export type AsObject = {
-      treeId: number,
-      selfPositionId: number,
-      selfTreeIdsBitMask: number,
-      viewPositionId: number,
-      viewTreeIdsBitMask: number,
-      positionsList: Array<Matrix.Position.AsObject>,
-      accountsList: Array<Account.Info.AsObject>,
-      viewTreeAccountEntitiesList: Array<TreeAccount.Entity.AsObject>,
-    }
+      treeId: number;
+      selfPositionId: number;
+      selfTreeIdsBitMask: number;
+      viewPositionId: number;
+      viewTreeIdsBitMask: number;
+      positionsList: Array<Matrix.Position.AsObject>;
+      accountsList: Array<Account.Info.AsObject>;
+      viewTreeAccountEntitiesList: Array<TreeAccount.Entity.AsObject>;
+    };
   }
 
 
@@ -1025,8 +1037,8 @@ export namespace Matrix {
 
   export namespace Info {
     export type AsObject = {
-      itemsList: Array<TreeAccount.AsObject>,
-    }
+      itemsList: Array<TreeAccount.AsObject>;
+    };
   }
 
 }

@@ -29,9 +29,9 @@ export class SetReinvestConfigResponse extends jspb.Message {
 
 export namespace SetReinvestConfigResponse {
   export type AsObject = {
-    position?: mlmbox_types_account_pb.Matrix.Position.AsObject,
-    assetId: number,
-    transaction?: mlmbox_types_wallet_pb.Wallet.Asset.Transaction.AsObject,
-  }
+    position?: mlmbox_types_account_pb.Matrix.Position.AsObject;
+    assetId: number;
+    transaction?: mlmbox_types_wallet_pb.Wallet.Asset.Transaction.AsObject;
+  };
 }
 

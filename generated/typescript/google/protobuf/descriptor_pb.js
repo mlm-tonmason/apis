@@ -930,7 +930,7 @@ proto.google.protobuf.FileDescriptorSet.prototype.toObject = function(opt_includ
  */
 proto.google.protobuf.FileDescriptorSet.toObject = function(includeInstance, msg) {
   var f, obj = {
-    fileList: jspb.Message.toObjectList(msg.getFileList(),
+fileList: jspb.Message.toObjectList(msg.getFileList(),
     proto.google.protobuf.FileDescriptorProto.toObject, includeInstance)
   };
 
@@ -1090,22 +1090,22 @@ proto.google.protobuf.FileDescriptorProto.prototype.toObject = function(opt_incl
  */
 proto.google.protobuf.FileDescriptorProto.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    pb_package: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-    dependencyList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
-    publicDependencyList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f,
-    weakDependencyList: (f = jspb.Message.getRepeatedField(msg, 11)) == null ? undefined : f,
-    messageTypeList: jspb.Message.toObjectList(msg.getMessageTypeList(),
+name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+pb_package: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+dependencyList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
+publicDependencyList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f,
+weakDependencyList: (f = jspb.Message.getRepeatedField(msg, 11)) == null ? undefined : f,
+messageTypeList: jspb.Message.toObjectList(msg.getMessageTypeList(),
     proto.google.protobuf.DescriptorProto.toObject, includeInstance),
-    enumTypeList: jspb.Message.toObjectList(msg.getEnumTypeList(),
+enumTypeList: jspb.Message.toObjectList(msg.getEnumTypeList(),
     proto.google.protobuf.EnumDescriptorProto.toObject, includeInstance),
-    serviceList: jspb.Message.toObjectList(msg.getServiceList(),
+serviceList: jspb.Message.toObjectList(msg.getServiceList(),
     proto.google.protobuf.ServiceDescriptorProto.toObject, includeInstance),
-    extensionList: jspb.Message.toObjectList(msg.getExtensionList(),
+extensionList: jspb.Message.toObjectList(msg.getExtensionList(),
     proto.google.protobuf.FieldDescriptorProto.toObject, includeInstance),
-    options: (f = msg.getOptions()) && proto.google.protobuf.FileOptions.toObject(includeInstance, f),
-    sourceCodeInfo: (f = msg.getSourceCodeInfo()) && proto.google.protobuf.SourceCodeInfo.toObject(includeInstance, f),
-    syntax: (f = jspb.Message.getField(msg, 12)) == null ? undefined : f
+options: (f = msg.getOptions()) && proto.google.protobuf.FileOptions.toObject(includeInstance, f),
+sourceCodeInfo: (f = msg.getSourceCodeInfo()) && proto.google.protobuf.SourceCodeInfo.toObject(includeInstance, f),
+syntax: (f = jspb.Message.getField(msg, 12)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1806,23 +1806,23 @@ proto.google.protobuf.DescriptorProto.prototype.toObject = function(opt_includeI
  */
 proto.google.protobuf.DescriptorProto.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    fieldList: jspb.Message.toObjectList(msg.getFieldList(),
+name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+fieldList: jspb.Message.toObjectList(msg.getFieldList(),
     proto.google.protobuf.FieldDescriptorProto.toObject, includeInstance),
-    extensionList: jspb.Message.toObjectList(msg.getExtensionList(),
+extensionList: jspb.Message.toObjectList(msg.getExtensionList(),
     proto.google.protobuf.FieldDescriptorProto.toObject, includeInstance),
-    nestedTypeList: jspb.Message.toObjectList(msg.getNestedTypeList(),
+nestedTypeList: jspb.Message.toObjectList(msg.getNestedTypeList(),
     proto.google.protobuf.DescriptorProto.toObject, includeInstance),
-    enumTypeList: jspb.Message.toObjectList(msg.getEnumTypeList(),
+enumTypeList: jspb.Message.toObjectList(msg.getEnumTypeList(),
     proto.google.protobuf.EnumDescriptorProto.toObject, includeInstance),
-    extensionRangeList: jspb.Message.toObjectList(msg.getExtensionRangeList(),
+extensionRangeList: jspb.Message.toObjectList(msg.getExtensionRangeList(),
     proto.google.protobuf.DescriptorProto.ExtensionRange.toObject, includeInstance),
-    oneofDeclList: jspb.Message.toObjectList(msg.getOneofDeclList(),
+oneofDeclList: jspb.Message.toObjectList(msg.getOneofDeclList(),
     proto.google.protobuf.OneofDescriptorProto.toObject, includeInstance),
-    options: (f = msg.getOptions()) && proto.google.protobuf.MessageOptions.toObject(includeInstance, f),
-    reservedRangeList: jspb.Message.toObjectList(msg.getReservedRangeList(),
+options: (f = msg.getOptions()) && proto.google.protobuf.MessageOptions.toObject(includeInstance, f),
+reservedRangeList: jspb.Message.toObjectList(msg.getReservedRangeList(),
     proto.google.protobuf.DescriptorProto.ReservedRange.toObject, includeInstance),
-    reservedNameList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f
+reservedNameList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -2049,9 +2049,9 @@ proto.google.protobuf.DescriptorProto.ExtensionRange.prototype.toObject = functi
  */
 proto.google.protobuf.DescriptorProto.ExtensionRange.toObject = function(includeInstance, msg) {
   var f, obj = {
-    start: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    end: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-    options: (f = msg.getOptions()) && proto.google.protobuf.ExtensionRangeOptions.toObject(includeInstance, f)
+start: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+end: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+options: (f = msg.getOptions()) && proto.google.protobuf.ExtensionRangeOptions.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2296,8 +2296,8 @@ proto.google.protobuf.DescriptorProto.ReservedRange.prototype.toObject = functio
  */
 proto.google.protobuf.DescriptorProto.ReservedRange.toObject = function(includeInstance, msg) {
   var f, obj = {
-    start: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    end: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
+start: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+end: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -2875,7 +2875,7 @@ proto.google.protobuf.ExtensionRangeOptions.prototype.toObject = function(opt_in
  */
 proto.google.protobuf.ExtensionRangeOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -3036,17 +3036,17 @@ proto.google.protobuf.FieldDescriptorProto.prototype.toObject = function(opt_inc
  */
 proto.google.protobuf.FieldDescriptorProto.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    number: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
-    label: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f,
-    type: (f = jspb.Message.getField(msg, 5)) == null ? undefined : f,
-    typeName: (f = jspb.Message.getField(msg, 6)) == null ? undefined : f,
-    extendee: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-    defaultValue: (f = jspb.Message.getField(msg, 7)) == null ? undefined : f,
-    oneofIndex: (f = jspb.Message.getField(msg, 9)) == null ? undefined : f,
-    jsonName: (f = jspb.Message.getField(msg, 10)) == null ? undefined : f,
-    options: (f = msg.getOptions()) && proto.google.protobuf.FieldOptions.toObject(includeInstance, f),
-    proto3Optional: (f = jspb.Message.getBooleanField(msg, 17)) == null ? undefined : f
+name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+number: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
+label: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f,
+type: (f = jspb.Message.getField(msg, 5)) == null ? undefined : f,
+typeName: (f = jspb.Message.getField(msg, 6)) == null ? undefined : f,
+extendee: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+defaultValue: (f = jspb.Message.getField(msg, 7)) == null ? undefined : f,
+oneofIndex: (f = jspb.Message.getField(msg, 9)) == null ? undefined : f,
+jsonName: (f = jspb.Message.getField(msg, 10)) == null ? undefined : f,
+options: (f = msg.getOptions()) && proto.google.protobuf.FieldOptions.toObject(includeInstance, f),
+proto3Optional: (f = jspb.Message.getBooleanField(msg, 17)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -3700,8 +3700,8 @@ proto.google.protobuf.OneofDescriptorProto.prototype.toObject = function(opt_inc
  */
 proto.google.protobuf.OneofDescriptorProto.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    options: (f = msg.getOptions()) && proto.google.protobuf.OneofOptions.toObject(includeInstance, f)
+name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+options: (f = msg.getOptions()) && proto.google.protobuf.OneofOptions.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3906,13 +3906,13 @@ proto.google.protobuf.EnumDescriptorProto.prototype.toObject = function(opt_incl
  */
 proto.google.protobuf.EnumDescriptorProto.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    valueList: jspb.Message.toObjectList(msg.getValueList(),
+name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+valueList: jspb.Message.toObjectList(msg.getValueList(),
     proto.google.protobuf.EnumValueDescriptorProto.toObject, includeInstance),
-    options: (f = msg.getOptions()) && proto.google.protobuf.EnumOptions.toObject(includeInstance, f),
-    reservedRangeList: jspb.Message.toObjectList(msg.getReservedRangeList(),
+options: (f = msg.getOptions()) && proto.google.protobuf.EnumOptions.toObject(includeInstance, f),
+reservedRangeList: jspb.Message.toObjectList(msg.getReservedRangeList(),
     proto.google.protobuf.EnumDescriptorProto.EnumReservedRange.toObject, includeInstance),
-    reservedNameList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f
+reservedNameList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -4074,8 +4074,8 @@ proto.google.protobuf.EnumDescriptorProto.EnumReservedRange.prototype.toObject =
  */
 proto.google.protobuf.EnumDescriptorProto.EnumReservedRange.toObject = function(includeInstance, msg) {
   var f, obj = {
-    start: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    end: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
+start: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+end: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -4456,9 +4456,9 @@ proto.google.protobuf.EnumValueDescriptorProto.prototype.toObject = function(opt
  */
 proto.google.protobuf.EnumValueDescriptorProto.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    number: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-    options: (f = msg.getOptions()) && proto.google.protobuf.EnumValueOptions.toObject(includeInstance, f)
+name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+number: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+options: (f = msg.getOptions()) && proto.google.protobuf.EnumValueOptions.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4710,10 +4710,10 @@ proto.google.protobuf.ServiceDescriptorProto.prototype.toObject = function(opt_i
  */
 proto.google.protobuf.ServiceDescriptorProto.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    methodList: jspb.Message.toObjectList(msg.getMethodList(),
+name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+methodList: jspb.Message.toObjectList(msg.getMethodList(),
     proto.google.protobuf.MethodDescriptorProto.toObject, includeInstance),
-    options: (f = msg.getOptions()) && proto.google.protobuf.ServiceOptions.toObject(includeInstance, f)
+options: (f = msg.getOptions()) && proto.google.protobuf.ServiceOptions.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4962,12 +4962,12 @@ proto.google.protobuf.MethodDescriptorProto.prototype.toObject = function(opt_in
  */
 proto.google.protobuf.MethodDescriptorProto.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    inputType: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-    outputType: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
-    options: (f = msg.getOptions()) && proto.google.protobuf.MethodOptions.toObject(includeInstance, f),
-    clientStreaming: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-    serverStreaming: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
+name: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+inputType: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+outputType: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
+options: (f = msg.getOptions()) && proto.google.protobuf.MethodOptions.toObject(includeInstance, f),
+clientStreaming: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+serverStreaming: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -5360,27 +5360,27 @@ proto.google.protobuf.FileOptions.prototype.toObject = function(opt_includeInsta
  */
 proto.google.protobuf.FileOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    javaPackage: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    javaOuterClassname: (f = jspb.Message.getField(msg, 8)) == null ? undefined : f,
-    javaMultipleFiles: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
-    javaGenerateEqualsAndHash: (f = jspb.Message.getBooleanField(msg, 20)) == null ? undefined : f,
-    javaStringCheckUtf8: jspb.Message.getBooleanFieldWithDefault(msg, 27, false),
-    optimizeFor: jspb.Message.getFieldWithDefault(msg, 9, 1),
-    goPackage: (f = jspb.Message.getField(msg, 11)) == null ? undefined : f,
-    ccGenericServices: jspb.Message.getBooleanFieldWithDefault(msg, 16, false),
-    javaGenericServices: jspb.Message.getBooleanFieldWithDefault(msg, 17, false),
-    pyGenericServices: jspb.Message.getBooleanFieldWithDefault(msg, 18, false),
-    phpGenericServices: jspb.Message.getBooleanFieldWithDefault(msg, 42, false),
-    deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 23, false),
-    ccEnableArenas: jspb.Message.getBooleanFieldWithDefault(msg, 31, true),
-    objcClassPrefix: (f = jspb.Message.getField(msg, 36)) == null ? undefined : f,
-    csharpNamespace: (f = jspb.Message.getField(msg, 37)) == null ? undefined : f,
-    swiftPrefix: (f = jspb.Message.getField(msg, 39)) == null ? undefined : f,
-    phpClassPrefix: (f = jspb.Message.getField(msg, 40)) == null ? undefined : f,
-    phpNamespace: (f = jspb.Message.getField(msg, 41)) == null ? undefined : f,
-    phpMetadataNamespace: (f = jspb.Message.getField(msg, 44)) == null ? undefined : f,
-    rubyPackage: (f = jspb.Message.getField(msg, 45)) == null ? undefined : f,
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+javaPackage: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+javaOuterClassname: (f = jspb.Message.getField(msg, 8)) == null ? undefined : f,
+javaMultipleFiles: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
+javaGenerateEqualsAndHash: (f = jspb.Message.getBooleanField(msg, 20)) == null ? undefined : f,
+javaStringCheckUtf8: jspb.Message.getBooleanFieldWithDefault(msg, 27, false),
+optimizeFor: jspb.Message.getFieldWithDefault(msg, 9, 1),
+goPackage: (f = jspb.Message.getField(msg, 11)) == null ? undefined : f,
+ccGenericServices: jspb.Message.getBooleanFieldWithDefault(msg, 16, false),
+javaGenericServices: jspb.Message.getBooleanFieldWithDefault(msg, 17, false),
+pyGenericServices: jspb.Message.getBooleanFieldWithDefault(msg, 18, false),
+phpGenericServices: jspb.Message.getBooleanFieldWithDefault(msg, 42, false),
+deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 23, false),
+ccEnableArenas: jspb.Message.getBooleanFieldWithDefault(msg, 31, true),
+objcClassPrefix: (f = jspb.Message.getField(msg, 36)) == null ? undefined : f,
+csharpNamespace: (f = jspb.Message.getField(msg, 37)) == null ? undefined : f,
+swiftPrefix: (f = jspb.Message.getField(msg, 39)) == null ? undefined : f,
+phpClassPrefix: (f = jspb.Message.getField(msg, 40)) == null ? undefined : f,
+phpNamespace: (f = jspb.Message.getField(msg, 41)) == null ? undefined : f,
+phpMetadataNamespace: (f = jspb.Message.getField(msg, 44)) == null ? undefined : f,
+rubyPackage: (f = jspb.Message.getField(msg, 45)) == null ? undefined : f,
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -6497,11 +6497,11 @@ proto.google.protobuf.MessageOptions.prototype.toObject = function(opt_includeIn
  */
 proto.google.protobuf.MessageOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    messageSetWireFormat: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    noStandardDescriptorAccessor: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    mapEntry: (f = jspb.Message.getBooleanField(msg, 7)) == null ? undefined : f,
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+messageSetWireFormat: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+noStandardDescriptorAccessor: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+mapEntry: (f = jspb.Message.getBooleanField(msg, 7)) == null ? undefined : f,
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -6857,13 +6857,13 @@ proto.google.protobuf.FieldOptions.prototype.toObject = function(opt_includeInst
  */
 proto.google.protobuf.FieldOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    ctype: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    packed: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f,
-    jstype: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    lazy: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-    deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    weak: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+ctype: jspb.Message.getFieldWithDefault(msg, 1, 0),
+packed: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f,
+jstype: jspb.Message.getFieldWithDefault(msg, 6, 0),
+lazy: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+weak: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -7331,7 +7331,7 @@ proto.google.protobuf.OneofOptions.prototype.toObject = function(opt_includeInst
  */
 proto.google.protobuf.OneofOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -7499,9 +7499,9 @@ proto.google.protobuf.EnumOptions.prototype.toObject = function(opt_includeInsta
  */
 proto.google.protobuf.EnumOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    allowAlias: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f,
-    deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+allowAlias: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f,
+deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -7763,8 +7763,8 @@ proto.google.protobuf.EnumValueOptions.prototype.toObject = function(opt_include
  */
 proto.google.protobuf.EnumValueOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -7979,8 +7979,8 @@ proto.google.protobuf.ServiceOptions.prototype.toObject = function(opt_includeIn
  */
 proto.google.protobuf.ServiceOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 33, false),
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 33, false),
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -8195,9 +8195,9 @@ proto.google.protobuf.MethodOptions.prototype.toObject = function(opt_includeIns
  */
 proto.google.protobuf.MethodOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 33, false),
-    idempotencyLevel: jspb.Message.getFieldWithDefault(msg, 34, 0),
-    uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
+deprecated: jspb.Message.getBooleanFieldWithDefault(msg, 33, false),
+idempotencyLevel: jspb.Message.getFieldWithDefault(msg, 34, 0),
+uninterpretedOptionList: jspb.Message.toObjectList(msg.getUninterpretedOptionList(),
     proto.google.protobuf.UninterpretedOption.toObject, includeInstance)
   };
 
@@ -8468,14 +8468,14 @@ proto.google.protobuf.UninterpretedOption.prototype.toObject = function(opt_incl
  */
 proto.google.protobuf.UninterpretedOption.toObject = function(includeInstance, msg) {
   var f, obj = {
-    nameList: jspb.Message.toObjectList(msg.getNameList(),
+nameList: jspb.Message.toObjectList(msg.getNameList(),
     proto.google.protobuf.UninterpretedOption.NamePart.toObject, includeInstance),
-    identifierValue: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
-    positiveIntValue: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f,
-    negativeIntValue: (f = jspb.Message.getField(msg, 5)) == null ? undefined : f,
-    doubleValue: (f = jspb.Message.getOptionalFloatingPointField(msg, 6)) == null ? undefined : f,
-    stringValue: msg.getStringValue_asB64(),
-    aggregateValue: (f = jspb.Message.getField(msg, 8)) == null ? undefined : f
+identifierValue: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
+positiveIntValue: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f,
+negativeIntValue: (f = jspb.Message.getField(msg, 5)) == null ? undefined : f,
+doubleValue: (f = jspb.Message.getOptionalFloatingPointField(msg, 6)) == null ? undefined : f,
+stringValue: msg.getStringValue_asB64(),
+aggregateValue: (f = jspb.Message.getField(msg, 8)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -8655,8 +8655,8 @@ proto.google.protobuf.UninterpretedOption.NamePart.prototype.toObject = function
  */
 proto.google.protobuf.UninterpretedOption.NamePart.toObject = function(includeInstance, msg) {
   var f, obj = {
-    namePart: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
-    isExtension: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f
+namePart: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+isExtension: (f = jspb.Message.getBooleanField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -9136,7 +9136,7 @@ proto.google.protobuf.SourceCodeInfo.prototype.toObject = function(opt_includeIn
  */
 proto.google.protobuf.SourceCodeInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    locationList: jspb.Message.toObjectList(msg.getLocationList(),
+locationList: jspb.Message.toObjectList(msg.getLocationList(),
     proto.google.protobuf.SourceCodeInfo.Location.toObject, includeInstance)
   };
 
@@ -9258,11 +9258,11 @@ proto.google.protobuf.SourceCodeInfo.Location.prototype.toObject = function(opt_
  */
 proto.google.protobuf.SourceCodeInfo.Location.toObject = function(includeInstance, msg) {
   var f, obj = {
-    pathList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
-    spanList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    leadingComments: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
-    trailingComments: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f,
-    leadingDetachedCommentsList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f
+pathList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
+spanList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
+leadingComments: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
+trailingComments: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f,
+leadingDetachedCommentsList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -9650,7 +9650,7 @@ proto.google.protobuf.GeneratedCodeInfo.prototype.toObject = function(opt_includ
  */
 proto.google.protobuf.GeneratedCodeInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    annotationList: jspb.Message.toObjectList(msg.getAnnotationList(),
+annotationList: jspb.Message.toObjectList(msg.getAnnotationList(),
     proto.google.protobuf.GeneratedCodeInfo.Annotation.toObject, includeInstance)
   };
 
@@ -9772,10 +9772,10 @@ proto.google.protobuf.GeneratedCodeInfo.Annotation.prototype.toObject = function
  */
 proto.google.protobuf.GeneratedCodeInfo.Annotation.toObject = function(includeInstance, msg) {
   var f, obj = {
-    pathList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
-    sourceFile: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-    begin: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
-    end: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f
+pathList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
+sourceFile: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+begin: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
+end: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f
   };
 
   if (includeInstance) {

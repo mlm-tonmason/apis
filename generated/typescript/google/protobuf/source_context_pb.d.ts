@@ -16,7 +16,7 @@ export class SourceContext extends jspb.Message {
 
 export namespace SourceContext {
   export type AsObject = {
-    fileName: string,
-  }
+    fileName: string;
+  };
 }
 

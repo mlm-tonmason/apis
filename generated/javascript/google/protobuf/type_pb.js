@@ -177,14 +177,14 @@ proto.google.protobuf.Type.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.protobuf.Type.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    fieldsList: jspb.Message.toObjectList(msg.getFieldsList(),
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+fieldsList: jspb.Message.toObjectList(msg.getFieldsList(),
     proto.google.protobuf.Field.toObject, includeInstance),
-    oneofsList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
-    optionsList: jspb.Message.toObjectList(msg.getOptionsList(),
+oneofsList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
+optionsList: jspb.Message.toObjectList(msg.getOptionsList(),
     proto.google.protobuf.Option.toObject, includeInstance),
-    sourceContext: (f = msg.getSourceContext()) && google_protobuf_source_context_pb.SourceContext.toObject(includeInstance, f),
-    syntax: jspb.Message.getFieldWithDefault(msg, 6, 0)
+sourceContext: (f = msg.getSourceContext()) && google_protobuf_source_context_pb.SourceContext.toObject(includeInstance, f),
+syntax: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -550,17 +550,17 @@ proto.google.protobuf.Field.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.protobuf.Field.toObject = function(includeInstance, msg) {
   var f, obj = {
-    kind: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    cardinality: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    number: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    name: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    typeUrl: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    oneofIndex: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    packed: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
-    optionsList: jspb.Message.toObjectList(msg.getOptionsList(),
+kind: jspb.Message.getFieldWithDefault(msg, 1, 0),
+cardinality: jspb.Message.getFieldWithDefault(msg, 2, 0),
+number: jspb.Message.getFieldWithDefault(msg, 3, 0),
+name: jspb.Message.getFieldWithDefault(msg, 4, ""),
+typeUrl: jspb.Message.getFieldWithDefault(msg, 6, ""),
+oneofIndex: jspb.Message.getFieldWithDefault(msg, 7, 0),
+packed: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
+optionsList: jspb.Message.toObjectList(msg.getOptionsList(),
     proto.google.protobuf.Option.toObject, includeInstance),
-    jsonName: jspb.Message.getFieldWithDefault(msg, 10, ""),
-    defaultValue: jspb.Message.getFieldWithDefault(msg, 11, "")
+jsonName: jspb.Message.getFieldWithDefault(msg, 10, ""),
+defaultValue: jspb.Message.getFieldWithDefault(msg, 11, "")
   };
 
   if (includeInstance) {
@@ -1015,13 +1015,13 @@ proto.google.protobuf.Enum.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.protobuf.Enum.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    enumvalueList: jspb.Message.toObjectList(msg.getEnumvalueList(),
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+enumvalueList: jspb.Message.toObjectList(msg.getEnumvalueList(),
     proto.google.protobuf.EnumValue.toObject, includeInstance),
-    optionsList: jspb.Message.toObjectList(msg.getOptionsList(),
+optionsList: jspb.Message.toObjectList(msg.getOptionsList(),
     proto.google.protobuf.Option.toObject, includeInstance),
-    sourceContext: (f = msg.getSourceContext()) && google_protobuf_source_context_pb.SourceContext.toObject(includeInstance, f),
-    syntax: jspb.Message.getFieldWithDefault(msg, 5, 0)
+sourceContext: (f = msg.getSourceContext()) && google_protobuf_source_context_pb.SourceContext.toObject(includeInstance, f),
+syntax: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -1339,9 +1339,9 @@ proto.google.protobuf.EnumValue.prototype.toObject = function(opt_includeInstanc
  */
 proto.google.protobuf.EnumValue.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    number: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    optionsList: jspb.Message.toObjectList(msg.getOptionsList(),
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+number: jspb.Message.getFieldWithDefault(msg, 2, 0),
+optionsList: jspb.Message.toObjectList(msg.getOptionsList(),
     proto.google.protobuf.Option.toObject, includeInstance)
   };
 
@@ -1552,8 +1552,8 @@ proto.google.protobuf.Option.prototype.toObject = function(opt_includeInstance) 
  */
 proto.google.protobuf.Option.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    value: (f = msg.getValue()) && google_protobuf_any_pb.Any.toObject(includeInstance, f)
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+value: (f = msg.getValue()) && google_protobuf_any_pb.Any.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

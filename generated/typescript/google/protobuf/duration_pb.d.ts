@@ -19,8 +19,8 @@ export class Duration extends jspb.Message {
 
 export namespace Duration {
   export type AsObject = {
-    seconds: number,
-    nanos: number,
-  }
+    seconds: number;
+    nanos: number;
+  };
 }
 

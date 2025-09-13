@@ -22,9 +22,31 @@ export class TelegramBotSignRequest extends jspb.Message {
 
 export namespace TelegramBotSignRequest {
   export type AsObject = {
-    channelId: number,
-    initData: string,
-  }
+    channelId: number;
+    initData: string;
+  };
+}
+
+export class TelegramWebLoginRequest extends jspb.Message {
+  getChannelId(): number;
+  setChannelId(value: number): TelegramWebLoginRequest;
+
+  getJsonData(): string;
+  setJsonData(value: string): TelegramWebLoginRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TelegramWebLoginRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: TelegramWebLoginRequest): TelegramWebLoginRequest.AsObject;
+  static serializeBinaryToWriter(message: TelegramWebLoginRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TelegramWebLoginRequest;
+  static deserializeBinaryFromReader(message: TelegramWebLoginRequest, reader: jspb.BinaryReader): TelegramWebLoginRequest;
+}
+
+export namespace TelegramWebLoginRequest {
+  export type AsObject = {
+    channelId: number;
+    jsonData: string;
+  };
 }
 
 export class AuthSignResponse extends jspb.Message {
@@ -47,10 +69,10 @@ export class AuthSignResponse extends jspb.Message {
 
 export namespace AuthSignResponse {
   export type AsObject = {
-    authStatus: mlmbox_types_status_pb.Status.Auth,
-    referralStatus: mlmbox_types_status_pb.Status.Sponsor,
-    accessToken: string,
-  }
+    authStatus: mlmbox_types_status_pb.Status.Auth;
+    referralStatus: mlmbox_types_status_pb.Status.Sponsor;
+    accessToken: string;
+  };
 }
 
 export class TokenValidateResponse extends jspb.Message {
@@ -67,8 +89,8 @@ export class TokenValidateResponse extends jspb.Message {
 
 export namespace TokenValidateResponse {
   export type AsObject = {
-    status: mlmbox_types_status_pb.Status.TokenValidate,
-  }
+    status: mlmbox_types_status_pb.Status.TokenValidate;
+  };
 }
 
 export class TokenGenerateResponse extends jspb.Message {
@@ -85,7 +107,7 @@ export class TokenGenerateResponse extends jspb.Message {
 
 export namespace TokenGenerateResponse {
   export type AsObject = {
-    accessToken: string,
-  }
+    accessToken: string;
+  };
 }
 

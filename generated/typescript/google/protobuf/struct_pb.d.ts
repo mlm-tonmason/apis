@@ -16,22 +16,30 @@ export class Struct extends jspb.Message {
 
 export namespace Struct {
   export type AsObject = {
-    fieldsMap: Array<[string, Value.AsObject]>,
-  }
+    fieldsMap: Array<[string, Value.AsObject]>;
+  };
 }
 
 export class Value extends jspb.Message {
   getNullValue(): NullValue;
   setNullValue(value: NullValue): Value;
+  hasNullValue(): boolean;
+  clearNullValue(): Value;
 
   getNumberValue(): number;
   setNumberValue(value: number): Value;
+  hasNumberValue(): boolean;
+  clearNumberValue(): Value;
 
   getStringValue(): string;
   setStringValue(value: string): Value;
+  hasStringValue(): boolean;
+  clearStringValue(): Value;
 
   getBoolValue(): boolean;
   setBoolValue(value: boolean): Value;
+  hasBoolValue(): boolean;
+  clearBoolValue(): Value;
 
   getStructValue(): Struct | undefined;
   setStructValue(value?: Struct): Value;
@@ -55,15 +63,15 @@ export class Value extends jspb.Message {
 
 export namespace Value {
   export type AsObject = {
-    nullValue: NullValue,
-    numberValue: number,
-    stringValue: string,
-    boolValue: boolean,
-    structValue?: Struct.AsObject,
-    listValue?: ListValue.AsObject,
-  }
+    nullValue?: NullValue;
+    numberValue?: number;
+    stringValue?: string;
+    boolValue?: boolean;
+    structValue?: Struct.AsObject;
+    listValue?: ListValue.AsObject;
+  };
 
-  export enum KindCase { 
+  export const enum KindCase {
     KIND_NOT_SET = 0,
     NULL_VALUE = 1,
     NUMBER_VALUE = 2,
@@ -90,10 +98,10 @@ export class ListValue extends jspb.Message {
 
 export namespace ListValue {
   export type AsObject = {
-    valuesList: Array<Value.AsObject>,
-  }
+    valuesList: Array<Value.AsObject>;
+  };
 }
 
-export enum NullValue { 
+export const enum NullValue {
   NULL_VALUE = 0,
 }

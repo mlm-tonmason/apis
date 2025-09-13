@@ -264,7 +264,7 @@ proto.mlmbox.types.League.Id.prototype.toObject = function(opt_includeInstance) 
  */
 proto.mlmbox.types.League.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -394,8 +394,8 @@ proto.mlmbox.types.League.Rank.prototype.toObject = function(opt_includeInstance
  */
 proto.mlmbox.types.League.Rank.toObject = function(includeInstance, msg) {
   var f, obj = {
-    leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    rank: jspb.Message.getFieldWithDefault(msg, 2, 0)
+leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+rank: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -554,11 +554,11 @@ proto.mlmbox.types.League.Header.prototype.toObject = function(opt_includeInstan
  */
 proto.mlmbox.types.League.Header.toObject = function(includeInstance, msg) {
   var f, obj = {
-    leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    title: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    rangeGe: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    rangeLt: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    quantity: jspb.Message.getFieldWithDefault(msg, 5, 0)
+leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+title: jspb.Message.getFieldWithDefault(msg, 2, ""),
+rangeGe: jspb.Message.getFieldWithDefault(msg, 3, ""),
+rangeLt: jspb.Message.getFieldWithDefault(msg, 4, ""),
+quantity: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -721,7 +721,7 @@ proto.mlmbox.types.League.Header.List.prototype.toObject = function(opt_includeI
  */
 proto.mlmbox.types.League.Header.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.League.Header.toObject, includeInstance)
   };
 

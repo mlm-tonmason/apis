@@ -76,8 +76,8 @@ proto.mlmbox.types.Sort.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Sort.toObject = function(includeInstance, msg) {
   var f, obj = {
-    direction: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    limit: jspb.Message.getFieldWithDefault(msg, 2, 0)
+direction: jspb.Message.getFieldWithDefault(msg, 1, 0),
+limit: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {

@@ -81,9 +81,9 @@ proto.mlmbox.client.matrix.SetReinvestConfigResponse.prototype.toObject = functi
  */
 proto.mlmbox.client.matrix.SetReinvestConfigResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    position: (f = msg.getPosition()) && mlmbox_types_account_pb.Matrix.Position.toObject(includeInstance, f),
-    assetId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    transaction: (f = msg.getTransaction()) && mlmbox_types_wallet_pb.Wallet.Asset.Transaction.toObject(includeInstance, f)
+position: (f = msg.getPosition()) && mlmbox_types_account_pb.Matrix.Position.toObject(includeInstance, f),
+assetId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+transaction: (f = msg.getTransaction()) && mlmbox_types_wallet_pb.Wallet.Asset.Transaction.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

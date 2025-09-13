@@ -127,8 +127,8 @@ proto.mlmbox.client.league.StateGetRequest.prototype.toObject = function(opt_inc
  */
 proto.mlmbox.client.league.StateGetRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    sortRanks: (f = msg.getSortRanks()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f)
+leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+sortRanks: (f = msg.getSortRanks()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -315,8 +315,8 @@ proto.mlmbox.client.league.StateGetResponse.prototype.toObject = function(opt_in
  */
 proto.mlmbox.client.league.StateGetResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    header: (f = msg.getHeader()) && mlmbox_types_league_pb.League.Header.toObject(includeInstance, f),
-    accountsList: jspb.Message.toObjectList(msg.getAccountsList(),
+header: (f = msg.getHeader()) && mlmbox_types_league_pb.League.Header.toObject(includeInstance, f),
+accountsList: jspb.Message.toObjectList(msg.getAccountsList(),
     mlmbox_types_account_pb.Account.Info.toObject, includeInstance)
   };
 
@@ -519,9 +519,9 @@ proto.mlmbox.client.league.StateRankListRequest.prototype.toObject = function(op
  */
 proto.mlmbox.client.league.StateRankListRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    stepRank: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    sortRanks: (f = msg.getSortRanks()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f)
+leagueId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+stepRank: jspb.Message.getFieldWithDefault(msg, 2, 0),
+sortRanks: (f = msg.getSortRanks()) && mlmbox_types_sort_pb.Sort.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

@@ -194,11 +194,11 @@ proto.mlmbox.types.Quest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Quest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    title: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    recurring: (f = msg.getRecurring()) && proto.mlmbox.types.Quest.RecurringQuest.toObject(includeInstance, f),
-    oneTime: (f = msg.getOneTime()) && proto.mlmbox.types.Quest.OneTimeQuest.toObject(includeInstance, f),
-    rewardAmount: (f = msg.getRewardAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f)
+id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+title: jspb.Message.getFieldWithDefault(msg, 2, ""),
+recurring: (f = msg.getRecurring()) && proto.mlmbox.types.Quest.RecurringQuest.toObject(includeInstance, f),
+oneTime: (f = msg.getOneTime()) && proto.mlmbox.types.Quest.OneTimeQuest.toObject(includeInstance, f),
+rewardAmount: (f = msg.getRewardAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -360,7 +360,7 @@ proto.mlmbox.types.Quest.Id.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Quest.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    questId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+questId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -497,7 +497,7 @@ proto.mlmbox.types.Quest.List.prototype.toObject = function(opt_includeInstance)
  */
 proto.mlmbox.types.Quest.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    questsList: jspb.Message.toObjectList(msg.getQuestsList(),
+questsList: jspb.Message.toObjectList(msg.getQuestsList(),
     proto.mlmbox.types.Quest.toObject, includeInstance)
   };
 
@@ -650,9 +650,9 @@ proto.mlmbox.types.Quest.RecurringQuest.prototype.toObject = function(opt_includ
  */
 proto.mlmbox.types.Quest.RecurringQuest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    nextAvailableAt: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    lastCompletedAt: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    status: jspb.Message.getFieldWithDefault(msg, 3, 0)
+nextAvailableAt: jspb.Message.getFieldWithDefault(msg, 1, 0),
+lastCompletedAt: jspb.Message.getFieldWithDefault(msg, 2, 0),
+status: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -848,9 +848,9 @@ proto.mlmbox.types.Quest.OneTimeQuest.prototype.toObject = function(opt_includeI
  */
 proto.mlmbox.types.Quest.OneTimeQuest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    verificationUrl: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    checkedAt: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    status: jspb.Message.getFieldWithDefault(msg, 3, 0)
+verificationUrl: jspb.Message.getFieldWithDefault(msg, 1, ""),
+checkedAt: jspb.Message.getFieldWithDefault(msg, 2, 0),
+status: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {

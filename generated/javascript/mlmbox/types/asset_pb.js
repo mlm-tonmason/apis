@@ -142,10 +142,10 @@ proto.mlmbox.types.Asset.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Asset.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    assetName: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    assetTitle: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    decimal: jspb.Message.getFieldWithDefault(msg, 4, 0)
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+assetName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+assetTitle: jspb.Message.getFieldWithDefault(msg, 3, ""),
+decimal: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -316,8 +316,8 @@ proto.mlmbox.types.Asset.Id.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Asset.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    assetName: jspb.Message.getFieldWithDefault(msg, 2, "")
+assetId: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+assetName: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -519,7 +519,7 @@ proto.mlmbox.types.Asset.List.prototype.toObject = function(opt_includeInstance)
  */
 proto.mlmbox.types.Asset.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Asset.toObject, includeInstance)
   };
 
@@ -672,8 +672,8 @@ proto.mlmbox.types.Asset.Amount.prototype.toObject = function(opt_includeInstanc
  */
 proto.mlmbox.types.Asset.Amount.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    value: jspb.Message.getFieldWithDefault(msg, 2, "")
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+value: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {

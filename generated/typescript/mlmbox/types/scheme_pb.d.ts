@@ -56,14 +56,14 @@ export class Scheme extends jspb.Message {
 
 export namespace Scheme {
   export type AsObject = {
-    assetsList: Array<mlmbox_types_asset_pb.Asset.AsObject>,
-    assetPairExchangeRatesList: Array<mlmbox_types_exchanger_pb.Exchanger.Rate.AsObject>,
-    localesList: Array<mlmbox_types_locale_pb.Locale.AsObject>,
-    walletAssetsList: Array<mlmbox_types_wallet_pb.Wallet.Asset.AsObject>,
-    walletProcessingsList: Array<mlmbox_types_wallet_pb.Wallet.Processing.AsObject>,
-    treeGroupsList: Array<mlmbox_types_account_pb.Tree.Group.AsObject>,
-    treesList: Array<mlmbox_types_account_pb.Tree.AsObject>,
-    metricsAccountsQuantity: number,
-  }
+    assetsList: Array<mlmbox_types_asset_pb.Asset.AsObject>;
+    assetPairExchangeRatesList: Array<mlmbox_types_exchanger_pb.Exchanger.Rate.AsObject>;
+    localesList: Array<mlmbox_types_locale_pb.Locale.AsObject>;
+    walletAssetsList: Array<mlmbox_types_wallet_pb.Wallet.Asset.AsObject>;
+    walletProcessingsList: Array<mlmbox_types_wallet_pb.Wallet.Processing.AsObject>;
+    treeGroupsList: Array<mlmbox_types_account_pb.Tree.Group.AsObject>;
+    treesList: Array<mlmbox_types_account_pb.Tree.AsObject>;
+    metricsAccountsQuantity: number;
+  };
 }
 

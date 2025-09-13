@@ -19,9 +19,9 @@ export class Locale extends jspb.Message {
 
 export namespace Locale {
   export type AsObject = {
-    locale: string,
-    title: string,
-  }
+    locale: string;
+    title: string;
+  };
 
   export class Id extends jspb.Message {
     getLocale(): string;
@@ -37,8 +37,8 @@ export namespace Locale {
 
   export namespace Id {
     export type AsObject = {
-      locale: string,
-    }
+      locale: string;
+    };
   }
 
 
@@ -58,8 +58,8 @@ export namespace Locale {
 
   export namespace List {
     export type AsObject = {
-      itemsList: Array<Locale.AsObject>,
-    }
+      itemsList: Array<Locale.AsObject>;
+    };
   }
 
 }

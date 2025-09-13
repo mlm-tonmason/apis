@@ -18,7 +18,7 @@ export class FieldMask extends jspb.Message {
 
 export namespace FieldMask {
   export type AsObject = {
-    pathsList: Array<string>,
-  }
+    pathsList: Array<string>;
+  };
 }
 

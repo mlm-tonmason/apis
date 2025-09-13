@@ -20,8 +20,8 @@ export class SetLoginRequest extends jspb.Message {
 
 export namespace SetLoginRequest {
   export type AsObject = {
-    login: string,
-  }
+    login: string;
+  };
 }
 
 export class SetProfileRequest extends jspb.Message {
@@ -41,9 +41,9 @@ export class SetProfileRequest extends jspb.Message {
 
 export namespace SetProfileRequest {
   export type AsObject = {
-    firstName: string,
-    lastName: string,
-  }
+    firstName: string;
+    lastName: string;
+  };
 }
 
 export class GenerateAvaFilesRequest extends jspb.Message {
@@ -63,8 +63,8 @@ export class GenerateAvaFilesRequest extends jspb.Message {
 
 export namespace GenerateAvaFilesRequest {
   export type AsObject = {
-    maleQuantity: number,
-    femaleQuantity: number,
-  }
+    maleQuantity: number;
+    femaleQuantity: number;
+  };
 }
 

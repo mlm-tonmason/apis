@@ -25,18 +25,22 @@ export class Asset extends jspb.Message {
 
 export namespace Asset {
   export type AsObject = {
-    assetId: number,
-    assetName: string,
-    assetTitle: string,
-    decimal: number,
-  }
+    assetId: number;
+    assetName: string;
+    assetTitle: string;
+    decimal: number;
+  };
 
   export class Id extends jspb.Message {
     getAssetId(): number;
     setAssetId(value: number): Id;
+    hasAssetId(): boolean;
+    clearAssetId(): Id;
 
     getAssetName(): string;
     setAssetName(value: string): Id;
+    hasAssetName(): boolean;
+    clearAssetName(): Id;
 
     getUniqueFieldCase(): Id.UniqueFieldCase;
 
@@ -50,11 +54,11 @@ export namespace Asset {
 
   export namespace Id {
     export type AsObject = {
-      assetId: number,
-      assetName: string,
-    }
+      assetId?: number;
+      assetName?: string;
+    };
 
-    export enum UniqueFieldCase { 
+    export const enum UniqueFieldCase {
       UNIQUE_FIELD_NOT_SET = 0,
       ASSET_ID = 1,
       ASSET_NAME = 2,
@@ -78,8 +82,8 @@ export namespace Asset {
 
   export namespace List {
     export type AsObject = {
-      itemsList: Array<Asset.AsObject>,
-    }
+      itemsList: Array<Asset.AsObject>;
+    };
   }
 
 
@@ -100,9 +104,9 @@ export namespace Asset {
 
   export namespace Amount {
     export type AsObject = {
-      assetId: number,
-      value: string,
-    }
+      assetId: number;
+      value: string;
+    };
   }
 
 }

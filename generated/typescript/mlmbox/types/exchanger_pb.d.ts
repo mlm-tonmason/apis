@@ -14,7 +14,7 @@ export class Exchanger extends jspb.Message {
 
 export namespace Exchanger {
   export type AsObject = {
-  }
+  };
 
   export class Rate extends jspb.Message {
     getAssetPair(): mlmbox_types_asset_pair_pb.AssetPair | undefined;
@@ -41,11 +41,11 @@ export namespace Exchanger {
 
   export namespace Rate {
     export type AsObject = {
-      assetPair?: mlmbox_types_asset_pair_pb.AssetPair.AsObject,
-      rateBuy: string,
-      rateSell: string,
-      modifiedAt: number,
-    }
+      assetPair?: mlmbox_types_asset_pair_pb.AssetPair.AsObject;
+      rateBuy: string;
+      rateSell: string;
+      modifiedAt: number;
+    };
 
     export class List extends jspb.Message {
       getItemsList(): Array<Exchanger.Rate>;
@@ -63,8 +63,8 @@ export namespace Exchanger {
 
     export namespace List {
       export type AsObject = {
-        itemsList: Array<Exchanger.Rate.AsObject>,
-      }
+        itemsList: Array<Exchanger.Rate.AsObject>;
+      };
     }
 
   }

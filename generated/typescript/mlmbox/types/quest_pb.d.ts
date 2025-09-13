@@ -37,12 +37,12 @@ export class Quest extends jspb.Message {
 
 export namespace Quest {
   export type AsObject = {
-    id: number,
-    title: string,
-    recurring?: Quest.RecurringQuest.AsObject,
-    oneTime?: Quest.OneTimeQuest.AsObject,
-    rewardAmount?: mlmbox_types_asset_pb.Asset.Amount.AsObject,
-  }
+    id: number;
+    title: string;
+    recurring?: Quest.RecurringQuest.AsObject;
+    oneTime?: Quest.OneTimeQuest.AsObject;
+    rewardAmount?: mlmbox_types_asset_pb.Asset.Amount.AsObject;
+  };
 
   export class Id extends jspb.Message {
     getQuestId(): number;
@@ -58,8 +58,8 @@ export namespace Quest {
 
   export namespace Id {
     export type AsObject = {
-      questId: number,
-    }
+      questId: number;
+    };
   }
 
 
@@ -79,8 +79,8 @@ export namespace Quest {
 
   export namespace List {
     export type AsObject = {
-      questsList: Array<Quest.AsObject>,
-    }
+      questsList: Array<Quest.AsObject>;
+    };
   }
 
 
@@ -104,12 +104,12 @@ export namespace Quest {
 
   export namespace RecurringQuest {
     export type AsObject = {
-      nextAvailableAt: number,
-      lastCompletedAt: number,
-      status: Quest.RecurringQuest.Status,
-    }
+      nextAvailableAt: number;
+      lastCompletedAt: number;
+      status: Quest.RecurringQuest.Status;
+    };
 
-    export enum Status { 
+    export const enum Status {
       AVAILABLE = 0,
       COMPLETED = 1,
     }
@@ -136,12 +136,12 @@ export namespace Quest {
 
   export namespace OneTimeQuest {
     export type AsObject = {
-      verificationUrl: string,
-      checkedAt: number,
-      status: Quest.OneTimeQuest.Status,
-    }
+      verificationUrl: string;
+      checkedAt: number;
+      status: Quest.OneTimeQuest.Status;
+    };
 
-    export enum Status { 
+    export const enum Status {
       NOT_STARTED = 0,
       PENDING_REVIEW = 1,
       COMPLETED = 2,
@@ -150,7 +150,7 @@ export namespace Quest {
   }
 
 
-  export enum QuestTypeCase { 
+  export const enum QuestTypeCase {
     QUEST_TYPE_NOT_SET = 0,
     RECURRING = 3,
     ONE_TIME = 4,

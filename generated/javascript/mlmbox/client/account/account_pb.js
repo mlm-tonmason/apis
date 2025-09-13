@@ -127,7 +127,7 @@ proto.mlmbox.client.account.SetLoginRequest.prototype.toObject = function(opt_in
  */
 proto.mlmbox.client.account.SetLoginRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    login: jspb.Message.getFieldWithDefault(msg, 1, "")
+login: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -257,8 +257,8 @@ proto.mlmbox.client.account.SetProfileRequest.prototype.toObject = function(opt_
  */
 proto.mlmbox.client.account.SetProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    firstName: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    lastName: jspb.Message.getFieldWithDefault(msg, 2, "")
+firstName: jspb.Message.getFieldWithDefault(msg, 1, ""),
+lastName: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -417,8 +417,8 @@ proto.mlmbox.client.account.GenerateAvaFilesRequest.prototype.toObject = functio
  */
 proto.mlmbox.client.account.GenerateAvaFilesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    maleQuantity: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    femaleQuantity: jspb.Message.getFieldWithDefault(msg, 2, 0)
+maleQuantity: jspb.Message.getFieldWithDefault(msg, 1, 0),
+femaleQuantity: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {

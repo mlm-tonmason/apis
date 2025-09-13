@@ -99,8 +99,8 @@ proto.mlmbox.admin.account.LoginSetRequest.prototype.toObject = function(opt_inc
  */
 proto.mlmbox.admin.account.LoginSetRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
-    login: jspb.Message.getFieldWithDefault(msg, 2, "")
+account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
+login: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -280,8 +280,8 @@ proto.mlmbox.admin.account.SponsorSetRequest.prototype.toObject = function(opt_i
  */
 proto.mlmbox.admin.account.SponsorSetRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
-    sponsor: (f = msg.getSponsor()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f)
+account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f),
+sponsor: (f = msg.getSponsor()) && mlmbox_types_account_pb.Account.Id.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

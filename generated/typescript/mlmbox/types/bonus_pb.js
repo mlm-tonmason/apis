@@ -309,7 +309,7 @@ proto.mlmbox.types.Bonus.Kind.prototype.toObject = function(opt_includeInstance)
  */
 proto.mlmbox.types.Bonus.Kind.toObject = function(includeInstance, msg) {
   var f, obj = {
-    kindId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+kindId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -450,8 +450,8 @@ proto.mlmbox.types.Bonus.LevelPercent.prototype.toObject = function(opt_includeI
  */
 proto.mlmbox.types.Bonus.LevelPercent.toObject = function(includeInstance, msg) {
   var f, obj = {
-    level: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    percent: jspb.Message.getFieldWithDefault(msg, 2, "")
+level: jspb.Message.getFieldWithDefault(msg, 1, 0),
+percent: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -610,8 +610,8 @@ proto.mlmbox.types.Bonus.Value.prototype.toObject = function(opt_includeInstance
  */
 proto.mlmbox.types.Bonus.Value.toObject = function(includeInstance, msg) {
   var f, obj = {
-    bonusId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    earnedValue: jspb.Message.getFieldWithDefault(msg, 2, "")
+bonusId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+earnedValue: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -734,8 +734,8 @@ proto.mlmbox.types.Bonus.Value.Asset.prototype.toObject = function(opt_includeIn
  */
 proto.mlmbox.types.Bonus.Value.Asset.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    value: (f = msg.getValue()) && proto.mlmbox.types.Bonus.Value.toObject(includeInstance, f)
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+value: (f = msg.getValue()) && proto.mlmbox.types.Bonus.Value.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -958,8 +958,8 @@ proto.mlmbox.types.Bonus.Summary.prototype.toObject = function(opt_includeInstan
  */
 proto.mlmbox.types.Bonus.Summary.toObject = function(includeInstance, msg) {
   var f, obj = {
-    earnedValue: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    valuesList: jspb.Message.toObjectList(msg.getValuesList(),
+earnedValue: jspb.Message.getFieldWithDefault(msg, 1, ""),
+valuesList: jspb.Message.toObjectList(msg.getValuesList(),
     proto.mlmbox.types.Bonus.Value.toObject, includeInstance)
   };
 
@@ -1085,8 +1085,8 @@ proto.mlmbox.types.Bonus.Summary.Asset.prototype.toObject = function(opt_include
  */
 proto.mlmbox.types.Bonus.Summary.Asset.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    summary: (f = msg.getSummary()) && proto.mlmbox.types.Bonus.Summary.toObject(includeInstance, f)
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+summary: (f = msg.getSummary()) && proto.mlmbox.types.Bonus.Summary.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

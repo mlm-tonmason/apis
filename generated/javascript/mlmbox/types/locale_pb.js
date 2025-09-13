@@ -119,8 +119,8 @@ proto.mlmbox.types.Locale.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Locale.toObject = function(includeInstance, msg) {
   var f, obj = {
-    locale: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    title: jspb.Message.getFieldWithDefault(msg, 2, "")
+locale: jspb.Message.getFieldWithDefault(msg, 1, ""),
+title: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -243,7 +243,7 @@ proto.mlmbox.types.Locale.Id.prototype.toObject = function(opt_includeInstance) 
  */
 proto.mlmbox.types.Locale.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    locale: jspb.Message.getFieldWithDefault(msg, 1, "")
+locale: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -380,7 +380,7 @@ proto.mlmbox.types.Locale.List.prototype.toObject = function(opt_includeInstance
  */
 proto.mlmbox.types.Locale.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Locale.toObject, includeInstance)
   };
 

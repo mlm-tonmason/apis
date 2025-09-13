@@ -13,7 +13,7 @@ export class League extends jspb.Message {
 
 export namespace League {
   export type AsObject = {
-  }
+  };
 
   export class Id extends jspb.Message {
     getLeagueId(): number;
@@ -29,8 +29,8 @@ export namespace League {
 
   export namespace Id {
     export type AsObject = {
-      leagueId: number,
-    }
+      leagueId: number;
+    };
   }
 
 
@@ -51,9 +51,9 @@ export namespace League {
 
   export namespace Rank {
     export type AsObject = {
-      leagueId: number,
-      rank: number,
-    }
+      leagueId: number;
+      rank: number;
+    };
   }
 
 
@@ -83,12 +83,12 @@ export namespace League {
 
   export namespace Header {
     export type AsObject = {
-      leagueId: number,
-      title: string,
-      rangeGe: string,
-      rangeLt: string,
-      quantity: number,
-    }
+      leagueId: number;
+      title: string;
+      rangeGe: string;
+      rangeLt: string;
+      quantity: number;
+    };
 
     export class List extends jspb.Message {
       getItemsList(): Array<League.Header>;
@@ -106,8 +106,8 @@ export namespace League {
 
     export namespace List {
       export type AsObject = {
-        itemsList: Array<League.Header.AsObject>,
-      }
+        itemsList: Array<League.Header.AsObject>;
+      };
     }
 
   }

@@ -222,10 +222,10 @@ proto.mlmbox.types.Exchanger.Rate.prototype.toObject = function(opt_includeInsta
  */
 proto.mlmbox.types.Exchanger.Rate.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetPair: (f = msg.getAssetPair()) && mlmbox_types_asset_pair_pb.AssetPair.toObject(includeInstance, f),
-    rateBuy: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    rateSell: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    modifiedAt: jspb.Message.getFieldWithDefault(msg, 4, 0)
+assetPair: (f = msg.getAssetPair()) && mlmbox_types_asset_pair_pb.AssetPair.toObject(includeInstance, f),
+rateBuy: jspb.Message.getFieldWithDefault(msg, 2, ""),
+rateSell: jspb.Message.getFieldWithDefault(msg, 3, ""),
+modifiedAt: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -379,7 +379,7 @@ proto.mlmbox.types.Exchanger.Rate.List.prototype.toObject = function(opt_include
  */
 proto.mlmbox.types.Exchanger.Rate.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Exchanger.Rate.toObject, includeInstance)
   };
 

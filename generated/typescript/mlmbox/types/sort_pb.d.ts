@@ -19,11 +19,11 @@ export class Sort extends jspb.Message {
 
 export namespace Sort {
   export type AsObject = {
-    direction: Sort.Direction,
-    limit: number,
-  }
+    direction: Sort.Direction;
+    limit: number;
+  };
 
-  export enum Direction { 
+  export const enum Direction {
     FORWARD = 0,
     BACKWARD = 1,
   }

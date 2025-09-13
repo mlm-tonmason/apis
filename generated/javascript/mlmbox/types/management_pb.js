@@ -119,12 +119,12 @@ proto.mlmbox.types.Management.prototype.toObject = function(opt_includeInstance)
  */
 proto.mlmbox.types.Management.toObject = function(includeInstance, msg) {
   var f, obj = {
-    sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    title: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    tag: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    visible: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
-    refLinkId: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    partnersQuantity: jspb.Message.getFieldWithDefault(msg, 6, 0)
+sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+title: jspb.Message.getFieldWithDefault(msg, 2, ""),
+tag: jspb.Message.getFieldWithDefault(msg, 3, ""),
+visible: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+refLinkId: jspb.Message.getFieldWithDefault(msg, 5, ""),
+partnersQuantity: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -291,7 +291,7 @@ proto.mlmbox.types.Management.Id.prototype.toObject = function(opt_includeInstan
  */
 proto.mlmbox.types.Management.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+sourceId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -428,7 +428,7 @@ proto.mlmbox.types.Management.List.prototype.toObject = function(opt_includeInst
  */
 proto.mlmbox.types.Management.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Management.toObject, includeInstance)
   };
 

@@ -21,9 +21,9 @@ export class AccountsSearchRequest extends jspb.Message {
 
 export namespace AccountsSearchRequest {
   export type AsObject = {
-    loginPrefix: string,
-    limit: number,
-  }
+    loginPrefix: string;
+    limit: number;
+  };
 }
 
 export class TeamRequest extends jspb.Message {
@@ -50,10 +50,10 @@ export class TeamRequest extends jspb.Message {
 
 export namespace TeamRequest {
   export type AsObject = {
-    viewPartner?: mlmbox_types_account_pb.Account.Id.AsObject,
-    partnersSort?: mlmbox_types_sort_pb.Sort.AsObject,
-    filterTreeIdsBitMask: number,
-  }
+    viewPartner?: mlmbox_types_account_pb.Account.Id.AsObject;
+    partnersSort?: mlmbox_types_sort_pb.Sort.AsObject;
+    filterTreeIdsBitMask: number;
+  };
 }
 
 export class TeamResponse extends jspb.Message {
@@ -87,11 +87,11 @@ export class TeamResponse extends jspb.Message {
 
 export namespace TeamResponse {
   export type AsObject = {
-    account?: mlmbox_types_account_pb.Account.Info.AsObject,
-    sponsorsList: Array<mlmbox_types_account_pb.Account.Info.AsObject>,
-    partnersList: Array<mlmbox_types_account_pb.Account.Info.AsObject>,
-    accountTreeAccountsList: Array<mlmbox_types_account_pb.TreeAccount.Set.AsObject>,
-  }
+    account?: mlmbox_types_account_pb.Account.Info.AsObject;
+    sponsorsList: Array<mlmbox_types_account_pb.Account.Info.AsObject>;
+    partnersList: Array<mlmbox_types_account_pb.Account.Info.AsObject>;
+    accountTreeAccountsList: Array<mlmbox_types_account_pb.TreeAccount.Set.AsObject>;
+  };
 }
 
 export class TeamPartnerListRequest extends jspb.Message {
@@ -113,9 +113,9 @@ export class TeamPartnerListRequest extends jspb.Message {
 
 export namespace TeamPartnerListRequest {
   export type AsObject = {
-    request?: TeamRequest.AsObject,
-    stepSponsorBranch: number,
-  }
+    request?: TeamRequest.AsObject;
+    stepSponsorBranch: number;
+  };
 }
 
 export class TeamTopRequest extends jspb.Message {
@@ -139,8 +139,8 @@ export class TeamTopRequest extends jspb.Message {
 
 export namespace TeamTopRequest {
   export type AsObject = {
-    viewPartner?: mlmbox_types_account_pb.Account.Id.AsObject,
-    partnersSort?: mlmbox_types_sort_pb.Sort.AsObject,
-  }
+    viewPartner?: mlmbox_types_account_pb.Account.Id.AsObject;
+    partnersSort?: mlmbox_types_sort_pb.Sort.AsObject;
+  };
 }
 

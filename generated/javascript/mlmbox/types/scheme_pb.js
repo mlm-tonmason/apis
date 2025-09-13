@@ -92,21 +92,21 @@ proto.mlmbox.types.Scheme.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Scheme.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetsList: jspb.Message.toObjectList(msg.getAssetsList(),
+assetsList: jspb.Message.toObjectList(msg.getAssetsList(),
     mlmbox_types_asset_pb.Asset.toObject, includeInstance),
-    assetPairExchangeRatesList: jspb.Message.toObjectList(msg.getAssetPairExchangeRatesList(),
+assetPairExchangeRatesList: jspb.Message.toObjectList(msg.getAssetPairExchangeRatesList(),
     mlmbox_types_exchanger_pb.Exchanger.Rate.toObject, includeInstance),
-    localesList: jspb.Message.toObjectList(msg.getLocalesList(),
+localesList: jspb.Message.toObjectList(msg.getLocalesList(),
     mlmbox_types_locale_pb.Locale.toObject, includeInstance),
-    walletAssetsList: jspb.Message.toObjectList(msg.getWalletAssetsList(),
+walletAssetsList: jspb.Message.toObjectList(msg.getWalletAssetsList(),
     mlmbox_types_wallet_pb.Wallet.Asset.toObject, includeInstance),
-    walletProcessingsList: jspb.Message.toObjectList(msg.getWalletProcessingsList(),
+walletProcessingsList: jspb.Message.toObjectList(msg.getWalletProcessingsList(),
     mlmbox_types_wallet_pb.Wallet.Processing.toObject, includeInstance),
-    treeGroupsList: jspb.Message.toObjectList(msg.getTreeGroupsList(),
+treeGroupsList: jspb.Message.toObjectList(msg.getTreeGroupsList(),
     mlmbox_types_account_pb.Tree.Group.toObject, includeInstance),
-    treesList: jspb.Message.toObjectList(msg.getTreesList(),
+treesList: jspb.Message.toObjectList(msg.getTreesList(),
     mlmbox_types_account_pb.Tree.toObject, includeInstance),
-    metricsAccountsQuantity: jspb.Message.getFieldWithDefault(msg, 8, 0)
+metricsAccountsQuantity: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {

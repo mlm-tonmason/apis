@@ -534,9 +534,9 @@ proto.mlmbox.types.Wallet.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Wallet.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetsList: jspb.Message.toObjectList(msg.getAssetsList(),
+assetsList: jspb.Message.toObjectList(msg.getAssetsList(),
     proto.mlmbox.types.Wallet.Asset.toObject, includeInstance),
-    processingsList: jspb.Message.toObjectList(msg.getProcessingsList(),
+processingsList: jspb.Message.toObjectList(msg.getProcessingsList(),
     proto.mlmbox.types.Wallet.Processing.toObject, includeInstance)
   };
 
@@ -671,13 +671,13 @@ proto.mlmbox.types.Wallet.Asset.prototype.toObject = function(opt_includeInstanc
  */
 proto.mlmbox.types.Wallet.Asset.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    assetBalance: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    transactionsList: jspb.Message.toObjectList(msg.getTransactionsList(),
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+assetBalance: jspb.Message.getFieldWithDefault(msg, 2, ""),
+transactionsList: jspb.Message.toObjectList(msg.getTransactionsList(),
     proto.mlmbox.types.Wallet.Asset.Transaction.toObject, includeInstance),
-    incomeBonusesStatistics: (f = msg.getIncomeBonusesStatistics()) && mlmbox_types_bonus_pb.Bonus.Summary.toObject(includeInstance, f),
-    settingsTransferEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-    settingsTransferLimitMin: jspb.Message.getFieldWithDefault(msg, 6, "")
+incomeBonusesStatistics: (f = msg.getIncomeBonusesStatistics()) && mlmbox_types_bonus_pb.Bonus.Summary.toObject(includeInstance, f),
+settingsTransferEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+settingsTransferLimitMin: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -855,7 +855,7 @@ proto.mlmbox.types.Wallet.Asset.List.prototype.toObject = function(opt_includeIn
  */
 proto.mlmbox.types.Wallet.Asset.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Wallet.Asset.toObject, includeInstance)
   };
 
@@ -1008,14 +1008,14 @@ proto.mlmbox.types.Wallet.Asset.Transaction.prototype.toObject = function(opt_in
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.toObject = function(includeInstance, msg) {
   var f, obj = {
-    transactionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    kindId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    statusId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    amount: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    fee: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    balance: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    createdAt: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    metadata: (f = msg.getMetadata()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.toObject(includeInstance, f)
+transactionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+kindId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+statusId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+amount: jspb.Message.getFieldWithDefault(msg, 4, ""),
+fee: jspb.Message.getFieldWithDefault(msg, 5, ""),
+balance: jspb.Message.getFieldWithDefault(msg, 6, ""),
+createdAt: jspb.Message.getFieldWithDefault(msg, 7, 0),
+metadata: (f = msg.getMetadata()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1206,8 +1206,8 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Id.prototype.toObject = function(opt
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    transactionId: jspb.Message.getFieldWithDefault(msg, 2, 0)
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+transactionId: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -1366,7 +1366,7 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Kind.prototype.toObject = function(o
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Kind.toObject = function(includeInstance, msg) {
   var f, obj = {
-    kindId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+kindId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1522,7 +1522,7 @@ proto.mlmbox.types.Wallet.Asset.Transaction.List.prototype.toObject = function(o
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Wallet.Asset.Transaction.toObject, includeInstance)
   };
 
@@ -1711,18 +1711,18 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.prototype.toObject = functi
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.toObject = function(includeInstance, msg) {
   var f, obj = {
-    description: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    deposit: (f = msg.getDeposit()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Deposit.toObject(includeInstance, f),
-    withdrawal: (f = msg.getWithdrawal()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.toObject(includeInstance, f),
-    keeperBookingTreeId: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    keeperInitialTreeId: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    keeperReinvest: (f = msg.getKeeperReinvest()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.PositionHeader.toObject(includeInstance, f),
-    positionCreated: (f = msg.getPositionCreated()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.PositionHeader.toObject(includeInstance, f),
-    bonus: (f = msg.getBonus()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.toObject(includeInstance, f),
-    accountId: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Info.toObject(includeInstance, f),
-    transactionId: jspb.Message.getFieldWithDefault(msg, 11, 0),
-    amount: (f = msg.getAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f)
+description: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+deposit: (f = msg.getDeposit()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Deposit.toObject(includeInstance, f),
+withdrawal: (f = msg.getWithdrawal()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.toObject(includeInstance, f),
+keeperBookingTreeId: (f = jspb.Message.getField(msg, 4)) == null ? undefined : f,
+keeperInitialTreeId: (f = jspb.Message.getField(msg, 5)) == null ? undefined : f,
+keeperReinvest: (f = msg.getKeeperReinvest()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.PositionHeader.toObject(includeInstance, f),
+positionCreated: (f = msg.getPositionCreated()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.PositionHeader.toObject(includeInstance, f),
+bonus: (f = msg.getBonus()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.toObject(includeInstance, f),
+accountId: (f = jspb.Message.getField(msg, 9)) == null ? undefined : f,
+account: (f = msg.getAccount()) && mlmbox_types_account_pb.Account.Info.toObject(includeInstance, f),
+transactionId: (f = jspb.Message.getField(msg, 11)) == null ? undefined : f,
+amount: (f = msg.getAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1969,8 +1969,8 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Deposit.prototype.toObject 
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Deposit.toObject = function(includeInstance, msg) {
   var f, obj = {
-    processingId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    hash: jspb.Message.getFieldWithDefault(msg, 2, "")
+processingId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+hash: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -2129,10 +2129,10 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.prototype.toObje
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Withdrawal.toObject = function(includeInstance, msg) {
   var f, obj = {
-    processingId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    address: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    memo: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    hash: jspb.Message.getFieldWithDefault(msg, 4, "")
+processingId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+address: jspb.Message.getFieldWithDefault(msg, 2, ""),
+memo: jspb.Message.getFieldWithDefault(msg, 3, ""),
+hash: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -2349,9 +2349,9 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.PositionHeader.prototype.to
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.PositionHeader.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    positionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 3, 0)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+positionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -2567,11 +2567,11 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.prototype.toObject = 
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.toObject = function(includeInstance, msg) {
   var f, obj = {
-    bonusId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    description: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    matrix: (f = msg.getMatrix()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.toObject(includeInstance, f),
-    direct: (f = msg.getDirect()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.toObject(includeInstance, f),
-    questId: jspb.Message.getFieldWithDefault(msg, 5, 0)
+bonusId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+description: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+matrix: (f = msg.getMatrix()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.toObject(includeInstance, f),
+direct: (f = msg.getDirect()) && proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.toObject(includeInstance, f),
+questId: (f = jspb.Message.getField(msg, 5)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -2731,12 +2731,12 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.prototyp
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceMatrix.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    targetPositionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    targetTreeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    sourcePositionId: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    sourceTreeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    level: jspb.Message.getFieldWithDefault(msg, 6, 0)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+targetPositionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+targetTreeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+sourcePositionId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+sourceTreeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 5, 0),
+level: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -3011,10 +3011,10 @@ proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.prototyp
  */
 proto.mlmbox.types.Wallet.Asset.Transaction.Metadata.Bonus.SourceDirect.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    accountId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    positionId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 4, 0)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+accountId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+positionId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -4151,9 +4151,9 @@ proto.mlmbox.types.Wallet.Processing.prototype.toObject = function(opt_includeIn
  */
 proto.mlmbox.types.Wallet.Processing.toObject = function(includeInstance, msg) {
   var f, obj = {
-    processingId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    processingName: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    assetsList: jspb.Message.toObjectList(msg.getAssetsList(),
+processingId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+processingName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+assetsList: jspb.Message.toObjectList(msg.getAssetsList(),
     proto.mlmbox.types.Wallet.Processing.Asset.toObject, includeInstance)
   };
 
@@ -4316,8 +4316,8 @@ proto.mlmbox.types.Wallet.Processing.Id.prototype.toObject = function(opt_includ
  */
 proto.mlmbox.types.Wallet.Processing.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    processingId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    processingName: jspb.Message.getFieldWithDefault(msg, 2, "")
+processingId: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+processingName: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -4512,13 +4512,13 @@ proto.mlmbox.types.Wallet.Processing.Asset.prototype.toObject = function(opt_inc
  */
 proto.mlmbox.types.Wallet.Processing.Asset.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    settingsDepositEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    settingsWithdrawalEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    settingsWithdrawalFeeBase: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    settingsWithdrawalFeePercent: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    settingsWithdrawalOperationValueMin: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    settingsWithdrawalOperationValueMax: jspb.Message.getFieldWithDefault(msg, 7, "")
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+settingsDepositEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+settingsWithdrawalEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+settingsWithdrawalFeeBase: jspb.Message.getFieldWithDefault(msg, 4, ""),
+settingsWithdrawalFeePercent: jspb.Message.getFieldWithDefault(msg, 5, ""),
+settingsWithdrawalOperationValueMin: jspb.Message.getFieldWithDefault(msg, 6, ""),
+settingsWithdrawalOperationValueMax: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -4696,8 +4696,8 @@ proto.mlmbox.types.Wallet.Processing.Asset.Id.prototype.toObject = function(opt_
  */
 proto.mlmbox.types.Wallet.Processing.Asset.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    processingId: (f = msg.getProcessingId()) && proto.mlmbox.types.Wallet.Processing.Id.toObject(includeInstance, f),
-    assetId: (f = msg.getAssetId()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f)
+processingId: (f = msg.getProcessingId()) && proto.mlmbox.types.Wallet.Processing.Id.toObject(includeInstance, f),
+assetId: (f = msg.getAssetId()) && mlmbox_types_asset_pb.Asset.Id.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -4905,7 +4905,7 @@ proto.mlmbox.types.Wallet.Processing.Asset.WithdrawalAddressHistory.prototype.to
  */
 proto.mlmbox.types.Wallet.Processing.Asset.WithdrawalAddressHistory.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Wallet.Processing.Asset.WithdrawalAddressHistory.Entity.toObject, includeInstance)
   };
 
@@ -5020,8 +5020,8 @@ proto.mlmbox.types.Wallet.Processing.Asset.WithdrawalAddressHistory.Entity.proto
  */
 proto.mlmbox.types.Wallet.Processing.Asset.WithdrawalAddressHistory.Entity.toObject = function(includeInstance, msg) {
   var f, obj = {
-    address: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    lastUsedAt: jspb.Message.getFieldWithDefault(msg, 2, 0)
+address: jspb.Message.getFieldWithDefault(msg, 1, ""),
+lastUsedAt: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -5351,7 +5351,7 @@ proto.mlmbox.types.Wallet.Processing.List.prototype.toObject = function(opt_incl
  */
 proto.mlmbox.types.Wallet.Processing.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Wallet.Processing.toObject, includeInstance)
   };
 

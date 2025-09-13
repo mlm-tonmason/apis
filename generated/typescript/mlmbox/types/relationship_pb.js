@@ -76,9 +76,9 @@ proto.mlmbox.types.Relationship.prototype.toObject = function(opt_includeInstanc
  */
 proto.mlmbox.types.Relationship.toObject = function(includeInstance, msg) {
   var f, obj = {
-    kind: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    level: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    branch: jspb.Message.getFieldWithDefault(msg, 3, 0)
+kind: jspb.Message.getFieldWithDefault(msg, 1, 0),
+level: jspb.Message.getFieldWithDefault(msg, 2, 0),
+branch: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {

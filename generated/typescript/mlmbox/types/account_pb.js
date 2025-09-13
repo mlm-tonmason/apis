@@ -775,15 +775,15 @@ proto.mlmbox.types.Account.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Account.toObject = function(includeInstance, msg) {
   var f, obj = {
-    info: (f = msg.getInfo()) && proto.mlmbox.types.Account.Info.toObject(includeInstance, f),
-    treeAccountsList: jspb.Message.toObjectList(msg.getTreeAccountsList(),
+info: (f = msg.getInfo()) && proto.mlmbox.types.Account.Info.toObject(includeInstance, f),
+treeAccountsList: jspb.Message.toObjectList(msg.getTreeAccountsList(),
     proto.mlmbox.types.TreeAccount.toObject, includeInstance),
-    rolesBitMask: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    locale: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    referralChangeAccess: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-    avaChangeAccess: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
-    avaChangesQuantity: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    mentor: (f = msg.getMentor()) && proto.mlmbox.types.Account.Mentor.toObject(includeInstance, f)
+rolesBitMask: jspb.Message.getFieldWithDefault(msg, 3, 0),
+locale: jspb.Message.getFieldWithDefault(msg, 4, ""),
+referralChangeAccess: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+avaChangeAccess: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
+avaChangesQuantity: jspb.Message.getFieldWithDefault(msg, 7, 0),
+mentor: (f = msg.getMentor()) && proto.mlmbox.types.Account.Mentor.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1005,9 +1005,9 @@ proto.mlmbox.types.Account.Id.prototype.toObject = function(opt_includeInstance)
  */
 proto.mlmbox.types.Account.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    accountId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    accountLogin: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    refLinkId: jspb.Message.getFieldWithDefault(msg, 3, "")
+accountId: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+accountLogin: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+refLinkId: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1249,8 +1249,8 @@ proto.mlmbox.types.Account.RefLink.prototype.toObject = function(opt_includeInst
  */
 proto.mlmbox.types.Account.RefLink.toObject = function(includeInstance, msg) {
   var f, obj = {
-    accountId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    sourceId: jspb.Message.getFieldWithDefault(msg, 2, 0)
+accountId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+sourceId: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -1409,9 +1409,9 @@ proto.mlmbox.types.Account.Username.prototype.toObject = function(opt_includeIns
  */
 proto.mlmbox.types.Account.Username.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    login: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    refLinkId: jspb.Message.getFieldWithDefault(msg, 3, "")
+id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+login: jspb.Message.getFieldWithDefault(msg, 2, ""),
+refLinkId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -1599,10 +1599,10 @@ proto.mlmbox.types.Account.Profile.prototype.toObject = function(opt_includeInst
  */
 proto.mlmbox.types.Account.Profile.toObject = function(includeInstance, msg) {
   var f, obj = {
-    firstName: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    lastName: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    telegram: (f = msg.getTelegram()) && proto.mlmbox.types.Account.Profile.Telegram.toObject(includeInstance, f),
-    ava: (f = msg.getAva()) && proto.mlmbox.types.Account.Profile.Ava.toObject(includeInstance, f)
+firstName: jspb.Message.getFieldWithDefault(msg, 1, ""),
+lastName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+telegram: (f = msg.getTelegram()) && proto.mlmbox.types.Account.Profile.Telegram.toObject(includeInstance, f),
+ava: (f = msg.getAva()) && proto.mlmbox.types.Account.Profile.Ava.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1751,8 +1751,8 @@ proto.mlmbox.types.Account.Profile.Ava.prototype.toObject = function(opt_include
  */
 proto.mlmbox.types.Account.Profile.Ava.toObject = function(includeInstance, msg) {
   var f, obj = {
-    collectionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    entityId: jspb.Message.getFieldWithDefault(msg, 2, 0)
+collectionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+entityId: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -1976,8 +1976,8 @@ proto.mlmbox.types.Account.Profile.Ava.Generate.Request.prototype.toObject = fun
  */
 proto.mlmbox.types.Account.Profile.Ava.Generate.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-    maleQuantity: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    femaleQuantity: jspb.Message.getFieldWithDefault(msg, 2, 0)
+maleQuantity: jspb.Message.getFieldWithDefault(msg, 1, 0),
+femaleQuantity: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -2143,9 +2143,9 @@ proto.mlmbox.types.Account.Profile.Ava.Generate.Response.prototype.toObject = fu
  */
 proto.mlmbox.types.Account.Profile.Ava.Generate.Response.toObject = function(includeInstance, msg) {
   var f, obj = {
-    malesList: jspb.Message.toObjectList(msg.getMalesList(),
+malesList: jspb.Message.toObjectList(msg.getMalesList(),
     proto.mlmbox.types.Account.Profile.Ava.toObject, includeInstance),
-    femalesList: jspb.Message.toObjectList(msg.getFemalesList(),
+femalesList: jspb.Message.toObjectList(msg.getFemalesList(),
     proto.mlmbox.types.Account.Profile.Ava.toObject, includeInstance)
   };
 
@@ -2385,8 +2385,8 @@ proto.mlmbox.types.Account.Profile.Telegram.prototype.toObject = function(opt_in
  */
 proto.mlmbox.types.Account.Profile.Telegram.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    username: jspb.Message.getFieldWithDefault(msg, 2, "")
+id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+username: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -2655,11 +2655,11 @@ proto.mlmbox.types.Account.Statistics.prototype.toObject = function(opt_includeI
  */
 proto.mlmbox.types.Account.Statistics.toObject = function(includeInstance, msg) {
   var f, obj = {
-    partnersQuantity: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    teamQuantity: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    marketingPartnersQuantity: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    marketingTeamQuantity: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    totalEarnedBonusMatrix: jspb.Message.getFieldWithDefault(msg, 5, "")
+partnersQuantity: jspb.Message.getFieldWithDefault(msg, 1, 0),
+teamQuantity: jspb.Message.getFieldWithDefault(msg, 2, 0),
+marketingPartnersQuantity: jspb.Message.getFieldWithDefault(msg, 3, 0),
+marketingTeamQuantity: jspb.Message.getFieldWithDefault(msg, 4, 0),
+totalEarnedBonusMatrix: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -2822,8 +2822,8 @@ proto.mlmbox.types.Account.Statistics.Full.prototype.toObject = function(opt_inc
  */
 proto.mlmbox.types.Account.Statistics.Full.toObject = function(includeInstance, msg) {
   var f, obj = {
-    statistics: (f = msg.getStatistics()) && proto.mlmbox.types.Account.Statistics.toObject(includeInstance, f),
-    assetsList: jspb.Message.toObjectList(msg.getAssetsList(),
+statistics: (f = msg.getStatistics()) && proto.mlmbox.types.Account.Statistics.toObject(includeInstance, f),
+assetsList: jspb.Message.toObjectList(msg.getAssetsList(),
     proto.mlmbox.types.Account.Statistics.Full.Asset.toObject, includeInstance)
   };
 
@@ -2951,9 +2951,9 @@ proto.mlmbox.types.Account.Statistics.Full.Asset.prototype.toObject = function(o
  */
 proto.mlmbox.types.Account.Statistics.Full.Asset.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    assetBalance: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    incomeBonusesStatistics: (f = msg.getIncomeBonusesStatistics()) && mlmbox_types_bonus_pb.Bonus.Summary.toObject(includeInstance, f)
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+assetBalance: jspb.Message.getFieldWithDefault(msg, 2, ""),
+incomeBonusesStatistics: (f = msg.getIncomeBonusesStatistics()) && mlmbox_types_bonus_pb.Bonus.Summary.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3334,17 +3334,17 @@ proto.mlmbox.types.Account.Info.prototype.toObject = function(opt_includeInstanc
  */
 proto.mlmbox.types.Account.Info.toObject = function(includeInstance, msg) {
   var f, obj = {
-    profile: (f = msg.getProfile()) && proto.mlmbox.types.Account.Profile.toObject(includeInstance, f),
-    account: (f = msg.getAccount()) && proto.mlmbox.types.Account.Username.toObject(includeInstance, f),
-    sponsor: (f = msg.getSponsor()) && proto.mlmbox.types.Account.Username.toObject(includeInstance, f),
-    relationship: (f = msg.getRelationship()) && mlmbox_types_relationship_pb.Relationship.toObject(includeInstance, f),
-    registrationAt: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    marketingStartedAt: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    treeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    sponsorBranch: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    statistics: (f = msg.getStatistics()) && proto.mlmbox.types.Account.Statistics.toObject(includeInstance, f),
-    channelsList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f,
-    leagueRank: (f = msg.getLeagueRank()) && mlmbox_types_league_pb.League.Rank.toObject(includeInstance, f)
+profile: (f = msg.getProfile()) && proto.mlmbox.types.Account.Profile.toObject(includeInstance, f),
+account: (f = msg.getAccount()) && proto.mlmbox.types.Account.Username.toObject(includeInstance, f),
+sponsor: (f = msg.getSponsor()) && proto.mlmbox.types.Account.Username.toObject(includeInstance, f),
+relationship: (f = msg.getRelationship()) && mlmbox_types_relationship_pb.Relationship.toObject(includeInstance, f),
+registrationAt: jspb.Message.getFieldWithDefault(msg, 5, 0),
+marketingStartedAt: jspb.Message.getFieldWithDefault(msg, 6, 0),
+treeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 7, 0),
+sponsorBranch: jspb.Message.getFieldWithDefault(msg, 8, 0),
+statistics: (f = msg.getStatistics()) && proto.mlmbox.types.Account.Statistics.toObject(includeInstance, f),
+channelsList: (f = jspb.Message.getRepeatedField(msg, 10)) == null ? undefined : f,
+leagueRank: (f = msg.getLeagueRank()) && mlmbox_types_league_pb.League.Rank.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3587,7 +3587,7 @@ proto.mlmbox.types.Account.Info.List.prototype.toObject = function(opt_includeIn
  */
 proto.mlmbox.types.Account.Info.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.Account.Info.toObject, includeInstance)
   };
 
@@ -4071,11 +4071,11 @@ proto.mlmbox.types.Account.Mentor.prototype.toObject = function(opt_includeInsta
  */
 proto.mlmbox.types.Account.Mentor.toObject = function(includeInstance, msg) {
   var f, obj = {
-    aiPackageId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    subscribed: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    subscribedUntil: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    messagesLimit: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    messagesUsed: jspb.Message.getFieldWithDefault(msg, 5, 0)
+aiPackageId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+subscribed: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+subscribedUntil: jspb.Message.getFieldWithDefault(msg, 3, 0),
+messagesLimit: jspb.Message.getFieldWithDefault(msg, 4, 0),
+messagesUsed: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -4530,15 +4530,15 @@ proto.mlmbox.types.Tree.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mlmbox.types.Tree.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    title: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    groupId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    positionsQuantity: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    defaultPositionWidth: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    amount: (f = msg.getAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f),
-    bookingEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
-    treeModeId: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    requireTreeIdsList: (f = jspb.Message.getRepeatedField(msg, 9)) == null ? undefined : f
+id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+title: jspb.Message.getFieldWithDefault(msg, 2, ""),
+groupId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+positionsQuantity: jspb.Message.getFieldWithDefault(msg, 4, 0),
+defaultPositionWidth: jspb.Message.getFieldWithDefault(msg, 5, 0),
+amount: (f = msg.getAmount()) && mlmbox_types_asset_pb.Asset.Amount.toObject(includeInstance, f),
+bookingEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
+treeModeId: jspb.Message.getFieldWithDefault(msg, 8, 0),
+requireTreeIdsList: (f = jspb.Message.getRepeatedField(msg, 9)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -4750,8 +4750,8 @@ proto.mlmbox.types.Tree.Group.prototype.toObject = function(opt_includeInstance)
  */
 proto.mlmbox.types.Tree.Group.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    title: jspb.Message.getFieldWithDefault(msg, 2, "")
+id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+title: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -5117,13 +5117,13 @@ proto.mlmbox.types.TreeAccount.prototype.toObject = function(opt_includeInstance
  */
 proto.mlmbox.types.TreeAccount.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    quantity: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    activatedQuantity: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    activatedCapacity: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    poolValue: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    bookingQuantity: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    entitiesList: jspb.Message.toObjectList(msg.getEntitiesList(),
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+quantity: jspb.Message.getFieldWithDefault(msg, 2, 0),
+activatedQuantity: jspb.Message.getFieldWithDefault(msg, 3, 0),
+activatedCapacity: jspb.Message.getFieldWithDefault(msg, 4, 0),
+poolValue: jspb.Message.getFieldWithDefault(msg, 5, ""),
+bookingQuantity: jspb.Message.getFieldWithDefault(msg, 6, 0),
+entitiesList: jspb.Message.toObjectList(msg.getEntitiesList(),
     proto.mlmbox.types.TreeAccount.Entity.toObject, includeInstance)
   };
 
@@ -5304,8 +5304,8 @@ proto.mlmbox.types.TreeAccount.Id.prototype.toObject = function(opt_includeInsta
  */
 proto.mlmbox.types.TreeAccount.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    accountId: jspb.Message.getFieldWithDefault(msg, 2, 0)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+accountId: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -5471,7 +5471,7 @@ proto.mlmbox.types.TreeAccount.List.prototype.toObject = function(opt_includeIns
  */
 proto.mlmbox.types.TreeAccount.List.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.TreeAccount.toObject, includeInstance)
   };
 
@@ -5624,13 +5624,13 @@ proto.mlmbox.types.TreeAccount.Entity.prototype.toObject = function(opt_includeI
  */
 proto.mlmbox.types.TreeAccount.Entity.toObject = function(includeInstance, msg) {
   var f, obj = {
-    positionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    treeChainId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    treeEntityId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    filled2w2lBitMask: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    filled: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
-    viewAccess: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
+positionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+treeChainId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+treeEntityId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+filled2w2lBitMask: jspb.Message.getFieldWithDefault(msg, 5, 0),
+filled: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
+viewAccess: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
   };
 
   if (includeInstance) {
@@ -5934,13 +5934,13 @@ proto.mlmbox.types.TreeAccount.Set.prototype.toObject = function(opt_includeInst
  */
 proto.mlmbox.types.TreeAccount.Set.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    quantity: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    activatedQuantity: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    activatedCapacity: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    poolValue: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    bookingQuantity: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    entity: (f = msg.getEntity()) && proto.mlmbox.types.TreeAccount.Entity.toObject(includeInstance, f)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+quantity: jspb.Message.getFieldWithDefault(msg, 2, 0),
+activatedQuantity: jspb.Message.getFieldWithDefault(msg, 3, 0),
+activatedCapacity: jspb.Message.getFieldWithDefault(msg, 4, 0),
+poolValue: jspb.Message.getFieldWithDefault(msg, 5, ""),
+bookingQuantity: jspb.Message.getFieldWithDefault(msg, 6, 0),
+entity: (f = msg.getEntity()) && proto.mlmbox.types.TreeAccount.Entity.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -6512,7 +6512,7 @@ proto.mlmbox.types.PositionView.Id.prototype.toObject = function(opt_includeInst
  */
 proto.mlmbox.types.PositionView.Id.toObject = function(includeInstance, msg) {
   var f, obj = {
-    viewPositionId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+viewPositionId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -6668,9 +6668,9 @@ proto.mlmbox.types.PositionView.Team.prototype.toObject = function(opt_includeIn
  */
 proto.mlmbox.types.PositionView.Team.toObject = function(includeInstance, msg) {
   var f, obj = {
-    viewLevel: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    viewPositionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    treeAccount: (f = msg.getTreeAccount()) && proto.mlmbox.types.TreeAccount.Id.toObject(includeInstance, f)
+viewLevel: jspb.Message.getFieldWithDefault(msg, 1, 0),
+viewPositionId: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
+treeAccount: (f = msg.getTreeAccount()) && proto.mlmbox.types.TreeAccount.Id.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -7099,8 +7099,8 @@ proto.mlmbox.types.Matrix.Reinvest.Request.prototype.toObject = function(opt_inc
  */
 proto.mlmbox.types.Matrix.Reinvest.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-    positionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    reinvestEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
+positionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+reinvestEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
   };
 
   if (includeInstance) {
@@ -7259,19 +7259,20 @@ proto.mlmbox.types.Matrix.Position.prototype.toObject = function(opt_includeInst
  */
 proto.mlmbox.types.Matrix.Position.toObject = function(includeInstance, msg) {
   var f, obj = {
-    positionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    positionSponsorId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    positionSponsorBranch: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    positionWidth: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    accountId: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    treeChainId: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    treeEntityId: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    partnersQuantity: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    teamQuantity: jspb.Message.getFieldWithDefault(msg, 10, 0),
-    poolValue: jspb.Message.getFieldWithDefault(msg, 11, ""),
-    reinvestEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 12, false),
-    filled: jspb.Message.getBooleanFieldWithDefault(msg, 13, false)
+positionId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+positionSponsorId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+positionSponsorBranch: jspb.Message.getFieldWithDefault(msg, 3, 0),
+positionWidth: jspb.Message.getFieldWithDefault(msg, 4, 0),
+accountId: jspb.Message.getFieldWithDefault(msg, 5, 0),
+treeChainId: jspb.Message.getFieldWithDefault(msg, 6, 0),
+treeEntityId: jspb.Message.getFieldWithDefault(msg, 7, 0),
+treeAccountEntityId: jspb.Message.getFieldWithDefault(msg, 8, 0),
+partnersQuantity: jspb.Message.getFieldWithDefault(msg, 9, 0),
+teamQuantity: jspb.Message.getFieldWithDefault(msg, 10, 0),
+poolValue: jspb.Message.getFieldWithDefault(msg, 11, ""),
+reinvestEnabled: jspb.Message.getBooleanFieldWithDefault(msg, 12, false),
+filled: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
+createdAt: jspb.Message.getFieldWithDefault(msg, 14, 0)
   };
 
   if (includeInstance) {
@@ -7359,6 +7360,10 @@ proto.mlmbox.types.Matrix.Position.deserializeBinaryFromReader = function(msg, r
     case 13:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setFilled(value);
+      break;
+    case 14:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setCreatedAt(value);
       break;
     default:
       reader.skipField();
@@ -7477,6 +7482,13 @@ proto.mlmbox.types.Matrix.Position.serializeBinaryToWriter = function(message, w
   if (f) {
     writer.writeBool(
       13,
+      f
+    );
+  }
+  f = message.getCreatedAt();
+  if (f !== 0) {
+    writer.writeUint32(
+      14,
       f
     );
   }
@@ -7717,6 +7729,24 @@ proto.mlmbox.types.Matrix.Position.prototype.setFilled = function(value) {
 };
 
 
+/**
+ * optional uint32 created_at = 14;
+ * @return {number}
+ */
+proto.mlmbox.types.Matrix.Position.prototype.getCreatedAt = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.mlmbox.types.Matrix.Position} returns this
+ */
+proto.mlmbox.types.Matrix.Position.prototype.setCreatedAt = function(value) {
+  return jspb.Message.setProto3IntField(this, 14, value);
+};
+
+
 
 /**
  * List of repeated fields within this message type.
@@ -7756,16 +7786,16 @@ proto.mlmbox.types.Matrix.View.prototype.toObject = function(opt_includeInstance
  */
 proto.mlmbox.types.Matrix.View.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    selfPositionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    selfTreeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    viewPositionId: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    viewTreeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    positionsList: jspb.Message.toObjectList(msg.getPositionsList(),
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+selfPositionId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+selfTreeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 3, 0),
+viewPositionId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+viewTreeIdsBitMask: jspb.Message.getFieldWithDefault(msg, 5, 0),
+positionsList: jspb.Message.toObjectList(msg.getPositionsList(),
     proto.mlmbox.types.Matrix.Position.toObject, includeInstance),
-    accountsList: jspb.Message.toObjectList(msg.getAccountsList(),
+accountsList: jspb.Message.toObjectList(msg.getAccountsList(),
     proto.mlmbox.types.Account.Info.toObject, includeInstance),
-    viewTreeAccountEntitiesList: jspb.Message.toObjectList(msg.getViewTreeAccountEntitiesList(),
+viewTreeAccountEntitiesList: jspb.Message.toObjectList(msg.getViewTreeAccountEntitiesList(),
     proto.mlmbox.types.TreeAccount.Entity.toObject, includeInstance)
   };
 
@@ -8172,7 +8202,7 @@ proto.mlmbox.types.Matrix.Info.prototype.toObject = function(opt_includeInstance
  */
 proto.mlmbox.types.Matrix.Info.toObject = function(includeInstance, msg) {
   var f, obj = {
-    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+itemsList: jspb.Message.toObjectList(msg.getItemsList(),
     proto.mlmbox.types.TreeAccount.toObject, includeInstance)
   };
 

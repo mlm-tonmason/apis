@@ -31,13 +31,13 @@ export class Management extends jspb.Message {
 
 export namespace Management {
   export type AsObject = {
-    sourceId: number,
-    title: string,
-    tag: string,
-    visible: boolean,
-    refLinkId: string,
-    partnersQuantity: number,
-  }
+    sourceId: number;
+    title: string;
+    tag: string;
+    visible: boolean;
+    refLinkId: string;
+    partnersQuantity: number;
+  };
 
   export class Id extends jspb.Message {
     getSourceId(): number;
@@ -53,8 +53,8 @@ export namespace Management {
 
   export namespace Id {
     export type AsObject = {
-      sourceId: number,
-    }
+      sourceId: number;
+    };
   }
 
 
@@ -74,8 +74,8 @@ export namespace Management {
 
   export namespace List {
     export type AsObject = {
-      itemsList: Array<Management.AsObject>,
-    }
+      itemsList: Array<Management.AsObject>;
+    };
   }
 
 }

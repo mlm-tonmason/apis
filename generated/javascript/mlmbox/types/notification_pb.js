@@ -149,9 +149,9 @@ proto.mlmbox.types.Notification.prototype.toObject = function(opt_includeInstanc
  */
 proto.mlmbox.types.Notification.toObject = function(includeInstance, msg) {
   var f, obj = {
-    metricsAccountsQuantity: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    positionView: (f = msg.getPositionView()) && proto.mlmbox.types.Notification.PositionView.toObject(includeInstance, f),
-    walletTransaction: (f = msg.getWalletTransaction()) && proto.mlmbox.types.Notification.AssetTransaction.toObject(includeInstance, f)
+metricsAccountsQuantity: (f = jspb.Message.getField(msg, 1)) == null ? undefined : f,
+positionView: (f = msg.getPositionView()) && proto.mlmbox.types.Notification.PositionView.toObject(includeInstance, f),
+walletTransaction: (f = msg.getWalletTransaction()) && proto.mlmbox.types.Notification.AssetTransaction.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -289,11 +289,11 @@ proto.mlmbox.types.Notification.PositionView.prototype.toObject = function(opt_i
  */
 proto.mlmbox.types.Notification.PositionView.toObject = function(includeInstance, msg) {
   var f, obj = {
-    treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    accountId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    positionId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    positionSponsorId: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    positionSponsorBranch: jspb.Message.getFieldWithDefault(msg, 5, 0)
+treeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+accountId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+positionId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+positionSponsorId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+positionSponsorBranch: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -539,8 +539,8 @@ proto.mlmbox.types.Notification.AssetTransaction.prototype.toObject = function(o
  */
 proto.mlmbox.types.Notification.AssetTransaction.toObject = function(includeInstance, msg) {
   var f, obj = {
-    assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    transaction: (f = msg.getTransaction()) && mlmbox_types_wallet_pb.Wallet.Asset.Transaction.toObject(includeInstance, f)
+assetId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+transaction: (f = msg.getTransaction()) && mlmbox_types_wallet_pb.Wallet.Asset.Transaction.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

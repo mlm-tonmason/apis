@@ -26,18 +26,22 @@ export class AssetPair extends jspb.Message {
 
 export namespace AssetPair {
   export type AsObject = {
-    assetPairId: number,
-    assetPairName: string,
-    sourceAssetId: number,
-    targetAssetId: number,
-  }
+    assetPairId: number;
+    assetPairName: string;
+    sourceAssetId: number;
+    targetAssetId: number;
+  };
 
   export class Id extends jspb.Message {
     getAssetPairId(): number;
     setAssetPairId(value: number): Id;
+    hasAssetPairId(): boolean;
+    clearAssetPairId(): Id;
 
     getAssetPairName(): string;
     setAssetPairName(value: string): Id;
+    hasAssetPairName(): boolean;
+    clearAssetPairName(): Id;
 
     getAssets(): AssetPair.Id.Assets | undefined;
     setAssets(value?: AssetPair.Id.Assets): Id;
@@ -56,10 +60,10 @@ export namespace AssetPair {
 
   export namespace Id {
     export type AsObject = {
-      assetPairId: number,
-      assetPairName: string,
-      assets?: AssetPair.Id.Assets.AsObject,
-    }
+      assetPairId?: number;
+      assetPairName?: string;
+      assets?: AssetPair.Id.Assets.AsObject;
+    };
 
     export class Assets extends jspb.Message {
       getSourceAsset(): mlmbox_types_asset_pb.Asset.Id | undefined;
@@ -82,13 +86,13 @@ export namespace AssetPair {
 
     export namespace Assets {
       export type AsObject = {
-        sourceAsset?: mlmbox_types_asset_pb.Asset.Id.AsObject,
-        targetAsset?: mlmbox_types_asset_pb.Asset.Id.AsObject,
-      }
+        sourceAsset?: mlmbox_types_asset_pb.Asset.Id.AsObject;
+        targetAsset?: mlmbox_types_asset_pb.Asset.Id.AsObject;
+      };
     }
 
 
-    export enum QueryCase { 
+    export const enum QueryCase {
       QUERY_NOT_SET = 0,
       ASSET_PAIR_ID = 1,
       ASSET_PAIR_NAME = 2,
@@ -113,8 +117,8 @@ export namespace AssetPair {
 
   export namespace List {
     export type AsObject = {
-      itemsList: Array<AssetPair.AsObject>,
-    }
+      itemsList: Array<AssetPair.AsObject>;
+    };
   }
 
 }

@@ -16,8 +16,8 @@ export class DoubleValue extends jspb.Message {
 
 export namespace DoubleValue {
   export type AsObject = {
-    value: number,
-  }
+    value: number;
+  };
 }
 
 export class FloatValue extends jspb.Message {
@@ -34,8 +34,8 @@ export class FloatValue extends jspb.Message {
 
 export namespace FloatValue {
   export type AsObject = {
-    value: number,
-  }
+    value: number;
+  };
 }
 
 export class Int64Value extends jspb.Message {
@@ -52,8 +52,8 @@ export class Int64Value extends jspb.Message {
 
 export namespace Int64Value {
   export type AsObject = {
-    value: number,
-  }
+    value: number;
+  };
 }
 
 export class UInt64Value extends jspb.Message {
@@ -70,8 +70,8 @@ export class UInt64Value extends jspb.Message {
 
 export namespace UInt64Value {
   export type AsObject = {
-    value: number,
-  }
+    value: number;
+  };
 }
 
 export class Int32Value extends jspb.Message {
@@ -88,8 +88,8 @@ export class Int32Value extends jspb.Message {
 
 export namespace Int32Value {
   export type AsObject = {
-    value: number,
-  }
+    value: number;
+  };
 }
 
 export class UInt32Value extends jspb.Message {
@@ -106,8 +106,8 @@ export class UInt32Value extends jspb.Message {
 
 export namespace UInt32Value {
   export type AsObject = {
-    value: number,
-  }
+    value: number;
+  };
 }
 
 export class BoolValue extends jspb.Message {
@@ -124,8 +124,8 @@ export class BoolValue extends jspb.Message {
 
 export namespace BoolValue {
   export type AsObject = {
-    value: boolean,
-  }
+    value: boolean;
+  };
 }
 
 export class StringValue extends jspb.Message {
@@ -142,8 +142,8 @@ export class StringValue extends jspb.Message {
 
 export namespace StringValue {
   export type AsObject = {
-    value: string,
-  }
+    value: string;
+  };
 }
 
 export class BytesValue extends jspb.Message {
@@ -162,7 +162,7 @@ export class BytesValue extends jspb.Message {
 
 export namespace BytesValue {
   export type AsObject = {
-    value: Uint8Array | string,
-  }
+    value: Uint8Array | string;
+  };
 }
 

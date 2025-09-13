@@ -14,7 +14,7 @@ export class Invoice extends jspb.Message {
 
 export namespace Invoice {
   export type AsObject = {
-  }
+  };
 
   export class Request extends jspb.Message {
     getEntitiesList(): Array<Invoice.Request.Entity>;
@@ -32,8 +32,8 @@ export namespace Invoice {
 
   export namespace Request {
     export type AsObject = {
-      entitiesList: Array<Invoice.Request.Entity.AsObject>,
-    }
+      entitiesList: Array<Invoice.Request.Entity.AsObject>;
+    };
 
     export class Entity extends jspb.Message {
       getTreeId(): number;
@@ -52,9 +52,9 @@ export namespace Invoice {
 
     export namespace Entity {
       export type AsObject = {
-        treeId: number,
-        quantity: number,
-      }
+        treeId: number;
+        quantity: number;
+      };
     }
 
   }
@@ -81,9 +81,9 @@ export namespace Invoice {
 
   export namespace PreviewResponse {
     export type AsObject = {
-      itemsList: Array<Invoice.PreviewResponse.Item.AsObject>,
-      billAmountsList: Array<mlmbox_types_asset_pb.Asset.Amount.AsObject>,
-    }
+      itemsList: Array<Invoice.PreviewResponse.Item.AsObject>;
+      billAmountsList: Array<mlmbox_types_asset_pb.Asset.Amount.AsObject>;
+    };
 
     export class Item extends jspb.Message {
       getTreeId(): number;
@@ -114,13 +114,13 @@ export namespace Invoice {
 
     export namespace Item {
       export type AsObject = {
-        treeId: number,
-        assetId: number,
-        priceValue: string,
-        unlockValue: string,
-        amountValue: string,
-        quantity: number,
-      }
+        treeId: number;
+        assetId: number;
+        priceValue: string;
+        unlockValue: string;
+        amountValue: string;
+        quantity: number;
+      };
     }
 
   }
@@ -142,8 +142,8 @@ export namespace Invoice {
 
   export namespace VerifiedResponse {
     export type AsObject = {
-      itemsList: Array<Invoice.VerifiedResponse.Item.AsObject>,
-    }
+      itemsList: Array<Invoice.VerifiedResponse.Item.AsObject>;
+    };
 
     export class Item extends jspb.Message {
       getTreeId(): number;
@@ -171,12 +171,12 @@ export namespace Invoice {
 
     export namespace Item {
       export type AsObject = {
-        treeId: number,
-        treeEntityId: number,
-        treeAccountEntityId: number,
-        positionId: number,
-        isBooking: boolean,
-      }
+        treeId: number;
+        treeEntityId: number;
+        treeAccountEntityId: number;
+        positionId: number;
+        isBooking: boolean;
+      };
     }
 
   }

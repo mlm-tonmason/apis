@@ -22,9 +22,9 @@ export class LoginSetRequest extends jspb.Message {
 
 export namespace LoginSetRequest {
   export type AsObject = {
-    account?: mlmbox_types_account_pb.Account.Id.AsObject,
-    login: string,
-  }
+    account?: mlmbox_types_account_pb.Account.Id.AsObject;
+    login: string;
+  };
 }
 
 export class SponsorSetRequest extends jspb.Message {
@@ -48,8 +48,8 @@ export class SponsorSetRequest extends jspb.Message {
 
 export namespace SponsorSetRequest {
   export type AsObject = {
-    account?: mlmbox_types_account_pb.Account.Id.AsObject,
-    sponsor?: mlmbox_types_account_pb.Account.Id.AsObject,
-  }
+    account?: mlmbox_types_account_pb.Account.Id.AsObject;
+    sponsor?: mlmbox_types_account_pb.Account.Id.AsObject;
+  };
 }
 

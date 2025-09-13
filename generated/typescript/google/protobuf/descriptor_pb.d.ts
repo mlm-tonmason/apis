@@ -18,8 +18,8 @@ export class FileDescriptorSet extends jspb.Message {
 
 export namespace FileDescriptorSet {
   export type AsObject = {
-    fileList: Array<FileDescriptorProto.AsObject>,
-  }
+    fileList: Array<FileDescriptorProto.AsObject>;
+  };
 }
 
 export class FileDescriptorProto extends jspb.Message {
@@ -93,19 +93,19 @@ export class FileDescriptorProto extends jspb.Message {
 
 export namespace FileDescriptorProto {
   export type AsObject = {
-    name?: string,
-    pb_package?: string,
-    dependencyList: Array<string>,
-    publicDependencyList: Array<number>,
-    weakDependencyList: Array<number>,
-    messageTypeList: Array<DescriptorProto.AsObject>,
-    enumTypeList: Array<EnumDescriptorProto.AsObject>,
-    serviceList: Array<ServiceDescriptorProto.AsObject>,
-    extensionList: Array<FieldDescriptorProto.AsObject>,
-    options?: FileOptions.AsObject,
-    sourceCodeInfo?: SourceCodeInfo.AsObject,
-    syntax?: string,
-  }
+    name?: string;
+    pb_package?: string;
+    dependencyList: Array<string>;
+    publicDependencyList: Array<number>;
+    weakDependencyList: Array<number>;
+    messageTypeList: Array<DescriptorProto.AsObject>;
+    enumTypeList: Array<EnumDescriptorProto.AsObject>;
+    serviceList: Array<ServiceDescriptorProto.AsObject>;
+    extensionList: Array<FieldDescriptorProto.AsObject>;
+    options?: FileOptions.AsObject;
+    sourceCodeInfo?: SourceCodeInfo.AsObject;
+    syntax?: string;
+  };
 }
 
 export class DescriptorProto extends jspb.Message {
@@ -169,17 +169,17 @@ export class DescriptorProto extends jspb.Message {
 
 export namespace DescriptorProto {
   export type AsObject = {
-    name?: string,
-    fieldList: Array<FieldDescriptorProto.AsObject>,
-    extensionList: Array<FieldDescriptorProto.AsObject>,
-    nestedTypeList: Array<DescriptorProto.AsObject>,
-    enumTypeList: Array<EnumDescriptorProto.AsObject>,
-    extensionRangeList: Array<DescriptorProto.ExtensionRange.AsObject>,
-    oneofDeclList: Array<OneofDescriptorProto.AsObject>,
-    options?: MessageOptions.AsObject,
-    reservedRangeList: Array<DescriptorProto.ReservedRange.AsObject>,
-    reservedNameList: Array<string>,
-  }
+    name?: string;
+    fieldList: Array<FieldDescriptorProto.AsObject>;
+    extensionList: Array<FieldDescriptorProto.AsObject>;
+    nestedTypeList: Array<DescriptorProto.AsObject>;
+    enumTypeList: Array<EnumDescriptorProto.AsObject>;
+    extensionRangeList: Array<DescriptorProto.ExtensionRange.AsObject>;
+    oneofDeclList: Array<OneofDescriptorProto.AsObject>;
+    options?: MessageOptions.AsObject;
+    reservedRangeList: Array<DescriptorProto.ReservedRange.AsObject>;
+    reservedNameList: Array<string>;
+  };
 
   export class ExtensionRange extends jspb.Message {
     getStart(): number;
@@ -207,10 +207,10 @@ export namespace DescriptorProto {
 
   export namespace ExtensionRange {
     export type AsObject = {
-      start?: number,
-      end?: number,
-      options?: ExtensionRangeOptions.AsObject,
-    }
+      start?: number;
+      end?: number;
+      options?: ExtensionRangeOptions.AsObject;
+    };
   }
 
 
@@ -235,9 +235,9 @@ export namespace DescriptorProto {
 
   export namespace ReservedRange {
     export type AsObject = {
-      start?: number,
-      end?: number,
-    }
+      start?: number;
+      end?: number;
+    };
   }
 
 }
@@ -258,8 +258,8 @@ export class ExtensionRangeOptions extends jspb.Message {
 
 export namespace ExtensionRangeOptions {
   export type AsObject = {
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 }
 
 export class FieldDescriptorProto extends jspb.Message {
@@ -328,20 +328,20 @@ export class FieldDescriptorProto extends jspb.Message {
 
 export namespace FieldDescriptorProto {
   export type AsObject = {
-    name?: string,
-    number?: number,
-    label?: FieldDescriptorProto.Label,
-    type?: FieldDescriptorProto.Type,
-    typeName?: string,
-    extendee?: string,
-    defaultValue?: string,
-    oneofIndex?: number,
-    jsonName?: string,
-    options?: FieldOptions.AsObject,
-    proto3Optional?: boolean,
-  }
+    name?: string;
+    number?: number;
+    label?: FieldDescriptorProto.Label;
+    type?: FieldDescriptorProto.Type;
+    typeName?: string;
+    extendee?: string;
+    defaultValue?: string;
+    oneofIndex?: number;
+    jsonName?: string;
+    options?: FieldOptions.AsObject;
+    proto3Optional?: boolean;
+  };
 
-  export enum Type { 
+  export const enum Type {
     TYPE_DOUBLE = 1,
     TYPE_FLOAT = 2,
     TYPE_INT64 = 3,
@@ -362,7 +362,7 @@ export namespace FieldDescriptorProto {
     TYPE_SINT64 = 18,
   }
 
-  export enum Label { 
+  export const enum Label {
     LABEL_OPTIONAL = 1,
     LABEL_REQUIRED = 2,
     LABEL_REPEATED = 3,
@@ -390,9 +390,9 @@ export class OneofDescriptorProto extends jspb.Message {
 
 export namespace OneofDescriptorProto {
   export type AsObject = {
-    name?: string,
-    options?: OneofOptions.AsObject,
-  }
+    name?: string;
+    options?: OneofOptions.AsObject;
+  };
 }
 
 export class EnumDescriptorProto extends jspb.Message {
@@ -431,12 +431,12 @@ export class EnumDescriptorProto extends jspb.Message {
 
 export namespace EnumDescriptorProto {
   export type AsObject = {
-    name?: string,
-    valueList: Array<EnumValueDescriptorProto.AsObject>,
-    options?: EnumOptions.AsObject,
-    reservedRangeList: Array<EnumDescriptorProto.EnumReservedRange.AsObject>,
-    reservedNameList: Array<string>,
-  }
+    name?: string;
+    valueList: Array<EnumValueDescriptorProto.AsObject>;
+    options?: EnumOptions.AsObject;
+    reservedRangeList: Array<EnumDescriptorProto.EnumReservedRange.AsObject>;
+    reservedNameList: Array<string>;
+  };
 
   export class EnumReservedRange extends jspb.Message {
     getStart(): number;
@@ -459,9 +459,9 @@ export namespace EnumDescriptorProto {
 
   export namespace EnumReservedRange {
     export type AsObject = {
-      start?: number,
-      end?: number,
-    }
+      start?: number;
+      end?: number;
+    };
   }
 
 }
@@ -492,10 +492,10 @@ export class EnumValueDescriptorProto extends jspb.Message {
 
 export namespace EnumValueDescriptorProto {
   export type AsObject = {
-    name?: string,
-    number?: number,
-    options?: EnumValueOptions.AsObject,
-  }
+    name?: string;
+    number?: number;
+    options?: EnumValueOptions.AsObject;
+  };
 }
 
 export class ServiceDescriptorProto extends jspb.Message {
@@ -524,10 +524,10 @@ export class ServiceDescriptorProto extends jspb.Message {
 
 export namespace ServiceDescriptorProto {
   export type AsObject = {
-    name?: string,
-    methodList: Array<MethodDescriptorProto.AsObject>,
-    options?: ServiceOptions.AsObject,
-  }
+    name?: string;
+    methodList: Array<MethodDescriptorProto.AsObject>;
+    options?: ServiceOptions.AsObject;
+  };
 }
 
 export class MethodDescriptorProto extends jspb.Message {
@@ -571,13 +571,13 @@ export class MethodDescriptorProto extends jspb.Message {
 
 export namespace MethodDescriptorProto {
   export type AsObject = {
-    name?: string,
-    inputType?: string,
-    outputType?: string,
-    options?: MethodOptions.AsObject,
-    clientStreaming?: boolean,
-    serverStreaming?: boolean,
-  }
+    name?: string;
+    inputType?: string;
+    outputType?: string;
+    options?: MethodOptions.AsObject;
+    clientStreaming?: boolean;
+    serverStreaming?: boolean;
+  };
 }
 
 export class FileOptions extends jspb.Message {
@@ -696,30 +696,30 @@ export class FileOptions extends jspb.Message {
 
 export namespace FileOptions {
   export type AsObject = {
-    javaPackage?: string,
-    javaOuterClassname?: string,
-    javaMultipleFiles?: boolean,
-    javaGenerateEqualsAndHash?: boolean,
-    javaStringCheckUtf8?: boolean,
-    optimizeFor?: FileOptions.OptimizeMode,
-    goPackage?: string,
-    ccGenericServices?: boolean,
-    javaGenericServices?: boolean,
-    pyGenericServices?: boolean,
-    phpGenericServices?: boolean,
-    deprecated?: boolean,
-    ccEnableArenas?: boolean,
-    objcClassPrefix?: string,
-    csharpNamespace?: string,
-    swiftPrefix?: string,
-    phpClassPrefix?: string,
-    phpNamespace?: string,
-    phpMetadataNamespace?: string,
-    rubyPackage?: string,
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    javaPackage?: string;
+    javaOuterClassname?: string;
+    javaMultipleFiles?: boolean;
+    javaGenerateEqualsAndHash?: boolean;
+    javaStringCheckUtf8?: boolean;
+    optimizeFor?: FileOptions.OptimizeMode;
+    goPackage?: string;
+    ccGenericServices?: boolean;
+    javaGenericServices?: boolean;
+    pyGenericServices?: boolean;
+    phpGenericServices?: boolean;
+    deprecated?: boolean;
+    ccEnableArenas?: boolean;
+    objcClassPrefix?: string;
+    csharpNamespace?: string;
+    swiftPrefix?: string;
+    phpClassPrefix?: string;
+    phpNamespace?: string;
+    phpMetadataNamespace?: string;
+    rubyPackage?: string;
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 
-  export enum OptimizeMode { 
+  export const enum OptimizeMode {
     SPEED = 1,
     CODE_SIZE = 2,
     LITE_RUNTIME = 3,
@@ -762,12 +762,12 @@ export class MessageOptions extends jspb.Message {
 
 export namespace MessageOptions {
   export type AsObject = {
-    messageSetWireFormat?: boolean,
-    noStandardDescriptorAccessor?: boolean,
-    deprecated?: boolean,
-    mapEntry?: boolean,
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    messageSetWireFormat?: boolean;
+    noStandardDescriptorAccessor?: boolean;
+    deprecated?: boolean;
+    mapEntry?: boolean;
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 }
 
 export class FieldOptions extends jspb.Message {
@@ -816,22 +816,22 @@ export class FieldOptions extends jspb.Message {
 
 export namespace FieldOptions {
   export type AsObject = {
-    ctype?: FieldOptions.CType,
-    packed?: boolean,
-    jstype?: FieldOptions.JSType,
-    lazy?: boolean,
-    deprecated?: boolean,
-    weak?: boolean,
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    ctype?: FieldOptions.CType;
+    packed?: boolean;
+    jstype?: FieldOptions.JSType;
+    lazy?: boolean;
+    deprecated?: boolean;
+    weak?: boolean;
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 
-  export enum CType { 
+  export const enum CType {
     STRING = 0,
     CORD = 1,
     STRING_PIECE = 2,
   }
 
-  export enum JSType { 
+  export const enum JSType {
     JS_NORMAL = 0,
     JS_STRING = 1,
     JS_NUMBER = 2,
@@ -854,8 +854,8 @@ export class OneofOptions extends jspb.Message {
 
 export namespace OneofOptions {
   export type AsObject = {
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 }
 
 export class EnumOptions extends jspb.Message {
@@ -884,10 +884,10 @@ export class EnumOptions extends jspb.Message {
 
 export namespace EnumOptions {
   export type AsObject = {
-    allowAlias?: boolean,
-    deprecated?: boolean,
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    allowAlias?: boolean;
+    deprecated?: boolean;
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 }
 
 export class EnumValueOptions extends jspb.Message {
@@ -911,9 +911,9 @@ export class EnumValueOptions extends jspb.Message {
 
 export namespace EnumValueOptions {
   export type AsObject = {
-    deprecated?: boolean,
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    deprecated?: boolean;
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 }
 
 export class ServiceOptions extends jspb.Message {
@@ -937,9 +937,9 @@ export class ServiceOptions extends jspb.Message {
 
 export namespace ServiceOptions {
   export type AsObject = {
-    deprecated?: boolean,
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    deprecated?: boolean;
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 }
 
 export class MethodOptions extends jspb.Message {
@@ -968,12 +968,12 @@ export class MethodOptions extends jspb.Message {
 
 export namespace MethodOptions {
   export type AsObject = {
-    deprecated?: boolean,
-    idempotencyLevel?: MethodOptions.IdempotencyLevel,
-    uninterpretedOptionList: Array<UninterpretedOption.AsObject>,
-  }
+    deprecated?: boolean;
+    idempotencyLevel?: MethodOptions.IdempotencyLevel;
+    uninterpretedOptionList: Array<UninterpretedOption.AsObject>;
+  };
 
-  export enum IdempotencyLevel { 
+  export const enum IdempotencyLevel {
     IDEMPOTENCY_UNKNOWN = 0,
     NO_SIDE_EFFECTS = 1,
     IDEMPOTENT = 2,
@@ -1028,21 +1028,25 @@ export class UninterpretedOption extends jspb.Message {
 
 export namespace UninterpretedOption {
   export type AsObject = {
-    nameList: Array<UninterpretedOption.NamePart.AsObject>,
-    identifierValue?: string,
-    positiveIntValue?: number,
-    negativeIntValue?: number,
-    doubleValue?: number,
-    stringValue?: Uint8Array | string,
-    aggregateValue?: string,
-  }
+    nameList: Array<UninterpretedOption.NamePart.AsObject>;
+    identifierValue?: string;
+    positiveIntValue?: number;
+    negativeIntValue?: number;
+    doubleValue?: number;
+    stringValue?: Uint8Array | string;
+    aggregateValue?: string;
+  };
 
   export class NamePart extends jspb.Message {
     getNamePart(): string;
     setNamePart(value: string): NamePart;
+    hasNamePart(): boolean;
+    clearNamePart(): NamePart;
 
     getIsExtension(): boolean;
     setIsExtension(value: boolean): NamePart;
+    hasIsExtension(): boolean;
+    clearIsExtension(): NamePart;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): NamePart.AsObject;
@@ -1054,9 +1058,9 @@ export namespace UninterpretedOption {
 
   export namespace NamePart {
     export type AsObject = {
-      namePart: string,
-      isExtension: boolean,
-    }
+      namePart?: string;
+      isExtension?: boolean;
+    };
   }
 
 }
@@ -1077,8 +1081,8 @@ export class SourceCodeInfo extends jspb.Message {
 
 export namespace SourceCodeInfo {
   export type AsObject = {
-    locationList: Array<SourceCodeInfo.Location.AsObject>,
-  }
+    locationList: Array<SourceCodeInfo.Location.AsObject>;
+  };
 
   export class Location extends jspb.Message {
     getPathList(): Array<number>;
@@ -1116,12 +1120,12 @@ export namespace SourceCodeInfo {
 
   export namespace Location {
     export type AsObject = {
-      pathList: Array<number>,
-      spanList: Array<number>,
-      leadingComments?: string,
-      trailingComments?: string,
-      leadingDetachedCommentsList: Array<string>,
-    }
+      pathList: Array<number>;
+      spanList: Array<number>;
+      leadingComments?: string;
+      trailingComments?: string;
+      leadingDetachedCommentsList: Array<string>;
+    };
   }
 
 }
@@ -1142,8 +1146,8 @@ export class GeneratedCodeInfo extends jspb.Message {
 
 export namespace GeneratedCodeInfo {
   export type AsObject = {
-    annotationList: Array<GeneratedCodeInfo.Annotation.AsObject>,
-  }
+    annotationList: Array<GeneratedCodeInfo.Annotation.AsObject>;
+  };
 
   export class Annotation extends jspb.Message {
     getPathList(): Array<number>;
@@ -1176,11 +1180,11 @@ export namespace GeneratedCodeInfo {
 
   export namespace Annotation {
     export type AsObject = {
-      pathList: Array<number>,
-      sourceFile?: string,
-      begin?: number,
-      end?: number,
-    }
+      pathList: Array<number>;
+      sourceFile?: string;
+      begin?: number;
+      end?: number;
+    };
   }
 
 }

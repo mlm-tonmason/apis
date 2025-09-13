@@ -33,10 +33,10 @@ export class WalletAssetGetRequest extends jspb.Message {
 
 export namespace WalletAssetGetRequest {
   export type AsObject = {
-    assetId?: mlmbox_types_asset_pb.Asset.Id.AsObject,
-    sortTransactions?: mlmbox_types_sort_pb.Sort.AsObject,
-    filterKindIdsList: Array<mlmbox_types_wallet_pb.Wallet.Asset.Transaction.Kind.Id>,
-  }
+    assetId?: mlmbox_types_asset_pb.Asset.Id.AsObject;
+    sortTransactions?: mlmbox_types_sort_pb.Sort.AsObject;
+    filterKindIdsList: Array<mlmbox_types_wallet_pb.Wallet.Asset.Transaction.Kind.Id>;
+  };
 }
 
 export class WalletAssetTransactionListRequest extends jspb.Message {
@@ -68,11 +68,11 @@ export class WalletAssetTransactionListRequest extends jspb.Message {
 
 export namespace WalletAssetTransactionListRequest {
   export type AsObject = {
-    assetId?: mlmbox_types_asset_pb.Asset.Id.AsObject,
-    stepTransactionId: number,
-    sortTransactions?: mlmbox_types_sort_pb.Sort.AsObject,
-    filterKindIdsList: Array<mlmbox_types_wallet_pb.Wallet.Asset.Transaction.Kind.Id>,
-  }
+    assetId?: mlmbox_types_asset_pb.Asset.Id.AsObject;
+    stepTransactionId: number;
+    sortTransactions?: mlmbox_types_sort_pb.Sort.AsObject;
+    filterKindIdsList: Array<mlmbox_types_wallet_pb.Wallet.Asset.Transaction.Kind.Id>;
+  };
 }
 
 export class WalletDepositAddressResponse extends jspb.Message {
@@ -92,9 +92,9 @@ export class WalletDepositAddressResponse extends jspb.Message {
 
 export namespace WalletDepositAddressResponse {
   export type AsObject = {
-    address: string,
-    memo: string,
-  }
+    address: string;
+    memo: string;
+  };
 }
 
 export class TransferRequest extends jspb.Message {
@@ -118,9 +118,9 @@ export class TransferRequest extends jspb.Message {
 
 export namespace TransferRequest {
   export type AsObject = {
-    account?: mlmbox_types_account_pb.Account.Id.AsObject,
-    operationAmount?: mlmbox_types_asset_pb.Asset.Amount.AsObject,
-  }
+    account?: mlmbox_types_account_pb.Account.Id.AsObject;
+    operationAmount?: mlmbox_types_asset_pb.Asset.Amount.AsObject;
+  };
 }
 
 export class WalletValidateAddressRequest extends jspb.Message {
@@ -142,9 +142,9 @@ export class WalletValidateAddressRequest extends jspb.Message {
 
 export namespace WalletValidateAddressRequest {
   export type AsObject = {
-    processingId?: mlmbox_types_wallet_pb.Wallet.Processing.Id.AsObject,
-    address: string,
-  }
+    processingId?: mlmbox_types_wallet_pb.Wallet.Processing.Id.AsObject;
+    address: string;
+  };
 }
 
 export class WalletValidateAddressResponse extends jspb.Message {
@@ -164,9 +164,9 @@ export class WalletValidateAddressResponse extends jspb.Message {
 
 export namespace WalletValidateAddressResponse {
   export type AsObject = {
-    address: string,
-    validated: boolean,
-  }
+    address: string;
+    validated: boolean;
+  };
 }
 
 export class WalletWithdrawalRequest extends jspb.Message {
@@ -199,11 +199,11 @@ export class WalletWithdrawalRequest extends jspb.Message {
 
 export namespace WalletWithdrawalRequest {
   export type AsObject = {
-    processingId?: mlmbox_types_wallet_pb.Wallet.Processing.Id.AsObject,
-    operationAmount?: mlmbox_types_asset_pb.Asset.Amount.AsObject,
-    address: string,
-    memo: string,
-    operationFeeFromBody: boolean,
-  }
+    processingId?: mlmbox_types_wallet_pb.Wallet.Processing.Id.AsObject;
+    operationAmount?: mlmbox_types_asset_pb.Asset.Amount.AsObject;
+    address: string;
+    memo: string;
+    operationFeeFromBody: boolean;
+  };
 }
 
