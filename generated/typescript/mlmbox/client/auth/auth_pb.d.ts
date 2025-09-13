@@ -31,6 +31,9 @@ export class TelegramWebLoginRequest extends jspb.Message {
   getChannelId(): number;
   setChannelId(value: number): TelegramWebLoginRequest;
 
+  getRefLinkId(): string;
+  setRefLinkId(value: string): TelegramWebLoginRequest;
+
   getJsonData(): string;
   setJsonData(value: string): TelegramWebLoginRequest;
 
@@ -45,6 +48,7 @@ export class TelegramWebLoginRequest extends jspb.Message {
 export namespace TelegramWebLoginRequest {
   export type AsObject = {
     channelId: number;
+    refLinkId: string;
     jsonData: string;
   };
 }

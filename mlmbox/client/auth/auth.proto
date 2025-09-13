@@ -19,7 +19,8 @@ message TelegramBotSignRequest {
 }
 message TelegramWebLoginRequest {
   uint32 channel_id = 1;
-  string json_data = 2;
+  string ref_link_id = 2;
+  string json_data = 3;
 }
 message AuthSignResponse {
   mlmbox.types.Status.Auth auth_status = 1; // Authentication status

@@ -330,7 +330,8 @@ proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.toObject = function(o
 proto.mlmbox.client.auth.TelegramWebLoginRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
 channelId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-jsonData: jspb.Message.getFieldWithDefault(msg, 2, "")
+refLinkId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+jsonData: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -373,6 +374,10 @@ proto.mlmbox.client.auth.TelegramWebLoginRequest.deserializeBinaryFromReader = f
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
+      msg.setRefLinkId(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
       msg.setJsonData(value);
       break;
     default:
@@ -411,10 +416,17 @@ proto.mlmbox.client.auth.TelegramWebLoginRequest.serializeBinaryToWriter = funct
       f
     );
   }
-  f = message.getJsonData();
+  f = message.getRefLinkId();
   if (f.length > 0) {
     writer.writeString(
       2,
+      f
+    );
+  }
+  f = message.getJsonData();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
       f
     );
   }
@@ -440,10 +452,10 @@ proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.setChannelId = functi
 
 
 /**
- * optional string json_data = 2;
+ * optional string ref_link_id = 2;
  * @return {string}
  */
-proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.getJsonData = function() {
+proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.getRefLinkId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -452,8 +464,26 @@ proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.getJsonData = functio
  * @param {string} value
  * @return {!proto.mlmbox.client.auth.TelegramWebLoginRequest} returns this
  */
-proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.setJsonData = function(value) {
+proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.setRefLinkId = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string json_data = 3;
+ * @return {string}
+ */
+proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.getJsonData = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.mlmbox.client.auth.TelegramWebLoginRequest} returns this
+ */
+proto.mlmbox.client.auth.TelegramWebLoginRequest.prototype.setJsonData = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
