@@ -37,6 +37,11 @@ export class Account extends jspb.Message {
   hasMentor(): boolean;
   clearMentor(): Account;
 
+  getIntro(): Account.Intro | undefined;
+  setIntro(value?: Account.Intro): Account;
+  hasIntro(): boolean;
+  clearIntro(): Account;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Account.AsObject;
   static toObject(includeInstance: boolean, msg: Account): Account.AsObject;
@@ -55,6 +60,7 @@ export namespace Account {
     avaChangeAccess: boolean;
     avaChangesQuantity: number;
     mentor?: Account.Mentor.AsObject;
+    intro?: Account.Intro.AsObject;
   };
 
   export class Id extends jspb.Message {
@@ -512,6 +518,36 @@ export namespace Account {
       messagesLimit: number;
       messagesUsed: number;
     };
+  }
+
+
+  export class Intro extends jspb.Message {
+    getStatus(): Account.Intro.Status;
+    setStatus(value: Account.Intro.Status): Intro;
+
+    getStep(): number;
+    setStep(value: number): Intro;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Intro.AsObject;
+    static toObject(includeInstance: boolean, msg: Intro): Intro.AsObject;
+    static serializeBinaryToWriter(message: Intro, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Intro;
+    static deserializeBinaryFromReader(message: Intro, reader: jspb.BinaryReader): Intro;
+  }
+
+  export namespace Intro {
+    export type AsObject = {
+      status: Account.Intro.Status;
+      step: number;
+    };
+
+    export const enum Status {
+      NOT_STARTED = 0,
+      IN_PROGRESS = 1,
+      COMPLETED = 2,
+      SKIPPED = 3,
+    }
   }
 
 }

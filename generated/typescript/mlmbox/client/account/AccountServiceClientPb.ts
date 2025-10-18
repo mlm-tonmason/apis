@@ -409,5 +409,48 @@ export class AccountClient {
     this.methodDescriptorGetStatisticsFull);
   }
 
+  methodDescriptorSetIntro = new grpcWeb.MethodDescriptor(
+    '/mlmbox.client.account.Account/SetIntro',
+    grpcWeb.MethodType.UNARY,
+    mlmbox_types_account_pb.Account.Intro,
+    google_protobuf_empty_pb.Empty,
+    (request: mlmbox_types_account_pb.Account.Intro) => {
+      return request.serializeBinary();
+    },
+    google_protobuf_empty_pb.Empty.deserializeBinary
+  );
+
+  setIntro(
+    request: mlmbox_types_account_pb.Account.Intro,
+    metadata?: grpcWeb.Metadata | null): Promise<google_protobuf_empty_pb.Empty>;
+
+  setIntro(
+    request: mlmbox_types_account_pb.Account.Intro,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: google_protobuf_empty_pb.Empty) => void): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
+
+  setIntro(
+    request: mlmbox_types_account_pb.Account.Intro,
+    metadata?: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: google_protobuf_empty_pb.Empty) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/mlmbox.client.account.Account/SetIntro',
+        request,
+        metadata || {},
+        this.methodDescriptorSetIntro,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/mlmbox.client.account.Account/SetIntro',
+    request,
+    metadata || {},
+    this.methodDescriptorSetIntro);
+  }
+
 }
 

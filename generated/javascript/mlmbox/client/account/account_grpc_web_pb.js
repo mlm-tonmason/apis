@@ -628,5 +628,66 @@ proto.mlmbox.client.account.AccountPromiseClient.prototype.getStatisticsFull =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.mlmbox.types.Account.Intro,
+ *   !proto.google.protobuf.Empty>}
+ */
+const methodDescriptor_Account_SetIntro = new grpc.web.MethodDescriptor(
+  '/mlmbox.client.account.Account/SetIntro',
+  grpc.web.MethodType.UNARY,
+  mlmbox_types_account_pb.Account.Intro,
+  google_protobuf_empty_pb.Empty,
+  /**
+   * @param {!proto.mlmbox.types.Account.Intro} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  google_protobuf_empty_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.mlmbox.types.Account.Intro} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.google.protobuf.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.google.protobuf.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.mlmbox.client.account.AccountClient.prototype.setIntro =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/mlmbox.client.account.Account/SetIntro',
+      request,
+      metadata || {},
+      methodDescriptor_Account_SetIntro,
+      callback);
+};
+
+
+/**
+ * @param {!proto.mlmbox.types.Account.Intro} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.google.protobuf.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.mlmbox.client.account.AccountPromiseClient.prototype.setIntro =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/mlmbox.client.account.Account/SetIntro',
+      request,
+      metadata || {},
+      methodDescriptor_Account_SetIntro);
+};
+
+
 module.exports = proto.mlmbox.client.account;
 

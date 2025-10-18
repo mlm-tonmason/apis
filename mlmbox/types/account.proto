@@ -98,6 +98,17 @@ message Account {
     uint32 messages_limit = 4;
     uint32 messages_used = 5;
   }
+  message Intro {
+    enum Status {
+      NOT_STARTED = 0;
+      IN_PROGRESS = 1;
+      COMPLETED = 2;
+      SKIPPED = 3;
+    }
+    Status status = 1;
+    uint32 step = 2;
+  }
+
   Info info = 1;
   repeated mlmbox.types.TreeAccount tree_accounts = 2;
   uint32 roles_bit_mask = 3;
@@ -106,6 +117,7 @@ message Account {
   bool ava_change_access = 6;
   uint32 ava_changes_quantity = 7;
   Mentor mentor = 8;
+  Intro intro = 9;
 }
 
 message Tree {
