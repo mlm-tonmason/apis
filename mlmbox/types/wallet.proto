@@ -142,6 +142,11 @@ message Wallet {
     string processing_name = 2;
     repeated Asset assets = 3;
   }
+  message NFT {
+    uint32 collection_id = 1;
+    uint32 entity_id = 2;
+  }
   repeated Asset assets = 1;
   repeated Processing processings = 2;
+  repeated NFT nft = 3;
 }

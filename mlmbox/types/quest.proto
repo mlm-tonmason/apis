@@ -33,12 +33,23 @@ message Quest {
     uint32 checked_at = 2;        // Время последней проверки (Unix time)
     Status status = 3;            // Статус одноразового квеста
   }
+  message OneTimeExpiredQuest {
+    enum Status {
+      AVAILABLE = 0;     // Можно выполнить
+      COMPLETED = 1;     // Успешное выполнение
+      EXPIRED = 2;       // Срок действия квеста истек
+    }
+    uint32 expired_at = 1;    // Когда в Unix time квест перестанет быть доступным
+    uint32 completed_at = 2;  // Время выполнения (Unix time)
+    Status status = 3;        // Статус выполнения квеста
+  }
 
   uint32 id = 1;                  // Уникальный идентификатор квеста
   string title = 2;               // Название квеста
   oneof quest_type {
     RecurringQuest recurring = 3; // Многоразовый квест
     OneTimeQuest one_time = 4;    // Одноразовый квест
+    OneTimeExpiredQuest one_time_expired = 6;
   }
   mlmbox.types.Asset.Amount reward_amount = 5; // Вознаграждение за выполнение
 }
