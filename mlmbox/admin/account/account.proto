@@ -4,18 +4,45 @@ package mlmbox.admin.account;
 
 import "mlmbox/types/account.proto";
 
+// Account предоставляет административные операции управления аккаунтами для операторов
+// бэк-офиса. Все методы требуют аутентификации с правами администратора.
+// В отличие от клиентского сервиса Account, данный сервис позволяет управлять
+// любым аккаунтом по его идентификатору — не только собственным аккаунтом вызывающего.
 service Account {
+
+  // Info возвращает полный снимок аккаунта указанного участника — аналог клиентского
+  // Account.Info, но применим к любому аккаунту.
   rpc Info (mlmbox.types.Account.Id) returns (mlmbox.types.Account) {}
+
+  // LoginSet назначает новый логин указанному аккаунту, заменяя существующий.
+  // Административный аналог клиентской операции SetLogin без ограничений доступа.
   rpc LoginSet (LoginSetRequest) returns (mlmbox.types.Account.Username) {}
+
+  // LoginClear удаляет логин у указанного аккаунта, возвращая его в состояние без логина.
+  // Полезно для освобождения логина, назначенного ошибочно или подлежащего переназначению.
   rpc LoginClear (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Username) {}
+
+  // SponsorSet назначает или переназначает реферального спонсора для указанного аккаунта.
+  // Операция обходит стандартные ограничения на смену спонсора.
   rpc SponsorSet (SponsorSetRequest) returns (mlmbox.types.Account.Info) {}
+
+  // SponsorClear удаляет привязку реферального спонсора у указанного аккаунта,
+  // делая его корневым участником без верхней линии.
   rpc SponsorClear (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Info) {}
 }
+
+// LoginSetRequest содержит идентификатор аккаунта и новый логин для назначения.
 message LoginSetRequest {
+  // Целевой аккаунт для обновления.
   mlmbox.types.Account.Id account = 1;
+  // Новая строка логина для назначения аккаунту.
   string login = 2;
 }
+
+// SponsorSetRequest содержит идентификаторы аккаунта и спонсора для RPC SponsorSet.
 message SponsorSetRequest {
+  // Аккаунт, спонсора которого необходимо обновить.
   mlmbox.types.Account.Id account = 1;
+  // Аккаунт, назначаемый новым спонсором (верхняя линия).
   mlmbox.types.Account.Id sponsor = 2;
 }

@@ -4,7 +4,22 @@ package mlmbox.client.product;
 
 import "mlmbox/types/product.proto";
 
+// Product предоставляет процесс покупки позиций матрицы для аутентифицированных участников.
+// Покупка разбита на два последовательных шага:
+//
+//  1. PreviewPurchase — безопасный предварительный расчёт стоимости (пробный запуск).
+//     Используйте для отображения итоговой разбивки цены до подтверждения заказа.
+//  2. VerifiedPurchase — подтверждает заказ, списывает средства с кошелька и создаёт
+//     позиции матрицы. Вызывается только после того, как участник ознакомился и принял предпросмотр.
 service Product {
-  rpc PreviewPurchase (mlmbox.types.Invoice.Request) returns (mlmbox.types.Invoice.PreviewResponse) {} // Preview of purchase of positions in the matrix
-  rpc VerifiedPurchase (mlmbox.types.Invoice.Request) returns (mlmbox.types.Invoice.VerifiedResponse) {} // Confirmed process of purchasing positions in the matrix
+
+  // PreviewPurchase вычисляет и возвращает разбивку стоимости запрошенного заказа
+  // без выполнения каких-либо финансовых операций. Ответ включает ценообразование
+  // по деревьям и агрегированные суммы по активам для отображения участнику перед подтверждением.
+  rpc PreviewPurchase (mlmbox.types.Invoice.Request) returns (mlmbox.types.Invoice.PreviewResponse) {}
+
+  // VerifiedPurchase подтверждает покупку позиций: списывает необходимые суммы активов
+  // с кошелька участника и создаёт указанные позиции матрицы.
+  // Возвращает список вновь созданных (или зарезервированных) позиций.
+  rpc VerifiedPurchase (mlmbox.types.Invoice.Request) returns (mlmbox.types.Invoice.VerifiedResponse) {}
 }

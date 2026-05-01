@@ -7,26 +7,84 @@ import "mlmbox/types/account.proto";
 import "mlmbox/types/locale.proto";
 import "mlmbox/types/notification.proto";
 
+// Account предоставляет все операции самообслуживания по управлению аккаунтом
+// для аутентифицированного участника. Все методы требуют наличия действительного
+// Bearer-токена в заголовках запроса.
+//
+// Данные идентификации (логин, профиль, аватар) можно обновлять в соответствии
+// с правилами доступа платформы. Метод Subscribe открывает постоянный серверный
+// стриминг, транслирующий события платформы в реальном времени.
 service Account {
-  rpc Info (google.protobuf.Empty) returns (mlmbox.types.Account) {} // Display account information
-  rpc SetLogin (SetLoginRequest) returns (mlmbox.types.Account.Username) {} // Update profile details
-  rpc SetLocale (mlmbox.types.Locale.Id) returns (mlmbox.types.Locale) {} // Update the language of communication
-  rpc SetAva (mlmbox.types.Account.Profile.Ava) returns (mlmbox.types.Account.Profile) {} // Update profile avatar
-  rpc SetProfile (SetProfileRequest) returns (mlmbox.types.Account.Profile) {} // Update profile details
-  rpc SetSponsor (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Info) {} // Set referral (if the user has no referral)
+
+  // Info возвращает полный снимок аккаунта для аутентифицированного участника,
+  // включая профиль, позиции матрицы, сводку кошелька, роли, локаль и состояние онбординга.
+  rpc Info (google.protobuf.Empty) returns (mlmbox.types.Account) {}
+
+  // SetLogin обновляет уникальный буквенно-цифровой логин аутентифицированного аккаунта.
+  // При успехе возвращает обновлённый объект Username.
+  // Завершается ошибкой, если запрошенный логин уже используется другим аккаунтом.
+  rpc SetLogin (SetLoginRequest) returns (mlmbox.types.Account.Username) {}
+
+  // SetLocale обновляет предпочтительный язык интерфейса для аутентифицированного аккаунта.
+  // Принимает код локали BCP 47 и возвращает разрешённый объект Locale.
+  rpc SetLocale (mlmbox.types.Locale.Id) returns (mlmbox.types.Locale) {}
+
+  // SetAva обновляет аватар аутентифицированного аккаунта, выбирая новую пару
+  // (collection_id, entity_id) из доступного каталога аватаров.
+  // Возвращает обновлённый объект Profile.
+  rpc SetAva (mlmbox.types.Account.Profile.Ava) returns (mlmbox.types.Account.Profile) {}
+
+  // SetProfile обновляет имя и фамилию аутентифицированного аккаунта.
+  // Возвращает обновлённый объект Profile.
+  rpc SetProfile (SetProfileRequest) returns (mlmbox.types.Account.Profile) {}
+
+  // SetSponsor назначает реферального спонсора для аутентифицированного аккаунта.
+  // Операция разрешена только при отсутствии текущего спонсора и установленном флаге
+  // referral_change_access. Возвращает обновлённый Account.Info.
+  rpc SetSponsor (mlmbox.types.Account.Id) returns (mlmbox.types.Account.Info) {}
+
+  // GenerateAvaFiles запрашивает набор случайно сгенерированных вариантов аватаров,
+  // сгруппированных по полу. Клиент может показать их пользователю для выбора
+  // перед вызовом SetAva.
   rpc GenerateAvaFiles (mlmbox.types.Account.Profile.Ava.Generate.Request) returns (mlmbox.types.Account.Profile.Ava.Generate.Response) {}
+
+  // Subscribe открывает постоянное серверное стриминг-соединение, доставляющее
+  // события Notification в реальном времени аутентифицированному участнику:
+  // транзакции кошелька, события позиций матрицы и обновления метрик платформы.
+  //
+  // Поток остаётся открытым до отключения клиента или завершения сессии сервером.
   rpc Subscribe (google.protobuf.Empty) returns (stream mlmbox.types.Notification) {}
+
+  // GetStatisticsFull возвращает расширенный снимок статистики аккаунта,
+  // включая балансы по активам и разбивку заработанных бонусов по типам.
   rpc GetStatisticsFull (google.protobuf.Empty) returns (mlmbox.types.Account.Statistics.Full) {}
+
+  // SetIntro сохраняет состояние онбординг-инструктажа для аутентифицированного аккаунта
+  // (текущий шаг и статус завершения). Используется клиентом для синхронизации
+  // прогресса онбординга между устройствами.
   rpc SetIntro (mlmbox.types.Account.Intro) returns (google.protobuf.Empty) {}
 }
+
+// SetLoginRequest содержит новую строку логина для RPC SetLogin.
 message SetLoginRequest {
+  // Желаемый новый логин. Должен быть уникальным на платформе и соответствовать
+  // правилам буквенно-цифрового формата логина.
   string login = 1;
 }
+
+// SetProfileRequest содержит обновлённые поля имени для RPC SetProfile.
 message SetProfileRequest {
-    string first_name = 1;
-    string last_name = 2;
+  // Обновлённое имя участника.
+  string first_name = 1;
+  // Обновлённая фамилия участника.
+  string last_name = 2;
 }
+
+// GenerateAvaFilesRequest оставлен для справки; канонический тип запроса —
+// mlmbox.types.Account.Profile.Ava.Generate.Request.
 message GenerateAvaFilesRequest {
+  // Количество мужских вариантов аватаров для генерации.
   uint32 male_quantity = 1;
+  // Количество женских вариантов аватаров для генерации.
   uint32 female_quantity = 2;
 }

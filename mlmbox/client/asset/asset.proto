@@ -5,7 +5,16 @@ package mlmbox.client.asset;
 import "mlmbox/types/asset.proto";
 import "google/protobuf/empty.proto";
 
+// Asset предоставляет доступ только для чтения к каталогу активов (валют/токенов) платформы.
+// Конечные точки доступны любому аутентифицированному участнику и, как правило, вызываются
+// один раз при старте приложения для наполнения локального реестра активов
+// (либо через сокращение App.SchemeInfo).
 service Asset {
-  rpc Get (mlmbox.types.Asset.Id) returns (mlmbox.types.Asset) {} // display currency
-  rpc All (google.protobuf.Empty) returns (mlmbox.types.Asset.List) {} // list of currencies
+
+  // Get возвращает детали одного актива, идентифицированного по числовому ID
+  // или каноническому имени.
+  rpc Get (mlmbox.types.Asset.Id) returns (mlmbox.types.Asset) {}
+
+  // All возвращает полный список активов, зарегистрированных на платформе.
+  rpc All (google.protobuf.Empty) returns (mlmbox.types.Asset.List) {}
 }

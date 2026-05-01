@@ -5,7 +5,15 @@ package mlmbox.client.locale;
 import "google/protobuf/empty.proto";
 import "mlmbox/types/locale.proto";
 
+// Locale предоставляет доступ только для чтения к каталогу поддерживаемых языков
+// (локалей) платформы. Клиенты используют эти данные для создания компонентов выбора
+// языка и разрешения кодов локалей в отображаемые названия.
 service Locale {
-  rpc Get (mlmbox.types.Locale.Id) returns (mlmbox.types.Locale) {} // Display language of communication
-  rpc List (google.protobuf.Empty) returns (mlmbox.types.Locale.List) {} // List of communication languages
+
+  // Get возвращает одну запись локали, разрешённую по коду BCP 47
+  // (например, "en-US", "ru-RU").
+  rpc Get (mlmbox.types.Locale.Id) returns (mlmbox.types.Locale) {}
+
+  // List возвращает все локали, поддерживаемые платформой.
+  rpc List (google.protobuf.Empty) returns (mlmbox.types.Locale.List) {}
 }

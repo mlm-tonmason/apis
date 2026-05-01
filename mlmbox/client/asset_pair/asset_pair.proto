@@ -6,7 +6,16 @@ import "google/protobuf/empty.proto";
 import "mlmbox/types/asset_pair.proto";
 import "mlmbox/types/exchanger.proto";
 
+// AssetPair предоставляет доступ только для чтения к таблице курсов обмена платформы.
+// Каждая запись курса описывает текущие цены покупки/продажи для торговой пары
+// (например, USDT → TON). Курсы обновляются подсистемой управления курсами платформы
+// и также включаются в загрузочный ответ App.SchemeInfo.
 service AssetPair {
+
+  // Get возвращает текущий курс обмена для одной торговой пары, идентифицированной
+  // по числовому ID, каноническому имени или ссылкам на составляющие активы.
   rpc Get(mlmbox.types.AssetPair.Id) returns (mlmbox.types.Exchanger.Rate) {}
+
+  // All возвращает текущие курсы обмена для всех активных торговых пар.
   rpc All(google.protobuf.Empty) returns (mlmbox.types.Exchanger.Rate.List) {}
 }

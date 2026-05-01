@@ -8,56 +8,120 @@ import "mlmbox/types/asset.proto";
 import "mlmbox/types/sort.proto";
 import "mlmbox/types/wallet.proto";
 
+// Wallet предоставляет полную поверхность финансового управления для аутентифицированного
+// участника: балансы, история транзакций, внутренние переводы, пополнения и вывод средств.
 service Wallet {
+
+  // Info возвращает полный снимок кошелька участника: балансы, провайдеры, NFT.
   rpc Info (google.protobuf.Empty) returns (mlmbox.types.Wallet) {}
+
+  // AssetGet возвращает состояние кошелька по одному активу с постраничной историей транзакций.
   rpc AssetGet (WalletAssetGetRequest) returns (mlmbox.types.Wallet.Asset) {}
+
+  // AssetsAll возвращает состояние кошелька по всем активам участника без истории транзакций.
   rpc AssetsAll (google.protobuf.Empty) returns (mlmbox.types.Wallet.Asset.List) {}
+
+  // AssetTransactionGet получает одну транзакцию по ключу (asset_id, transaction_id).
   rpc AssetTransactionGet (mlmbox.types.Wallet.Asset.Transaction.Id) returns (mlmbox.types.Wallet.Asset.Transaction) {}
+
+  // AssetTransactionList возвращает постраничный список транзакций по активу
+  // с опциональной фильтрацией по типу.
   rpc AssetTransactionList (WalletAssetTransactionListRequest) returns (mlmbox.types.Wallet.Asset.Transaction.List) {}
 
+  // Transfer инициирует внутренний перевод актива другому участнику.
+  // Возвращает дебетовую транзакцию отправителя.
   rpc Transfer (TransferRequest) returns (mlmbox.types.Wallet.Asset.Transaction) {}
+
+  // TransferRecipientsHistory возвращает список аккаунтов, которым участник ранее
+  // отправлял переводы данного актива (для предзаполнения UI).
   rpc TransferRecipientsHistory (mlmbox.types.Asset.Id) returns (mlmbox.types.Account.Info.List) {}
 
+  // ProcessingGet возвращает конфигурацию одного провайдера обработки платежей.
   rpc ProcessingGet (mlmbox.types.Wallet.Processing.Id) returns (mlmbox.types.Wallet.Processing) {}
+
+  // ProcessingsAll возвращает все провайдеры обработки, доступные участнику.
   rpc ProcessingsAll (google.protobuf.Empty) returns (mlmbox.types.Wallet.Processing.List) {}
 
+  // DepositAddress возвращает блокчейн-адрес пополнения (и мемо) для провайдера.
+  // Пополнения на этот адрес зачисляются автоматически.
   rpc DepositAddress (mlmbox.types.Wallet.Processing.Id) returns (WalletDepositAddressResponse) {}
+
+  // ValidateAddress проверяет корректность блокчейн-адреса для указанного провайдера.
   rpc ValidateAddress (WalletValidateAddressRequest) returns (WalletValidateAddressResponse) {}
+
+  // Withdrawal отправляет заявку на вывод актива на внешний блокчейн-адрес.
   rpc Withdrawal (WalletWithdrawalRequest) returns (mlmbox.types.Wallet.Asset.Transaction) {}
+
+  // WithdrawalAddressHistory возвращает ранее использованные адреса вывода
+  // для указанной пары (провайдер, актив).
   rpc WithdrawalAddressHistory (mlmbox.types.Wallet.Processing.Asset.Id) returns (mlmbox.types.Wallet.Processing.Asset.WithdrawalAddressHistory) {}
 }
 
+// WalletAssetGetRequest задаёт актив и параметры постраничной навигации/фильтрации транзакций.
 message WalletAssetGetRequest {
+  // Актив (по ID или имени).
   mlmbox.types.Asset.Id asset_id = 1;
+  // Параметры сортировки и размера страницы для списка транзакций.
   mlmbox.types.Sort sort_transactions = 2;
+  // Фильтр по типам транзакций (пустой = все типы).
   repeated mlmbox.types.Wallet.Asset.Transaction.Kind.Id filter_kind_ids = 3;
 }
+
+// WalletAssetTransactionListRequest задаёт параметры постраничной навигации
+// для списка транзакций по конкретному кошельку актива.
 message WalletAssetTransactionListRequest {
+  // Актив, история которого запрашивается (по ID или имени).
   mlmbox.types.Asset.Id asset_id = 1;
+  // Курсорный ID транзакции для постраничной навигации. 0 — начало списка.
   uint32 step_transaction_id = 2;
+  // Направление сортировки и максимальное количество записей.
   mlmbox.types.Sort sort_transactions = 3;
+  // Опциональный фильтр по типам транзакций.
   repeated mlmbox.types.Wallet.Asset.Transaction.Kind.Id filter_kind_ids = 4;
 }
+
+// WalletDepositAddressResponse содержит адрес пополнения и мемо.
 message WalletDepositAddressResponse {
+  // Блокчейн-адрес для пополнения.
   string address = 1;
+  // Мемо или тег назначения (пустой, если не требуется).
   string memo = 2;
 }
+
+// TransferRequest задаёт получателя и сумму внутреннего перевода.
 message TransferRequest {
+  // Аккаунт-получатель (по ID, логину или ref_link_id).
   mlmbox.types.Account.Id account = 1;
+  // Актив и сумма перевода.
   mlmbox.types.Asset.Amount operation_amount = 2;
 }
+
+// WalletValidateAddressRequest содержит адрес для валидации в контексте провайдера.
 message WalletValidateAddressRequest {
+  // Провайдер для контекстной проверки формата адреса.
   mlmbox.types.Wallet.Processing.Id processing_id = 1;
+  // Блокчейн-адрес для проверки.
   string address = 2;
 }
+
+// WalletValidateAddressResponse содержит результат проверки адреса.
 message WalletValidateAddressResponse {
+  // Нормализованная форма адреса (при успешной валидации).
   string address = 1;
+  // True, если адрес корректен для данного провайдера.
   bool validated = 2;
 }
+
+// WalletWithdrawalRequest содержит все параметры для вывода средств.
 message WalletWithdrawalRequest {
+  // Провайдер обработки для вывода.
   mlmbox.types.Wallet.Processing.Id processing_id = 1;
+  // Актив и сумма вывода.
   mlmbox.types.Asset.Amount operation_amount = 2;
+  // Адрес назначения в блокчейне.
   string address = 3;
+  // Мемо или тег назначения (для сетей, где требуется).
   string memo = 4;
+  // При true комиссия вычитается из суммы вывода, а не списывается отдельно.
   bool operation_fee_from_body = 5;
 }

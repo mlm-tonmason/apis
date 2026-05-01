@@ -6,32 +6,74 @@ import "mlmbox/types/account.proto";
 import "mlmbox/types/management.proto";
 import "mlmbox/types/sort.proto";
 
+// Management предоставляет CRUD-операции над реферальными источниками ссылок
+// аутентифицированного участника. Каждый источник генерирует отдельную реферальную ссылку
+// для конкретного маркетингового канала, позволяя отслеживать эффективность привлечения
+// партнёров по каналам.
 service Management {
-  rpc Create (CreateRequest) returns (mlmbox.types.Management) {} // Создать реферальную ссылку
-  rpc Get (mlmbox.types.Management.Id) returns (mlmbox.types.Management) {} // Получить информацию о реферальной ссылке
-  rpc All (AllRequest) returns (mlmbox.types.Management.List) {} // Получить список всех реферальных ссылок
-  rpc UpdateInfo (UpdateInfoRequest) returns (mlmbox.types.Management) {} // Обновить информацию о реферальной ссылке
-  rpc UpdateVisible (UpdateVisibleRequest) returns (mlmbox.types.Management) {} // Изменить режим видимости реферальной ссылки
-  rpc PartnersList (PartnersListRequest) returns (mlmbox.types.Account.Info.List) {} // Получить список партнеров
+
+  // Create создаёт новый реферальный источник с заголовком и тегом.
+  // Уникальная реферальная ссылка генерируется автоматически.
+  rpc Create (CreateRequest) returns (mlmbox.types.Management) {}
+
+  // Get возвращает детали одного реферального источника по его числовому ID.
+  rpc Get (mlmbox.types.Management.Id) returns (mlmbox.types.Management) {}
+
+  // All возвращает все реферальные источники аутентифицированного участника.
+  // Опционально фильтруется по видимым (активным) источникам.
+  rpc All (AllRequest) returns (mlmbox.types.Management.List) {}
+
+  // UpdateInfo обновляет заголовок и тег существующего реферального источника.
+  rpc UpdateInfo (UpdateInfoRequest) returns (mlmbox.types.Management) {}
+
+  // UpdateVisible переключает видимость реферального источника.
+  // Скрытые источники не появляются в списках ссылок для партнёров и
+  // перестают принимать новые регистрации.
+  rpc UpdateVisible (UpdateVisibleRequest) returns (mlmbox.types.Management) {}
+
+  // PartnersList возвращает постраничный список аккаунтов, зарегистрировавшихся
+  // через указанный реферальный источник.
+  rpc PartnersList (PartnersListRequest) returns (mlmbox.types.Account.Info.List) {}
 }
+
+// CreateRequest содержит атрибуты создаваемого реферального источника.
 message CreateRequest {
+  // Человекочитаемая метка источника (например, "YouTube").
   string title = 1;
+  // Короткий буквенно-цифровой тег для URL (например, "yt2025").
   string tag = 2;
 }
+
+// AllRequest содержит опциональный фильтр видимости для RPC All.
 message AllRequest {
+  // При true возвращаются только видимые (активные) источники.
   bool only_visible = 1;
 }
+
+// UpdateInfoRequest содержит обновлённые заголовок и тег существующего источника.
 message UpdateInfoRequest {
+  // Идентификатор обновляемого источника.
   uint32 source_id = 1;
+  // Новая человекочитаемая метка.
   string title = 2;
+  // Новый короткий буквенно-цифровой тег.
   string tag = 3;
 }
+
+// UpdateVisibleRequest переключает флаг видимости реферального источника.
 message UpdateVisibleRequest {
+  // Идентификатор источника, видимость которого изменяется.
   uint32 source_id = 1;
+  // Желаемое состояние (true = видимый/активный, false = скрытый).
   bool visible = 2;
 }
+
+// PartnersListRequest содержит параметры постраничного просмотра партнёров источника.
 message PartnersListRequest {
+  // Реферальный источник для запроса партнёров.
   uint32 source_id = 1;
+  // Курсорный ID партнёра для постраничной навигации. 0 = первая страница.
   uint32 step_partner_id = 2;
+  // Направление сортировки и размер страницы.
   mlmbox.types.Sort sort_partners = 3;
 }

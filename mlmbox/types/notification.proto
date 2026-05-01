@@ -3,21 +3,43 @@ syntax = "proto3";
 package mlmbox.types;
 import "mlmbox/types/wallet.proto";
 
+// Notification — тип-конверт, отправляемый клиентам через серверный стриминг
+// RPC Account.Subscribe. Каждое сообщение несёт ровно одну полезную нагрузку события
+// (определяемую полем oneof), позволяя клиентам реагировать на события платформы
+// в реальном времени без опроса.
 message Notification {
+
+  // PositionView описывает событие размещения позиции матрицы — создание новой позиции
+  // или заполнение существующей.
   message PositionView {
-    uint32 tree_id = 1; // Tree identifier
-    uint32 account_id = 2; // Account identifier
-    uint32 position_id = 3; // Position identifier
-    uint32 position_sponsor_id = 4; // Superior position identifier
-    uint32 position_sponsor_branch = 5; // Upstream branch identifier
+    // Дерево, в котором произошло событие с позицией.
+    uint32 tree_id = 1;
+    // Аккаунт, которому принадлежит позиция.
+    uint32 account_id = 2;
+    // Уникальный идентификатор позиции.
+    uint32 position_id = 3;
+    // Идентификатор вышестоящей (спонсорской) позиции в матрице.
+    uint32 position_sponsor_id = 4;
+    // Индекс ветки на спонсорской позиции, которую занимает данная позиция.
+    uint32 position_sponsor_branch = 5;
   }
+
+  // AssetTransaction описывает событие финансовой транзакции на конкретном
+  // активном кошельке, позволяя клиентам обновлять отображение баланса в реальном времени.
   message AssetTransaction {
+    // Актив кошелька, на котором произошла транзакция.
     uint32 asset_id = 1;
+    // Полные детали транзакции, включая сумму, тип и метаданные.
     mlmbox.types.Wallet.Asset.Transaction transaction = 2;
   }
+
+  // Ровно одна из следующих полезных нагрузок будет задана в каждом уведомлении.
   oneof message {
+    // Обновление общеплатформенной метрики количества аккаунтов (рассылается всем подписчикам).
     uint32 metrics_accounts_quantity = 1;
+    // Позиция матрицы размещена или заполнена.
     PositionView position_view = 2;
+    // На активе кошелька зафиксирована финансовая транзакция.
     AssetTransaction wallet_transaction = 3;
   }
 }

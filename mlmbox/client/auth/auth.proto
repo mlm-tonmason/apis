@@ -6,30 +6,85 @@ import "mlmbox/types/account.proto";
 import "mlmbox/types/status.proto";
 import "google/protobuf/empty.proto";
 
+// Auth предоставляет поверхность аутентификации и управления сессиями
+// клиентского API MLMBox. Аутентификация реализована через Telegram: участники
+// входят либо через Telegram Bot (полезная нагрузка initData), либо через
+// виджет Telegram Web Login (JSON-данные). При первом входе аккаунт создаётся
+// автоматически; последующие входы возвращают токен существующего аккаунта.
+//
+// Все защищённые RPC-конечные точки требуют наличия токена в заголовке
+// "authorization: Bearer <token>".
 service Auth {
-  rpc TelegramBotSign (TelegramBotSignRequest) returns (AuthSignResponse) {} // authorization
-  rpc TelegramWebLogin (TelegramWebLoginRequest) returns (AuthSignResponse) {} // authorization
-  rpc TokenValidate (google.protobuf.Empty) returns (TokenValidateResponse) {} // token validity check
-  rpc TokenGenerate (mlmbox.types.Account.Id) returns (TokenGenerateResponse) {} // admin - method for generating a token
+
+  // TelegramBotSign аутентифицирует пользователя с помощью полезной нагрузки initData,
+  // предоставляемой Telegram Mini App (WebApp). Проверяет хеш Telegram, разрешает
+  // или создаёт аккаунт MLMBox и возвращает токен доступа.
+  //
+  // Статус AUTH_SIGN_UP означает, что создан новый аккаунт;
+  // AUTH_SIGN_IN — что выполнена аутентификация существующего аккаунта.
+  rpc TelegramBotSign (TelegramBotSignRequest) returns (AuthSignResponse) {}
+
+  // TelegramWebLogin аутентифицирует пользователя с помощью JSON-данных, предоставляемых
+  // виджетом Telegram Login Widget, встроенным в веб-приложение. Проверяет хеш Telegram,
+  // разрешает или создаёт аккаунт MLMBox и возвращает токен доступа.
+  rpc TelegramWebLogin (TelegramWebLoginRequest) returns (AuthSignResponse) {}
+
+  // TokenValidate проверяет, является ли токен доступа, переданный в заголовке запроса,
+  // действительным, истёкшим или структурно недействительным. Используется клиентами
+  // для проактивного обновления сессий.
+  rpc TokenValidate (google.protobuf.Empty) returns (TokenValidateResponse) {}
+
+  // TokenGenerate — административная конечная точка, генерирующая свежий токен доступа
+  // для любого аккаунта, идентифицированного по Account.Id. Метод доступен только
+  // вызывающим с правами администратора и предназначен для поддержки и тестирования.
+  rpc TokenGenerate (mlmbox.types.Account.Id) returns (TokenGenerateResponse) {}
 }
 
+// TelegramBotSignRequest содержит данные, отправляемые Telegram Mini App
+// от имени аутентифицирующегося пользователя.
 message TelegramBotSignRequest {
+  // Идентификатор Telegram-канала (бота), через который пользователь открыл Mini App.
+  // Определяет реферальную атрибуцию и маршрутизацию уведомлений.
   uint32 channel_id = 1;
+  // Строка initData в исходном виде, предоставляемая свойством Telegram.WebApp.initData.
+  // Содержит верифицированную по хешу полезную нагрузку с идентификацией пользователя.
   string init_data = 2;
 }
+
+// TelegramWebLoginRequest содержит данные, отправляемые виджетом Telegram Login Widget,
+// встроенным в веб-приложение.
 message TelegramWebLoginRequest {
+  // Идентификатор Telegram-канала (бота), связанного с веб-входом.
   uint32 channel_id = 1;
+  // Идентификатор реферальной ссылки для атрибуции новой регистрации спонсору.
+  // Игнорируется, если аккаунт уже существует.
   string ref_link_id = 2;
+  // JSON-объект пользователя, закодированный в строку, возвращаемый коллбэком виджета.
   string json_data = 3;
 }
+
+// AuthSignResponse возвращается обоими методами: TelegramBotSign и TelegramWebLogin.
+// Содержит результат аутентификации, статус реферальной атрибуции и токен доступа
+// для последующих авторизованных запросов.
 message AuthSignResponse {
-  mlmbox.types.Status.Auth auth_status = 1; // Authentication status
-  mlmbox.types.Status.Sponsor referral_status = 2; // Referral status
-  string access_token = 3; // The token is used in the "authorization: X.Y.Z" header to make authorized API requests
+  // Результат попытки аутентификации (гость, вход, регистрация).
+  mlmbox.types.Status.Auth auth_status = 1;
+  // Результат разрешения реферальной ссылки при регистрации (если применимо).
+  mlmbox.types.Status.Sponsor referral_status = 2;
+  // JWT или непрозрачный токен доступа. Включается в последующие запросы как:
+  // "authorization: Bearer <access_token>"
+  string access_token = 3;
 }
+
+// TokenValidateResponse содержит состояние действительности переданного токена.
 message TokenValidateResponse {
+  // Статус действительности: ACTIVATED, EXPIRED или INVALID.
   mlmbox.types.Status.TokenValidate status = 1;
 }
+
+// TokenGenerateResponse содержит вновь сгенерированный токен доступа для
+// указанного аккаунта (только для администраторов).
 message TokenGenerateResponse {
+  // Свежесгенерированный токен доступа для запрошенного аккаунта.
   string access_token = 1;
 }

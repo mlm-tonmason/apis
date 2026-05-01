@@ -5,103 +5,155 @@ package mlmbox.mentor.bot;
 import "mlmbox/types/account.proto";
 import "google/protobuf/empty.proto";
 
-// Сервис AiMentor предоставляет gRPC-интерфейс для взаимодействия Telegram-бота
-// с платформой MLMBox. Включает методы аутентификации и получения данных аккаунта,
-// управления сообщениями AI-ментора, запроса балансов пользователей,
-// а также инициирования и отслеживания покупки подписок.
+// AiMentor — внутренний gRPC-сервис, предоставляющий бэкенду Telegram-бота AI-ментора
+// доступ к API платформы MLMBox. Обрабатывает аутентификацию Telegram-пользователей,
+// получение данных аккаунтов, управление квотой сообщений AI, запросы балансов кошелька
+// и обработку покупок подписок.
+//
+// Сервис предназначен исключительно для потребления микросервисом Telegram-бота
+// и не предоставляется конечным клиентам напрямую.
 service AiMentor {
-	// Аутентификация пользователя Telegram в системе MLMBox.
-	// Создаёт или возвращает существующий аккаунт на основе данных Telegram-авторизации.
-	rpc Auth (AuthRequest) returns (mlmbox.types.Account) {}
 
-	// Получить данные аккаунта по Telegram ID пользователя.
-	rpc Get (GetRequest) returns (mlmbox.types.Account) {}
+  // Auth аутентифицирует Telegram-пользователя в платформе MLMBox. Если аккаунт не существует,
+  // он создаётся автоматически. Возвращает полный снимок Account для разрешённого
+  // или вновь созданного аккаунта.
+  rpc Auth (AuthRequest) returns (mlmbox.types.Account) {}
 
-	// Зафиксировать использование сообщения AI-ментора (списать из лимита).
-	rpc MessageUse (GetRequest) returns (google.protobuf.Empty) {}
+  // Get возвращает полный снимок Account для аккаунта, связанного с указанным Telegram-ID.
+  rpc Get (GetRequest) returns (mlmbox.types.Account) {}
 
-	// Получить баланс пользователя по distributor_id.
-	// Возвращает список пар (валюта, сумма) по всем доступным валютам.
-	rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
+  // MessageUse уменьшает квоту сообщений AI-ментора для аккаунта, связанного
+  // с указанным Telegram-ID, на одну единицу. Должен вызываться после успешной
+  // доставки каждого ответа AI пользователю.
+  rpc MessageUse (GetRequest) returns (google.protobuf.Empty) {}
 
-	// Инициировать покупку подписки.
-	// Возвращает текущее состояние обработки заявки и статус ошибки (если есть).
-	rpc SubscriptionPurchase (SubscriptionPurchaseRequest) returns (SubscriptionPurchaseResponse) {}
+  // GetBalance возвращает балансы кошелька по всем поддерживаемым активам для аккаунта,
+  // идентифицированного по distributor_id, в виде списка пар (имя_валюты, значение).
+  rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
 
-	// Получить состояние обработки заявки на покупку подписки по request_id.
-	rpc SubscriptionPurchaseStatus (SubscriptionPurchaseStatusRequest) returns (SubscriptionPurchaseResponse) {}
+  // SubscriptionPurchase инициирует заявку на покупку подписки AI-ментора.
+  // request_id должен быть глобально уникальным для предотвращения двойной обработки.
+  // Возвращает текущее состояние обработки заявки.
+  rpc SubscriptionPurchase (SubscriptionPurchaseRequest) returns (SubscriptionPurchaseResponse) {}
+
+  // SubscriptionPurchaseStatus возвращает текущее состояние обработки ранее инициированной
+  // заявки на покупку подписки, идентифицированной по request_id.
+  // Используется для отслеживания асинхронного завершения покупки.
+  rpc SubscriptionPurchaseStatus (SubscriptionPurchaseStatusRequest) returns (SubscriptionPurchaseResponse) {}
 }
 
-// ─── Existing messages ───
-
+// AuthRequest содержит полезную нагрузку аутентификации Telegram для разрешения
+// или создания аккаунта MLMBox для аутентифицирующегося пользователя.
 message AuthRequest {
-	message User {
-		uint64 id = 1;
-		string first_name = 2;
-		string last_name = 3;
-		string username = 4;
-		string language_code = 5;
-		bool is_premium = 6;
-		string photo_url = 7;
-	}
-	uint32 channel_id = 1;
-	uint64 bot_id = 2;
-	uint32 auth_date = 3;
-	User user = 4;
-	string ref_link_id = 5;
+  // User содержит поля идентификации аутентифицирующегося пользователя в Telegram.
+  message User {
+    // Числовой ID пользователя в Telegram.
+    uint64 id = 1;
+    // Имя, хранящееся в Telegram.
+    string first_name = 2;
+    // Фамилия, хранящаяся в Telegram (может быть пустой).
+    string last_name = 3;
+    // Имя пользователя в Telegram без символа @ (может быть пустым).
+    string username = 4;
+    // Языковой код IETF клиента Telegram пользователя (например, "en", "ru").
+    string language_code = 5;
+    // Признак наличия подписки Telegram Premium у пользователя.
+    bool is_premium = 6;
+    // URL фото профиля пользователя в Telegram (может быть пустым).
+    string photo_url = 7;
+  }
+  // Идентификатор Telegram-канала (бота), через который пользователь обратился к сервису.
+  uint32 channel_id = 1;
+  // ID Telegram-бота, получившего запрос аутентификации.
+  uint64 bot_id = 2;
+  // Unix-временная метка события аутентификации в Telegram.
+  uint32 auth_date = 3;
+  // Идентификация аутентифицирующегося пользователя в Telegram.
+  User user = 4;
+  // Идентификатор реферальной ссылки для атрибуции новой регистрации спонсору.
+  // Игнорируется, если аккаунт уже существует.
+  string ref_link_id = 5;
 }
 
+// GetRequest идентифицирует аккаунт по его Telegram-ID.
 message GetRequest {
-	int64 telegram_id = 1;
+  // Числовой Telegram-ID владельца аккаунта.
+  int64 telegram_id = 1;
 }
 
-// ─── GetBalance ───
-
+// GetBalanceRequest идентифицирует аккаунт, балансы которого запрашиваются.
 message GetBalanceRequest {
-	uint32 distributor_id = 1;
+  // Внутренний идентификатор дистрибьютора (аккаунта).
+  uint32 distributor_id = 1;
 }
 
+// GetBalanceResponse содержит балансы активов запрошенного аккаунта.
 message GetBalanceResponse {
-	message Balance {
-		string currency_name = 1;
-		string value = 2;
-	}
-	repeated Balance items = 1;
+  // Balance связывает имя актива с текущим значением баланса.
+  message Balance {
+    // Каноническое имя актива (например, "USDT", "TON").
+    string currency_name = 1;
+    // Текущий баланс в виде десятичной строки.
+    string value = 2;
+  }
+  // По одной записи на каждый актив, которым владеет аккаунт.
+  repeated Balance items = 1;
 }
 
-// ─── SubscriptionPurchase ───
-
+// SubscriptionPurchaseRequest содержит все параметры для инициирования покупки
+// подписки AI-ментора от имени пользователя.
 message SubscriptionPurchaseRequest {
-	uint32 request_id = 1;
-	uint32 distributor_id = 2;
-	uint32 autor_id = 3;
-	uint32 plan_id = 4;
-	string currency_usdt_value = 5;
-	string currency_ton_value = 6;
+  // Глобально уникальный идентификатор заявки для обеспечения идемпотентности —
+  // один и тот же request_id всегда вернёт одинаковый результат без повторной обработки.
+  uint32 request_id = 1;
+  // Внутренний идентификатор дистрибьютора (аккаунта) покупателя.
+  uint32 distributor_id = 2;
+  // Идентификатор оператора/автора бота, инициирующего покупку.
+  uint32 autor_id = 3;
+  // Идентификатор приобретаемого тарифного плана подписки.
+  uint32 plan_id = 4;
+  // Сумма в USDT для списания за подписку (десятичная строка).
+  string currency_usdt_value = 5;
+  // Сумма в TON для списания за подписку (десятичная строка).
+  string currency_ton_value = 6;
 }
 
-// ─── SubscriptionPurchaseStatus ───
-
+// SubscriptionPurchaseStatusRequest идентифицирует существующую заявку на покупку
+// для опроса статуса.
 message SubscriptionPurchaseStatusRequest {
-	uint32 request_id = 1;
+  // Уникальный идентификатор заявки, возвращённый при её инициировании.
+  uint32 request_id = 1;
 }
 
-// ─── Shared response ───
-
+// SubscriptionPurchaseResponse возвращается обоими методами: SubscriptionPurchase и
+// SubscriptionPurchaseStatus. Отражает текущее состояние жизненного цикла заявки на покупку.
 message SubscriptionPurchaseResponse {
-	enum Status {
-		PENDING = 0;    // Заявка принята, ожидает обработки
-		PROCESSING = 1; // Заявка в процессе обработки
-		COMPLETED = 2;  // Заявка успешно выполнена
-		FAILED = 3;     // Заявка завершилась с ошибкой
-	}
-	enum Error {
-		NONE = 0;                  // Ошибок нет
-		INSUFFICIENT_FUNDS = 1;   // Недостаточно средств
-		DUPLICATE_REQUEST = 2;    // Заявка с таким request_id уже существует
-		INTERNAL_ERROR = 3;       // Внутренняя ошибка сервера
-	}
-	uint32 request_id = 1;
-	Status status = 2;
-	Error error = 3;
+  // Status описывает состояние жизненного цикла заявки на покупку.
+  enum Status {
+    // Заявка принята и поставлена в очередь на обработку.
+    PENDING = 0;
+    // Заявка активно обрабатывается.
+    PROCESSING = 1;
+    // Заявка успешно завершена; подписка активирована.
+    COMPLETED = 2;
+    // Заявка не выполнена; проверьте поле Error для определения причины.
+    FAILED = 3;
+  }
+  // Error классифицирует причину отказа при статусе FAILED.
+  enum Error {
+    // Ошибок нет; заявка выполняется нормально.
+    NONE = 0;
+    // Баланса кошелька аккаунта недостаточно для оплаты подписки.
+    INSUFFICIENT_FUNDS = 1;
+    // Заявка с данным request_id уже была отправлена и обработана.
+    DUPLICATE_REQUEST = 2;
+    // Произошла непредвиденная внутренняя ошибка сервера.
+    INTERNAL_ERROR = 3;
+  }
+  // Уникальный идентификатор заявки, к которой относится данный ответ.
+  uint32 request_id = 1;
+  // Текущий статус жизненного цикла заявки.
+  Status status = 2;
+  // Код ошибки (NONE при отсутствии ошибок).
+  Error error = 3;
 }

@@ -7,24 +7,54 @@ import "mlmbox/types/account.proto";
 import "mlmbox/types/league.proto";
 import "mlmbox/types/sort.proto";
 
+// League предоставляет доступ к системе лиг (соревновательных дивизионов) платформы.
+// Участники ранжируются внутри лиг на основе накопленного балла. Сервис предоставляет
+// каталог лиг, текущее положение участника и возможности просмотра таблицы лидеров.
 service League {
-  rpc All (google.protobuf.Empty) returns (mlmbox.types.League.Header.List) {} // Отобразить список лиг
-  rpc StateGet (mlmbox.types.Sort) returns (StateGetResponse) {} // Отобразить данные о лиге в которой присутствует авторизованный пользователь
-  rpc LeagueStateGet (StateGetRequest) returns (StateGetResponse) {} // Отобразить данные выбранной лиги
-  rpc LeagueStateRankList (StateRankListRequest) returns (mlmbox.types.Account.Info.List) {} // Отобразить список пользователей с смещением выбранной лиги
-  rpc TopList (mlmbox.types.Sort) returns (mlmbox.types.Account.Info.List) {} // Отобразить список топ пользователей
+
+  // All возвращает метаданные каждой лиги платформы: название, границы баллов
+  // и текущее количество участников.
+  rpc All (google.protobuf.Empty) returns (mlmbox.types.League.Header.List) {}
+
+  // StateGet возвращает данные лиги и таблицы лидеров для лиги, в которой в данный момент
+  // находится аутентифицированный участник, с постраничным списком аккаунтов.
+  rpc StateGet (mlmbox.types.Sort) returns (StateGetResponse) {}
+
+  // LeagueStateGet возвращает заголовок лиги и постраничную таблицу лидеров
+  // для любой конкретной лиги, идентифицированной по ID.
+  rpc LeagueStateGet (StateGetRequest) returns (StateGetResponse) {}
+
+  // LeagueStateRankList возвращает постраничный срез таблицы лидеров для указанной лиги
+  // с курсорной постраничной навигацией (step_rank). Подходит для бесконечной прокрутки.
+  rpc LeagueStateRankList (StateRankListRequest) returns (mlmbox.types.Account.Info.List) {}
+
+  // TopList возвращает постраничный список аккаунтов с наивысшим рейтингом по всем лигам,
+  // отсортированных по убыванию балла.
+  rpc TopList (mlmbox.types.Sort) returns (mlmbox.types.Account.Info.List) {}
 }
 
+// StateGetRequest содержит идентификатор лиги и параметры сортировки для RPC LeagueStateGet.
 message StateGetRequest {
+  // Лига, данные которой запрашиваются.
   uint32 league_id = 1;
+  // Параметры сортировки и размера страницы для возвращаемого списка аккаунтов.
   mlmbox.types.Sort sort_ranks = 2;
 }
+
+// StateGetResponse содержит заголовок лиги и страницу ранжированных аккаунтов.
 message StateGetResponse {
+  // Метаданные лиги (название, диапазон баллов, количество участников).
   mlmbox.types.League.Header header = 1;
+  // Страница аккаунтов, ранжированных в данной лиге, отсортированных по рангу.
   repeated mlmbox.types.Account.Info accounts = 2;
 }
+
+// StateRankListRequest содержит параметры для постраничного просмотра таблицы рангов лиги.
 message StateRankListRequest {
+  // Просматриваемая лига.
   uint32 league_id = 1;
+  // Курсорный ранг для постраничной навигации. 0 = начать с 1-го ранга.
   uint32 step_rank = 2;
+  // Направление сортировки и максимальное количество аккаунтов.
   mlmbox.types.Sort sort_ranks = 3;
 }

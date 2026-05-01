@@ -5,8 +5,21 @@ package mlmbox.client.quest;
 import "google/protobuf/empty.proto";
 import "mlmbox/types/quest.proto";
 
+// Quest предоставляет интерфейс для участников системы квестов (испытаний) платформы.
+// Участники могут просматривать доступные и выполненные квесты, просматривать детали
+// отдельных квестов и отправлять квесты на верификацию для начисления вознаграждения.
 service Quest {
-  rpc AllQuests (google.protobuf.Empty) returns (mlmbox.types.Quest.List); // Получить все квесты (выполненные и доступные)
-  rpc GetQuest (mlmbox.types.Quest.Id) returns (mlmbox.types.Quest); // Получить информацию о конкретном квесте
-  rpc SubmitQuestForReview (mlmbox.types.Quest.Id) returns (mlmbox.types.Quest); // Подать заявку на проверку выполнения квеста
+
+  // AllQuests возвращает полный каталог квестов, доступных аутентифицированному участнику:
+  // выполненные, на перезарядке и ожидающие верификации.
+  rpc AllQuests (google.protobuf.Empty) returns (mlmbox.types.Quest.List);
+
+  // GetQuest возвращает текущее состояние одного квеста по его числовому ID.
+  // Используется для обновления статуса после попытки верификации или отображения деталей.
+  rpc GetQuest (mlmbox.types.Quest.Id) returns (mlmbox.types.Quest);
+
+  // SubmitQuestForReview переводит OneTimeQuest из NOT_STARTED в PENDING_REVIEW и запускает
+  // асинхронный процесс верификации (например, проверка подписки на Telegram-канал).
+  // Возвращает обновлённое состояние квеста сразу после отправки.
+  rpc SubmitQuestForReview (mlmbox.types.Quest.Id) returns (mlmbox.types.Quest);
 }

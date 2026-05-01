@@ -6,14 +6,34 @@ import "google/protobuf/empty.proto";
 import "mlmbox/types/account.proto";
 import "mlmbox/types/wallet.proto";
 
+// Matrix предоставляет API визуализации матрицы и управления позициями для
+// аутентифицированных участников. Позволяет просматривать структуру позиций матрицы
+// и настраивать поведение реинвестирования отдельных позиций.
 service Matrix {
+
+  // Info возвращает сводку по всем участиям аккаунта в деревьях матрицы:
+  // каждое дерево с счётчиками позиций (количество, активации, ёмкость, пул).
   rpc Info (google.protobuf.Empty) returns (mlmbox.types.Matrix.Info) {}
+
+  // View отрисовывает структуру матрицы с корнем в указанной позиции или паре
+  // (дерево, аккаунт), до заданной глубины. Ответ включает все позиции в окне
+  // просмотра и соответствующие данные аккаунтов для отображения визуальной сетки матрицы.
   rpc View (mlmbox.types.PositionView.Team) returns (mlmbox.types.Matrix.View) {}
-  rpc SetReinvestConfig (mlmbox.types.Matrix.Reinvest.Request) returns (SetReinvestConfigResponse) {} // Set reinvestment settings for the selected position
+
+  // SetReinvestConfig обновляет флаг реинвестирования для указанной позиции матрицы.
+  // При включении выплата позиции автоматически используется для покупки новой позиции
+  // в том же дереве вместо зачисления на кошелёк. Возвращает обновлённое состояние позиции
+  // и результирующую финансовую транзакцию (при наличии корректировки баланса).
+  rpc SetReinvestConfig (mlmbox.types.Matrix.Reinvest.Request) returns (SetReinvestConfigResponse) {}
 }
 
+// SetReinvestConfigResponse возвращается после успешного обновления настройки реинвестирования.
 message SetReinvestConfigResponse {
+  // Обновлённое состояние позиции матрицы с новым флагом reinvest_enabled.
   mlmbox.types.Matrix.Position position = 1;
+  // Актив, по которому была произведена корректировка баланса.
   uint32 asset_id = 2;
+  // Финансовая транзакция, созданная в результате изменения конфигурации
+  // (например, транзакция HOLD или RELEASE при блокировке/разблокировке средств).
   mlmbox.types.Wallet.Asset.Transaction transaction = 3;
 }
