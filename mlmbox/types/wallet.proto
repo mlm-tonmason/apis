@@ -64,6 +64,8 @@ message Wallet {
           HOLD = 11;
           // Ранее замороженный баланс освобождён обратно в доступный.
           RELEASE = 12;
+          // Дебет за оплату подписки Unilevel (покупка, продление, подарок с баланса плательщика).
+          SUBSCRIPTION_PAYMENT = 13;
         }
         // Определённый тип транзакции.
         Id kind_id = 1;
@@ -109,6 +111,25 @@ message Wallet {
           uint32 tree_account_entity_id = 3;
         }
 
+        // Subscription несёт детальную атрибуцию для списания за подписку Unilevel
+        // (покупка, продление, подарок с баланса плательщика).
+        message Subscription {
+          // Идентификатор строки платежа в app_ul_subscription_payment.
+          uint32 payment_id = 1;
+          // Идентификатор подписки, к которой относится платёж.
+          uint32 subscription_id = 2;
+          // Идентификатор продукта (master-key, family-plus).
+          uint32 product_id = 3;
+          // Оплаченный срок подписки в месяцах.
+          uint32 term_months = 4;
+          // Вид платежа (покупка, продление, подарок — см. tools/ul_status).
+          uint32 kind = 5;
+          // Аккаунт-получатель подписки (может отличаться от плательщика при подарке).
+          uint32 beneficiary_account_id = 6;
+          // Месяц, за который засчитан платёж ('YYYY-MM').
+          string month = 7;
+        }
+
         // Bonus несёт детальную атрибуцию для транзакции начисления бонуса.
         message Bonus {
           // SourceMatrix описывает бонус, происходящий из выплаты цикла матрицы.
@@ -140,6 +161,23 @@ message Wallet {
             uint32 tree_account_entity_id = 4;
           }
 
+          // SourceUnilevel описывает бонус, начисленный расчётом месяца Unilevel
+          // (уровневый, лидерский, матчинг, fast-start, авто-бонус).
+          message SourceUnilevel {
+            // Идентификатор строки начисления в app_ul_accrual.
+            uint32 accrual_id = 1;
+            // Расчётный месяц ('YYYY-MM').
+            string month = 2;
+            // Аккаунт-источник, чья активность/PV принесли данное начисление.
+            uint32 source_account_id = 3;
+            // Уровень глубины реферальной цепочки, на котором заработан бонус (0, если неприменимо).
+            uint32 level = 4;
+            // Применённый процент (десятичная строка).
+            string pct = 5;
+            // Ранг, по которому рассчитан бонус (leadership/auto/fast-start).
+            uint32 rank_id = 6;
+          }
+
           // Тип бонуса, к которому относится данное начисление.
           mlmbox.types.Bonus.Kind.Id bonus_id = 1;
           // Дискриминированный источник события бонуса.
@@ -152,6 +190,8 @@ message Wallet {
             SourceDirect direct = 4;
             // Бонус за выполнение квеста (идентификатор квеста).
             uint32 quest_id = 5;
+            // Бонус из расчёта месяца Unilevel.
+            SourceUnilevel unilevel = 6;
           }
         }
 
@@ -181,6 +221,8 @@ message Wallet {
           uint32 transaction_id = 11;
           // Детали суммы актива для операций обмена.
           mlmbox.types.Asset.Amount amount = 12;
+          // Атрибуция списания за подписку Unilevel.
+          Subscription subscription = 13;
         }
       }
 
