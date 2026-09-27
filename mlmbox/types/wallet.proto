@@ -176,6 +176,11 @@ message Wallet {
             string pct = 5;
             // Ранг, по которому рассчитан бонус (leadership/auto/fast-start).
             uint32 rank_id = 6;
+            // Сумма начисления в USD-номинале (десятичная строка, 2 знака) до конвертации в TON;
+            // amount транзакции — та же сумма в TON по курсу расчёта месяца.
+            string usd = 7;
+            // Курс расчёта месяца, USD за 1 TON (десятичная строка; app_ul_rate_snapshot.rate_usd).
+            string rate_usd = 8;
           }
 
           // Тип бонуса, к которому относится данное начисление.

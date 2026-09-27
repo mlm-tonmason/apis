@@ -213,6 +213,14 @@ message Account {
   Mentor mentor = 8;
   // Состояние онбординг-инструктажа.
   Intro intro = 9;
+  // NFT-аватар серии (nft.neonexa.org): живая картинка участника или её отсутствие.
+  // Пустая nft_series — живой картинки нет, показывается default пола nft_default_gender.
+  string nft_series = 10;          // 'series_1' или ''
+  string nft_gender = 11;          // 'male' | 'female' — пол живой картинки
+  uint32 nft_n = 12;               // номер картинки в серии, 1…12500
+  string nft_status = 13;          // 'permanent' | 'temporary' | ''
+  uint32 nft_window_deadline = 14; // unix time конца окна 24 ч от регистрации (created_at + 86400)
+  string nft_default_gender = 15;  // пол картинки default, когда живой нет: 'male' | 'female'
 }
 
 // Tree представляет одно дерево матрицы (маркетинговую программу), доступное на платформе.
