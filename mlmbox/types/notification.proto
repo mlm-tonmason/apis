@@ -33,6 +33,43 @@ message Notification {
     mlmbox.types.Wallet.Asset.Transaction transaction = 2;
   }
 
+  // Unilevel описывает событие подписки или ранга маркетинга Unilevel (M2). Тексты
+  // и доставку выбирает потребитель очереди (шлюз/бот); ядро не группирует события.
+  message Unilevel {
+    message Kind {
+      enum Id {
+        // Не задано.
+        UNKNOWN = 0;
+        // Подписка истекает не позже чем через 3 дня.
+        SUBSCRIPTION_EXPIRES_SOON = 1;
+        // Подписка истекла.
+        SUBSCRIPTION_EXPIRED = 2;
+        // Автопродление не прошло (подписка при этом истекла).
+        SUBSCRIPTION_RENEW_FAILED = 3;
+        // Ранг подтверждён в расчётном месяце.
+        RANK_CONFIRMED = 4;
+      }
+    }
+    // Вид события.
+    Kind.Id kind_id = 1;
+    // Аккаунт-получатель события.
+    uint32 account_id = 2;
+    // Подписка (0 для RANK_CONFIRMED).
+    uint32 subscription_id = 3;
+    // Продукт подписки (0 для RANK_CONFIRMED).
+    uint32 product_id = 4;
+    // Конец оплаченного срока подписки (unix-время, 0 для RANK_CONFIRMED).
+    uint32 ends_at = 5;
+    // Включено ли автопродление у подписки.
+    bool auto_renew = 6;
+    // Причина истечения/отказа продления (например, renew_failed_balance), иначе пусто.
+    string reason = 7;
+    // Расчётный месяц 'YYYY-MM' (RANK_CONFIRMED), иначе пусто.
+    string month = 8;
+    // Подтверждённый ранг (RANK_CONFIRMED), иначе 0.
+    uint32 rank_id = 9;
+  }
+
   // Ровно одна из следующих полезных нагрузок будет задана в каждом уведомлении.
   oneof message {
     // Обновление общеплатформенной метрики количества аккаунтов (рассылается всем подписчикам).
@@ -41,5 +78,7 @@ message Notification {
     PositionView position_view = 2;
     // На активе кошелька зафиксирована финансовая транзакция.
     AssetTransaction wallet_transaction = 3;
+    // Событие подписки или ранга Unilevel (M2).
+    Unilevel unilevel = 4;
   }
 }
